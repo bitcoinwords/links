@@ -1,0 +1,213 @@
+body {
+  margin: 0;
+  color: #333332;
+  font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4; }
+
+.item {
+  margin: 10px 60px 10px 60px; }
+
+/*
+a {
+  text-decoration: none;
+  color: $link-color;
+
+  &:visited {
+    color: $link-visited-color;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+*/
+.item-header {
+  /*
+     h1, h2, h3, h4 {
+    }
+   */ }
+  .item-header h2 {
+    font-size: 56px;
+    line-height: 1;
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0; }
+    .item-header h2 a {
+      text-decoration: none;
+      color: #333332; }
+  .item-header .item-feed-title,
+  .item-header .item-min-read {
+    color: #b3b3b1;
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400; }
+  .item-header .item-feed-title a {
+    text-decoration: none;
+    color: #b3b3b1; }
+    .item-header .item-feed-title a:hover {
+      text-decoration: underline; }
+
+.item-content,
+.item-summary {
+  font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45; }
+  .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6,
+  .item-summary h1,
+  .item-summary h2,
+  .item-summary h3,
+  .item-summary h4,
+  .item-summary h5,
+  .item-summary h6 {
+    margin: 0; }
+  .item-content h1, .item-content h2, .item-content h3, .item-content h4,
+  .item-summary h1,
+  .item-summary h2,
+  .item-summary h3,
+  .item-summary h4 {
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-style: normal;
+    font-weight: 700; }
+  .item-content h2,
+  .item-summary h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    padding-top: 25px; }
+  .item-content h3,
+  .item-summary h3 {
+    font-size: 26px;
+    line-height: 1.2; }
+  .item-content p,
+  .item-summary p {
+    margin: 0;
+    margin-bottom: 30px; }
+  .item-content ul p, .item-content ol p,
+  .item-summary ul p,
+  .item-summary ol p {
+    margin: 0; }
+  .item-content a,
+  .item-summary a {
+    text-decoration: underline;
+    color: #333332; }
+
+.item-followups {
+  margin-top: 30px; }
+  .item-followups .item-followups-title {
+    color: #b3b3b1;
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase; }
+  .item-followups h1, .item-followups h2, .item-followups h3, .item-followups h4, .item-followups h5, .item-followups h6 {
+    margin: 0; }
+  .item-followups .followup-title {
+    color: #333332;
+    font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+    font-style: normal;
+    font-weight: 700; }
+  .item-followups .followup-desc {
+    color: #666665; }
+  .item-followups .followup-title,
+  .item-followups .followup-desc {
+    display: inline;
+    font-size: 16px;
+    line-height: 1.2; }
+  .item-followups a {
+    text-decoration: none;
+    color: #333332; }
+
+.item-footer {
+  margin-top: 20px;
+  margin-bottom: 80px;
+  border-top: 1px solid #d3d3d3;
+  padding-top: 20px; }
+  .item-footer .item-published {
+    font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    color: #666665; }
+  .item-footer h1, .item-footer h2, .item-footer h3, .item-footer h4, .item-footer h5, .item-footer h6 {
+    margin: 0; }
+  .item-footer h1, .item-footer h2, .item-footer h3, .item-footer h4 {
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-style: normal;
+    font-weight: 700; }
+  .item-footer h4 {
+    color: #b3b3b1;
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-size: 11px;
+    margin-bottom: 3px;
+    text-transform: uppercase; }
+  .item-footer h3 {
+    color: #333332;
+    font-size: 16px; }
+    .item-footer h3 a {
+      text-decoration: none;
+      color: #333332; }
+      .item-footer h3 a:hover {
+        text-decoration: underline; }
+
+.item-preview {
+  margin: 0;
+  padding: 20px 60px 20px 60px;
+  background-color: black;
+  color: white; }
+  .item-preview .item-read-next {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    padding: 20px 0 20px; }
+  .item-preview h1, .item-preview h2, .item-preview h3, .item-preview h4, .item-preview h5, .item-preview h6 {
+    margin: 0; }
+  .item-preview h3 {
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: 50px;
+    line-height: 1;
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-style: normal;
+    font-weight: 700; }
+    .item-preview h3 a {
+      text-decoration: none;
+      color: white; }
+  .item-preview .item-desc {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.2;
+    padding-top: 10px; }
+  .item-preview .item-feed-title,
+  .item-preview .item-min-read {
+    color: rgba(255, 255, 255, 0.65);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px; }
+    .item-preview .item-feed-title a,
+    .item-preview .item-min-read a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.65);
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+      .item-preview .item-feed-title a:hover,
+      .item-preview .item-min-read a:hover {
+        text-decoration: underline; }
+
+.feedflare {
+  display: none; }
