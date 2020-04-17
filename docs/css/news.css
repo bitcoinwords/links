@@ -60,3 +60,20 @@ hr.filler {
 .item-published {
   font-size: 12px;
   color: #777777; }
+
+/* my additions */
+
+.content {
+  max-width: 960px;
+  margin: auto;
+}
+
+.built-with {
+  margin-bottom: 1rem;
+  text-align: center;
+  color
+}
+
+#footer {
+  margin: 0 auto 8px;
+}
