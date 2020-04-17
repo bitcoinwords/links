@@ -74,6 +74,9 @@ hr.filler {
   color
 }
 
-footer {
-  margin: 0 auto 8px;
-  background-color: #f2f3f3; }
+.footer {
+  max-width: 960px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #f2f3f3; 
+}
