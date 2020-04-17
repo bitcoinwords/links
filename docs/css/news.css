@@ -55,7 +55,9 @@ hr.filler {
   font-weight: bold; }
 
 .feed-title {
-  font-size: 12px; }
+  font-size: 12px;
+  font-weight: bold;
+ }
 
 .item-published {
   font-size: 12px;
@@ -75,8 +77,9 @@ hr.filler {
 }
 
 .footer {
-  max-width: 960px;
   margin: auto;
-  margin-top: 20px;
-  background-color: #f2f3f3; 
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #f2f3f3;
+  text-align: center;
 }
