@@ -62,3 +62,5 @@ $(document).ready( function() {
   $( '#show-snippets' ).click( showSnippets );
 });
 
+
+string.replace(/regExp/g, '');
