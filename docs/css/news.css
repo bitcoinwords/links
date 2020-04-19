@@ -97,7 +97,7 @@ hr.filler {
   -webkit-transition: .3s;
   -moz-transition: .3s;
   -o-transition: .3s;
-  display: inline-block;
+  display: inline;
 }
 
 .btn:hover {
