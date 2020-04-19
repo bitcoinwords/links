@@ -33,7 +33,7 @@ hr.filler {
   height: 1px; }
 
 .item {
-  font-size: 18px; }
+  font-size: 16px; }
   .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item b {
     font-size: 18px; }
   .item p, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6 {
@@ -91,8 +91,8 @@ hr.filler {
   margin: 10px;
   border-radius: 5px;
   text-decoration: none;
-  padding: 10px;
-  font-size: 22px;
+  padding: 5px;
+  font-size: 14px;
   transition: .3s;
   -webkit-transition: .3s;
   -moz-transition: .3s;
@@ -144,13 +144,13 @@ hr.filler {
 }
 
 .orange {
-  color: #e67e22;
-  border: 2px #e67e22 solid;
+  color: #FF7E00;
+  border: 2px #FF7E00 solid;
 }
 
 .orange:hover {
   color: #fff;
-  background-color: #e67e22;
+  background-color: #FF7E00;
 }
 
 .yellow {
