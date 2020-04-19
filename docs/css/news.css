@@ -12,7 +12,7 @@ a {
 
 .last-update,
 .last-updated {
-  font-size: 12px;
+  font-size: 18px;
   color: #494e52; }
 
 #show-headlines,
@@ -33,9 +33,9 @@ hr.filler {
   height: 1px; }
 
 .item {
-  font-size: 13px; }
+  font-size: 18px; }
   .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item b {
-    font-size: 13px; }
+    font-size: 18px; }
   .item p, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6 {
     margin: 2px 0px 2px 0px;
     padding: 0; }
@@ -47,20 +47,20 @@ hr.filler {
   .item .item-summary {
     display: none; }
   .item .item-footer {
-    font-size: 12px;
+    font-size: 18px;
     color: #777777; }
 
 .item-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold; }
 
 .feed-title {
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
  }
 
 .item-published {
-  font-size: 12px;
+  font-size: 18px;
   color: #777777; }
 
 /* my additions */
