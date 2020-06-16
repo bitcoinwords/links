@@ -6,7 +6,4 @@ A couple projects make *[Links](https://bitcoinwords.github.io/links/docs/planet
 * [LNPay.co](https://lnpay.co/) is a Lightning service provider that serve paywalls, faucets, and now RSS wrapping. In other words, wrapp your RSS feed in lightning paywalls. 
 * [Planet Pluto](https://github.com/feedreader) is a static site builder that does the RSS aggregation. 
 
-## Contact
-*[@_WORDS](https://twitter.com/_bitcoinwords)* or *[@_joerodgers](https://twitter.com/_joerodgers)*
-
 [![](https://badgen.net/badge/Built%20with/❤️%20by%20Joe/F96854)](https://twitter.com/_joerodgers)
