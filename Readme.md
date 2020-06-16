@@ -8,3 +8,5 @@ A couple projects make *[Links](https://bitcoinwords.github.io/links/docs/planet
 
 ## Contact
 *[@_WORDS](https://twitter.com/_bitcoinwords)* or *[@_joerodgers](https://twitter.com/_joerodgers)*
+
+[![](https://badgen.net/badge/Built%20with/❤️%20by%20Joe/F96854)](https://twitter.com/_joerodgers)
