@@ -66,7 +66,7 @@
      
      <td style='white-space: nowrap;'>
         <span class='item-title'>
-          <a href='https://paywall.link/t/b9e667'>Mansionism 1: Building-Milieu Fit</a>
+          <a href='https://paywall.link/t/5129e6'>Remaking the Maker Protocol</a>
         </span>
      </td><!-- item title -->
      
@@ -76,6 +76,82 @@
       <td style='white-space: nowrap;'>
        <span class='item-published'>Friday, 26 June 2020</span>
       </td><!-- item published -->
+     
+   </tr>
+  </table>
+</div>
+
+
+<div class='item' >
+
+<table width='100%'>
+  <tr>
+    <td width='100%'>
+      <span class='feed-title'>
+        <a href='https://paywall.link/to/55808'>Ross Ulbricht</a>
+      </span>  
+    </td>
+  </tr>
+
+  <tr>
+    
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  <p>by Ross Ulbricht</p><p>I read the Maker Protocol white paper recently. What a cool concept! The people behind Maker have created a cryptocurrency that tracks the value of the US dollar (a stable coin). You get all the benefits of a cryptocurrency without the crazy price swings. Naturally, it has b
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  <p>by Ross Ulbricht</p><p>I read the Maker Protocol white paper recently. What a cool concept! The people behind Maker have created a cryptocurrency that tracks the value of the US dollar (a stable coin). You get all the benefits of a cryptocurrency without the crazy price swings. Naturally, it has become very popular, and hundreds of millions of dollars worth have been minted.</p><p>I dug further into Maker’s documentation, and read some articles about its recent collateral crisis in March 2020. There is no way I can get a full understanding of the system and what happened from within prison, but taking what I have read at face value, I believe I can contribute some ideas that will help keep this kind of crisis from happening again.</p><p>The stable coin issued by the Maker protocol is called DAI. The value of DAI is backed by collateral held in virtual vaults on the Ethereum blockchain. Vault owners are the foundation of the whole system. The value in their vaults backs the value of all DAI in circulation. If the total value in the vaults ever falls below the dollar-pegged value of all the DAI, then the system is insolvent and can be considered a failure.</p><p>I think the problem with the Maker Protocol which led to its recent crisis is a misunderstanding of the role of vault owners. In several places, I have seen them referred to as “borrowers,” which did not make sense to me at first. What are they borrowing? And then it clicked: the idea is that vault owners are borrowing DAI from the Maker Protocol itself and putting up collateral (usually ether) in their vaults to back the loan. This is like taking a mortgage out on your house with the ether being the house and the DAI being a loan from a bank. Just like with the mortgage, vault owners have to pay interest on the money they have borrowed in what is called a “stability fee.” And if the value of their collateral drops too low, their vault can be auctioned off. This is like a house going into foreclosure. Here is why this analogy does not work: the DAI being “borrowed” has no value apart from the collateral that is backing it. Its value comes from the fact that, when push comes to shove, it can be redeemed for the collateral in a liquidation auction. The Maker Protocol has assumed the role of the bank, issuing loans backed by collateral, but it seems to me that the vaults themselves are the banks, at least how banks used to be.</p><p>Before the advent of modern central banking, banks used to hold gold in their vaults, then print and lend out paper currency backed by that gold. Vault owners in the Maker Protocol are doing something similar. They are holding ether in their vaults, then lending out DAI backed by that ether. So, they would be more appropriately thought of as lenders, not borrowers. Banks were supposed to keep enough gold in their vaults to cover all outstanding currency that the gold was backing. In practice, they printed more currency than they could back and just hoped everyone didn’t show up at once for their gold. When the inevitable bank runs did occur, bankers looked to their pals in government for a bailout. Nowadays, dollars are backed by nothing and fractional reserve banking is the norm. Banks still get into trouble and expect to be bailed out. It’s a bit of a mess, really.</p><p>This is not a good model for Maker to emulate. The protocol is not a modern bank because it doesn’t have the backup of the government. Instead, vault owners should be treated like good old-fashioned banks, except they can’t cheat because all of the accounting is done publicly on the blockchain. If they try to issue more DAI than their ether can support, they run the risk of being liquidated. The fundamental difference between this and the current way the Maker Protocol is designed is that, as lenders, vault owners should collect interest, not pay it.</p><p>When I read the white paper, my first question was “why on earth would anyone put their valuable ether in a vault to back other people’s stable coins (DAI) if they are going to be charged a fee? And on top of the stabilization fee, they also risk losing 13% of their collateral to a liquidation fee if the collateral’s value drops too low. So why take all this risk without a reward?” It turns out the system rewards other behavior (that should not be rewarded), and vault owners can take advantage of it.</p><p>The protocol has a smart contract users can lock their DAI in and receive a “savings rate” while it is there. “Ok,” I thought. “If the savings rate is higher than the stability fee, then vault owners can just mint DAI backed by the ether in their vaults, put it in the savings contract and — so long as they mind their liquidation ratio — get a return on their ether (savings rate minus stability fee).” But why would we want to incentivize this? The whole point of DAI is that it can circulate as a decentralized, blockchain-based stand in for US dollars, not be locked in a smart contract.</p><p>It turns out before the crisis in March, the savings rate was around 8% and the stability fee was around 0.5%. So my suspicions were correct: vault owners could get a return (7.5%), not by selling DAI into circulation and being good stewards of their vaults, but by keeping their minted DAI for themselves and parking it in the savings contract. Apparently, a huge fraction of all DAI in existence was in the savings contract before the crisis hit. (see Figure 1.)</p>♦Fig. 1<p>The purported purpose of the savings contract is so the committee overseeing the protocol (Maker DAO) can adjust the savings rate to draw DAI in and out of circulation in order to influence the price and keep it close to parity with the dollar. I really don’t think this is necessary. Market forces are what keep the price stable because there are arbitrage opportunities on both sides of parity that push the price back to equilibrium. The savings contract just feels like a tool a central banker would want so he can imagine he is “managing the economy.” This top-down impulse to control the price is not in harmony with the decentralized ethos of the protocol. Worse, it is incentivizing behavior that makes the system less, not more stable.</p><p>A fully decentralized protocol is “governed” by math and logic, leaving the human decision making to the end users. The reliance on a central committee to set important parameters within the system is a weakness, not a strength. That is not to say that the Maker Protocol could necessarily function without a governing committee. It is a complex system, and the fact it works at all is impressive. However, the committee must be seen for what it is: a stop-gap. It is not an efficient mechanism for discovering the best values for the system parameters it oversees.</p>Crisis<p>Around mid-March, the price of ether dropped suddenly by about 50%, and the price of DAI spiked by over 10% (a huge amount for something that is supposed to trade one-for-one with the dollar). Many vaults became under-collateralized as the value of their ether dropped and were forced to liquidate. That’s a risk vault owners take. It is their job to make sure ether is added to make up the shortfall or that their outstanding DAI balance is paid down. However, the crisis became so acute that some vaults were forced to liquidate at extreme discounts, losing nearly all (and in some cases all) their collateral.</p><p>The problem stemmed from the fact that the whole system is chronically under-collateralized. Not only are vaults owners penalized with a stability fee for collateralizing the system, but the DAI burden is constantly being added to by the savings rate. Then during the crisis, no one wanted to give up their stable, high-yield DAI for a crashing, negative-yield ether in the liquidation auctions.</p><p>In the end, DAI had to be backed by USDC, a stablecoin backed by cash in a bank (hardly a decentralized solution). If the Maker Protocol is to become truly decentralized and independent, it has to get the fundamental incentives right and reject the allure of top-down control.</p>A Modest Proposal<p>Obviously, I advocate abolishing the savings contract and stabilization fee, but to replace them with what? First of all, the savings contract need not be replaced. The value of DAI is its stability fee, not some arbitrary rate of return. With regard to the stability fee, it should be negative. That is to say, vault owners should be rewarded, not penalized for providing collateral. So, it shouldn’t be called a stability fee at all. It really should be called a savings rate because vault owners are saving their ether in a vault and earning a return on it for the service of backing DAI. But this could be confusing because that term has already been used. Instead, it could be called a “collateral rate” for the rate of return on collateral.</p><p>Whatever its name, it will draw collateral into the system rather than repelling it. Where, you may ask, will the DAI come from to pay this collateral rate? It should come from the DAI issued by the vaults providing collateral. It is the holders of DAI who are being provided a service (a decentralized stablecoin), so it is they would should pay. And how should this rate be determined? A simple fix to the current system would be for MakerDAO (who already sets the stability fee and savings rate) to reduce the savings rate to zero and the stability fee to some small negative number, perhaps -1%. This would have to be done such that DAI would simply disappear at a rate of 1% per year, leaving that much more collateral unencumbered than would be otherwise.</p><p>A better solution would be to set up a system whereby vault owners set their own rates and compete with each other for the interest from DAI holders, with the lowest rates winning. This would keep rates low generally, but when there is a serious collateral shortage, rates will automatically rise via market forces, encouraging more collateral to come in and discouraging DAI hoarding. This is exactly the opposite of what we saw during the crisis of mid-March.</p><p>With the incentives appropriately aligned, there should be a much deeper market for DAI with tighter bid/ask spreads. The reason for this is that, with a positive rate of return, vault owners will be wanting to get their newly-minted DAI out onto the market so that others will be holding the depreciating asset (the rates cancel out while they are holding their own DAI). Thus, there will be ample liquidity above parity.</p><p>Below parity, there is an arbitrage opportunity so long as DAI holders can redeem DAI for collateral. If the price is below parity, people can buy discounted DAI, redeem them for excess collateral at the oracle exchange rate from the issuing vault, and then sell the collateral on the market at full value. (The oracle exchange rate is how the Maker Protocol determines collateral value). Thus, there will be ample liquidity below parity.</p><p>These forces will stabilize the price and ensure full collateralization, especially in turbulent market conditions.</p>Technical Part<p>The mechanics of this market-based system for determining the collateral rate get a bit complicated. Just skip to the conclusion if you are not interested in the details.</p><p>As noted above, vaults should set their own rates, with low-rate vaults winning the competition. However, unless there is excess collateral in the system, there is no competition. If all collateral is backing DAI, vault owners can charge whatever they want, with redemption for collateral the only recourse left to DAI holders. We can solve this by allowing unencumbered collateral to collect the interest of another vault’s DAI if its collateral rate is lower than the other vault’s rate. Thus, without having to mint DAI and sell it on the market, a vault owner can collect interest just by charging a lower rate. This is great for keeping rates low, but now there is no incentive to actually issue and sell DAI, especially because the vaults that do risk liquidation.</p><p>A compromise must therefore be struck whereby excess collateral in a low-interest vault can capture only a fraction of the issuing vault’s interest, with the rest going to the issuing vault, but at the low-interest vault’s rate. Thus, with excess collateral in the system, there will be a natural cutoff rate above which vaults that have issued DAI are losing interest to vaults with excess collateral below the cutoff, with both earning at the lower rate.</p><p>Which vaults capture from which? The vaults above the cutoff with the lowest rates should be captured from by the vaults with the highest rates below the cutoff. This will incentivize high-rate vaults to keep their rates low.</p><p>What fraction of the issuing vault’s interest should be captured by excess collateral below the cutoff? This should vary based on how much excess collateral is in the system compared to how much total DAI there is outstanding. If all DAI is paying interest to excess collateral (i.e, vaults with only excess collateral are below the cutoff), the capture rate should be 0%. The system is awash in excess collateral. The rate should increase linearly, reaching 100% when there is no excess collateral in the vaults below the cutoff: the system is near insolvency and needs excess collateral fast.</p><p>All of this handles the incentives keeping excess collateral in the system and collateral rates low, but the reason we want excess capacity is so we can use it when needed. To do that, there needs to be a mechanism whereby DAI are automatically switched from vaults close to insolvency to ones with excess collateral. This could be done through liquidation auctions the usual way. Vaults would mint DAI with their excess collateral and use it to bid. However, it would be good if this were done automatically to speed things up in a crisis, with the assets and liabilities (collateral and DAI) simply transferred to the well-capitalized vaults. Vaults could mark a portion of their excess collateral for this purpose and set a fee, with vaults liquidating to the low-fee vaults first.</p><p>The collateral rates set by the various vaults in the system will tend to converge on a simple “market rate,” which is just the cutoff rate. Vaults below the cutoff are “leaving money on the table” because — so long as they don’t go above the cutoff — they can charge more without losing to a cheaper vault. One the other hand, vaults above the cutoff will be losing out to vaults below it with excess collateral.</p><p>When collateral (or the value of collateral in the case of an exchange rate change) drops, the cutoff will automatically rise because there will be less excess collateral below the cutoff, leaving higher-rate vaults to collect their full interest. The capture rate will also increase because a smaller fraction of DAI is paying interest to excess collateral. Both of these things will encourage new vaults and new collateral to flow into the system, alleviating the shortage, all without intervention from MakerDAO.</p><p>I tried to think of a way that the capture rate too could be decentralized and governed by market forces rather than by the linear formula above, but could not. The problem is that vaults are already competing based on their collateral rate for the benefit of DAI holders, so how could they also compete based on the capture rate for the benefit of vaults issuing DAI at the same time? One could devise a two-parameter formula that weighs these two values, leading to a single case, with interest going to the vaults with the lowest score, but this seems very complicated and rife with hidden loopholes. One could also leave the collateral rate and capture rate up to the vaults and direct interest to the vaults with the lowest total income, but then vaults could use extreme setti ngs, favoring DAI holders with very low collateral rates, but capturing 100% of the interest, for example.</p>Conclusion<p>The Maker Protocol is a very cool concept, and I hope it succeeds, but I fear it will meet with the kind of crisis we saw in mid-March 2020 again if these fundamental issues are not addressed. The next crash could result in systemic insolvency and catastrophic failure. There is a lot of money and even more potential riding on this. The crisis should be a wake-up call that reform is needed or new protocols need to be tried. I just hope the ideas above can help point that reform in the right direction.</p>♦
+
+</div>
+
+<div class='item-footer'>
+    <span class='item-time-ago-in-words'>
+       20 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section'>
+
+
+
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     
+     <td style='white-space: nowrap;'>
+        <span class='item-title'>
+          <a href='https://paywall.link/t/b9e667'>Mansionism 1: Building-Milieu Fit</a>
+        </span>
+     </td><!-- item title -->
+     
+     <td width='100%'>
+          <!-- note: width is a suggestion; will get smaller to fill space-->
+     </td>
      
    </tr>
   </table>
@@ -119,7 +195,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       8 hours ago
+       a day ago
     </span>
 </div>
 
@@ -198,7 +274,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       a day ago
+       2 days ago
     </span>
 </div>
 
@@ -277,7 +353,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       3 days ago
+       4 days ago
     </span>
 </div>
 
@@ -353,7 +429,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       3 days ago
+       4 days ago
     </span>
 </div>
 
@@ -443,7 +519,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       7 days ago
+       8 days ago
     </span>
 </div>
 
@@ -522,7 +598,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       16 days ago
+       17 days ago
     </span>
 </div>
 
@@ -601,7 +677,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       17 days ago
+       18 days ago
     </span>
 </div>
 
@@ -691,7 +767,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       18 days ago
+       19 days ago
     </span>
 </div>
 
@@ -841,7 +917,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       21 days ago
+       22 days ago
     </span>
 </div>
 
@@ -920,7 +996,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       22 days ago
+       23 days ago
     </span>
 </div>
 
@@ -996,7 +1072,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       22 days ago
+       23 days ago
     </span>
 </div>
 
@@ -1081,7 +1157,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       23 days ago
+       24 days ago
     </span>
 </div>
 
@@ -1172,7 +1248,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       26 days ago
+       27 days ago
     </span>
 </div>
 
@@ -1993,7 +2069,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       1 months ago
+       2 months ago
     </span>
 </div>
 
@@ -2069,7 +2145,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       1 months ago
+       2 months ago
     </span>
 </div>
 
@@ -3566,7 +3642,7 @@
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       2 months ago
+       3 months ago
     </span>
 </div>
 
@@ -6217,7 +6293,7 @@ dark and bumpy, especially if the legacy world is all you know.</p>
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       3 months ago
+       4 months ago
     </span>
 </div>
 
@@ -6293,7 +6369,7 @@ dark and bumpy, especially if the legacy world is all you know.</p>
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       3 months ago
+       4 months ago
     </span>
 </div>
 
@@ -8602,7 +8678,7 @@ Podcasts
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       4 months ago
+       5 months ago
     </span>
 </div>
 
@@ -15438,7 +15514,7 @@ still can. And hodl on!”</p>
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       7 months ago
+       8 months ago
     </span>
 </div>
 
@@ -17567,7 +17643,7 @@ A New Sidechain Design for Bitcoin
 
 <div class='item-footer'>
     <span class='item-time-ago-in-words'>
-       8 months ago
+       9 months ago
     </span>
 </div>
 
@@ -23660,85 +23736,6 @@ been.</p>
  -->
 
   <p>Anyone coming into crypto realizes very quickly that there are a lot of different coins out there. Bitcoin, Ethereum, Ripple, Litecoin, Bitcoin Cash, Tron, Cardano… How is an investor supposed to figure out which ones to invest in?</p><p>There are many arguments to be made about why diversification in cryptoassets makes little sense, including the network effect of money, but in this article, I’ll make another argument as to why adding altcoins to a portfolio that has Bitcoin makes very little sense.</p>Why Diversify?<p>The traditional reason for diversification is to optimize the risk/reward ratio. By buying, say, 10 different stocks instead of 1, the thinking goes, you can reduce volatility and downside since your eggs are spread in many baskets. The purpose is reduction of volatility and downside to minimize the risk/reward ratio. There’s a whole field devoted to doing this called Portfolio Theory, but the goals of diversification are pretty clear: reduce the risk of permanent loss and reduce volatility.</p>♦<p>When someone chooses 10 stocks for a portfolio, the stocks typically already meet some minimum requirements. For example, they’ve met some requirements by the SEC in terms of transparency, their history is available to the market and they’re under threat of penalty if they cook their books. This is to ensure that the marketing story about a stock has to conform to the underlying reality, especially their prospects and financial condition.</p><p>Diversification in this context may make sense because there’s good reason to believe that the story being told about the stock by the company is close to being true. The unstated assumption is that the risks and rewards around a stock are understood. That is, the error bars around the risk are not too big and there are good reasons to believe that the companies being considered are telling the truth. Hence diversification in a stock setting makes sense if the risks and rewards are reasonably understood.</p>The Story vs. Reality of a Cryptocurrency<p>The reality of a cryptocurrency is in the code which, unfortunately, is very dense, hard to read and impossible to understand for a large amount of people. Because cryptocurrencies exist in the digital realm, the code and the network that secures it is the reality. While the ability to analyze the underlying reality is there, it’s just not practical for most people, even experienced developers, to study the code underlying a cryptocurrency in less than a few months.</p>♦<p>On the other hand, there is usually an abundance of marketing material about a cryptocurrency. These are stories of what the technology underneath can do and speculate on use-cases envisioned by the creators. These are often whitepapers that purport to show the details of the actual system, but are not rigorously defined like code is. This is documentation that’s more understandable, and often precedes any code that gets written.</p><p>In cryptocurrency, because of the difficulty and/or expense of evaluating the underlying reality (that is, the code), the marketing story is used as a shortcut. A few may evaluate the code (if it’s available), but most use the marketing story because it’s cheaper and easier.</p>Disconnect between Story vs. Reality<p>This brings up the question, just how divergent is the marketing story vs. the underlying reality? As brought up earlier, in a stock market, the two cannot diverge much without some serious penalties. In cryptocurrency, there is no enforcement mechanism to force the story and the reality to conform. Instead, there are incentives to over-promise on the story and under-deliver on the reality.</p>♦<p>Embellishing the marketing story will result in higher price as most people will use this shortcut for their evaluation. What’s more, the reality doesn’t need to be delivered immediately and that gives the coin’s developers plenty of excuses to delay. Given that it’s an order of magnitude harder to disprove a story than to tell it, the over-promising has a good chance of not needing much defending beyond “we’ll get to it later”. In other words, exaggeration in marketing doesn’t cost much but adds a lot of demand. This is in contrast to the stock market where such exaggeration will incur some penalty.</p><p>Under-delivering the reality is another clear win for the coin’s development team. Promises that cost too much to deliver don’t have to be delivered at all. After all, they often already have the money. What they do deliver has no need to meet any sort of technical standards, either. Since it’s costly to evaluate the code that they do deliver, most people just stick with the marketing story and don’t bother much with the technical reality. The implementation can be a complete mess, the security can be unaudited, the tests can be unwritten and nobody would be the wiser.</p><p>What we find is that the incentives are such that there’s much reason to over-promise and under-deliver. The perceived reward, which is essentially a quantification of the marketing story, is perceived to be high. Since that’s the metric most people use, the price reflects a very optimistic future. As a result, the risk/reward ratio gets very high as permanent loss of capital becomes more and more likely.</p><p>In this sort of environment, it’s no wonder that so many scams have run amok.</p>The Consequences<p>By having so many people rely on the marketing story instead of the technical reality, and given the incentives of over-promising and under-delivering, we have ourselves a giant mess of an industry. Most coins are not vetted beyond the marketing story making sense (and sometimes, not even that!), and result in a giant inverted trust pyramid with the founder at the bottom.</p>♦<p>The technical reality is usually only understood by a few and everyone else trusts that what the creators put into the whitepaper reflects reality. There is nothing to really enforce that the story and reality conform, and instead the information about the coin comes from a small number of people that created the coin. ZCash might have some incredibly interesting technology, but there was a counterfeiting bug for a very long time. And this is one of the more responsible altcoins, so how much more are the other ones hiding vulnerabilities?</p><p>This means that most coins in the industry have very high risk profiles. Most of them have no hope of achieving what they purport in their marketing story. Most have no track record of delivery and can be fairly characterized as unresearched. If these were stocks, they’d be sent to the pink-sheet and have a very low price due to the risk premium. Diversifying into unresearched pink sheet stocks doesn’t reduce risk, nullifying the point of diversifying.</p>What about Bitcoin?<p>You may be asking at this point, isn’t this true of Bitcoin? That would be a fair question, but the answer would be no. The reason is because Bitcoin has been pored over technically by thousands, if not tens of thousands of people over the years. Even when the whitepaper first came out, it wasn’t the same environment we see today, where near everything gets an investment. When Bitcoin launched, few people were running nodes or mining, let alone trading it for anything valuable. The incentives for over-promising or embellishing the story weren’t there. Furthermore, the whitepaper accurately described Bitcoin and over-delivered. In fact, the whitepaper was written after the code!</p><p>Furthermore, given that Bitcoin was the first coin, Bitcoin has had a much larger scrutiny of its codebase. The obvious evidence for that is that altcoin creators often have to scrutinize the Bitcoin codebase to create their own coin. In addition, there are over 500 contributors that have had merged pull requests, making it the largest open source cryptocurrency project.</p>What about an altcoin that’s forked from Bitcoin?<p>At this point you might be wondering about coins that don’t diverge from Bitcoin very much. Litecoin, Bitcoin Cash, Bitcoin SV and others are essentially small tweaks to the Bitcoin codebase.</p>♦<p>There are two questions that we have to ask here. First, what are the changes from Bitcoin? Second, how maintained is the codebase?</p><p>The first question is usually the easiest to answer and usually, the main difference is that the altcoin is centralized. The technical difference is generally small enough that including such a coin is not going to reduce risk or decrease volatility, nullifying the reason for diversification.</p><p>The second question is the much more important one. If the coin doesn’t maintain the codebase in the same way as Bitcoin, then it’s got a bigger risk. This may come in the form of a smaller development team, less developer activity or quality of merged pull requests. The changes to the code since forking can be evaluated to determine the underlying technical reality. This, too, is expensive and slow so most people don’t do it.</p><p>The case against including forked altcoins is simply that the quality is worse and that there’s no risk reduction. In other words, these coins can fairly be characterized as “worse” Bitcoins which don’t add the desired properties of risk reduction and volatility reduction to a portfolio.</p>So What Diversification Makes Sense?<p>We know Bitcoin is different from altcoins in many ways. First, Bitcoin is decentralized while altcoins are not. Second, Bitcoin at its creation did not have perverse incentives, whereas altcoins at their creation did. Third, Bitcoin has the largest market cap value.</p><p>Any exposure to this space, then, requires Bitcoin at a minimum. The question, then, is, what else do you put into your portfolio?</p><p>The answer here is to do your own research. The data out there is mostly marketing material, full of exaggerations and difficult or even impossible promises. As the non-Bitcoin coins carry pink-sheet stock level risk, the scrutiny needs to be much higher, not lower, than that put into Bitcoin. Thus, real research means evaluating the code.</p>♦<p>If you don’t know how to read the code, or worse, if the code is closed source or not written yet, that should be a complete non-starter. The technical reality of the currency cannot be verified.</p><p>If you’re capable of reading the code, but don’t want to put in the time to do so, that’s also a non-starter. There simply isn’t enough assurance with such coins to know that the marketing story and technical reality aren’t divergent. Reliance on anything else, including the opinions of people on Twitter and YouTube are likely based on the biased marketing material and/or kickbacks and not the code, which has no obligation to conform to reality.</p><p>This, in turn, means that there will have to be a significant amount of research put in to qualify a cryptocurrency as investable. Given that the market caps and/or liquidity of most coins are tiny, the time researching such assets simply isn’t worth the effort as they’re likely uninvestable anyway.</p>Conclusion<p>Diversification in cryptocurrencies makes little sense. The marketing story and underlying reality are incentivized to diverge and proper evaluation of each coin very expensive. Investing in altcoins without looking at the code is the equivalent of diversifying into random pink-sheet stocks without doing any research. Such an action would add risk and volatility, not reduce it, nullifying the whole point of diversification.</p>♦<p>In addition, given the incentives at play, looking at the code is itself likely a waste of time. This is why the pink sheet market volume is so tiny versus the NASDAQ or NYSE.</p><p>The one cryptocurrency that is sensible to invest in is Bitcoin, because it’s been qualified through its unique birth and continued maintenance through its 10 year existence. Diversification of a portfolio by adding Bitcoin really can add upside, reduce risk and reduce volatility (if it’s counter-cyclical). Adding unresearched altcoins does not and hence makes no sense.</p>♦
-
-</div>
-
-<div class='item-footer'>
-    <span class='item-time-ago-in-words'>
-       over a year ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     
-     <td style='white-space: nowrap;'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/5265ab'>Bitcoin: Sovereignty through mathematics CHAPTER ONE</a>
-        </span>
-     </td><!-- item title -->
-     
-     <td width='100%'>
-          <hr class='filler'>
-     </td><!-- filler -->
-      <td style='white-space: nowrap;'>
-       <span class='item-published'>Sunday, 19 May 2019</span>
-      </td><!-- item published -->
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' >
-
-<table width='100%'>
-  <tr>
-    <td width='100%'>
-      <span class='feed-title'>
-        <a href='https://paywall.link/to/55bbf'>Kunt Svanholm</a>
-      </span>  
-    </td>
-  </tr>
-
-  <tr>
-    
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  ♦Sovereignty through mathematics CHAPTER ONE<p>All human interaction can be defined as trade. Yes, all human interaction. Every time a human being interacts with another, an exchange takes place. In every conversation we have, we exchange information with each other. Even the most trivial information
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  ♦Sovereignty through mathematics CHAPTER ONE<p>All human interaction can be defined as trade. Yes, all human interaction. Every time a human being interacts with another, an exchange takes place. In every conversation we have, we exchange information with each other. Even the most trivial information is of some value to the other person. If information didn’t have any value to us, we wouldn’t talk to each other. Either what the other person says is valuable to us or we find it valuable to give information to them. Oftentimes both. At the core of all human interaction that isn’t violent, both parties perceive that they gain some value from it, otherwise the interaction wouldn’t have taken place at all. Civilizations begin this way. Two people finding it valuable to interact with each other. That’s all it takes. So what constitutes value? What we find valuable is entirely subjective. A comforting hug for example, probably has a different value to a two-year old than it has to a withered army general. Even the most basic action, such as breathing, encapsulates the whole value spectrum. We tend to forget that even a single breath of air can be of immense value to us under the right circumstances. A single breath is worth more than anything on the planet to a desperate free-diver trapped under ice, while worth nothing to a person with a deathwish in clean forest air on a sunny summer day. Value is derived from supply and demand, and demand is always subjective. Supply is not. Since all of our lives are limited by time, time is the ultimate example of a scarce, tradeable resource. We all sell our time. We sell it to others and we sell it to ourselves. Everyone sells their time, either through a product that took them a certain time to produce, or as a service, and services always take time. If you’re an employee on a steady payroll, you typically sell eight hours of your day, every day, to your employer. If you’re doing something you truly love to do, that eight hour day still belongs to you in a way, since you’re doing what you’d probably be doing anyway if you had been forced to do it for free. Sometimes, we sacrifice time in order to acquire something in the future. An education, for instance, gives no immediate reward but can lead to a better-paying, more satisfying job in the future. An investment is basically our future self trading time with our present self at a discount. Once again, every human interaction viewed as trade. It’s rooted in physics. For every action there is an equally large reaction. Trade is at the very core of what we are, and the tools we use to conduct trade matter a lot to the outcome of each transaction. Money is our primary tool for expressing value to each other and if the creation of money is somewhat corrupt or unethical, that rot spreads down throughout society, from top to bottom. Shit flows downhill, as the expression goes. So what is money, or rather, what ought money to be? In order for two persons to interact when a mutual coincidence of needs is absent, a medium of exchange is needed in order to execute a transaction. A mutual coincidence of needs might be “You need my three goats and I need your cow”, or even “both of us need a hug”. In the absence of a physical good or service suitable for a specific transaction, money can fulfill the role of a medium of exchange. What most people fail to realise is that the value of money, just as the value of everything else, is entirely subjective. You don’t have to spend it. The problem with every incarnation of money that mankind has ever tried is that its value always gets diluted over time due to inflation in various forms. Inflation makes traditional money a bad store of value, and money needs to be a good store of value in order to be a good investment, or in other words, a good substitute for your time and effort over time. Bitcoin tries to solve this by introducing to the world absolute scarcity, a concept that mankind has never encountered before. To comprehend what such a discovery means for the future, one needs to understand the fundamentals of what value is, and that we assign a certain value to everything we encounter in life, whether we admit it or not. In short, we assign value to everything we do, value is derived from supply and demand, and supply is objective while demand is subjective.</p><p>Free trade emerges out of human interaction naturally and it is not an idea that was forced upon us at any specific point in time. The idea that markets should be regulated and governed, on the other hand, was. Free trade is just the absence of forceful interference in an interaction between two humans by a third party. There’s nothing intrinsically wrong or immoral about an exchange of a good or service. Every objection to this is a byproduct of the current global narrative. A narrative that tells us that the world is divided into different nations and that people in these nations operate under various sets of laws, depending on what jurisdiction they find themselves in. All of these ideas are man-made. No species except humans does this to themselves. Animals do trade, but they don’t do politics. Bitcoin, and the idea of truly sound, absolutely scarce money, inevitably makes you question human societal structures in general, and the nature of money in particular. Once you realise that this Pandora’s box of an idea can’t be closed again by anyone, everything is put into perspective. Once you realise that it is now possible for anyone with a decently sized brain to store any amount of wealth in that brain, or to beam wealth anonymously to any other brain in the world without anyone ever knowing, everything you were ever told about human society is turned on its head. Everything you thought you knew about taxes, social class, capitalism, socialism, economics or even democracy falls apart like a house of cards in a hurricane. It is in fact impossible to comprehend the impact Bitcoin will have on the planet without also understanding basic Austrian economics and what the libertarian worldview stems from.</p><p>Imagine growing up in an Amish community. Until your sixteenth birthday you’re purposely completely shielded off from the outside world. Information about how the world really works is very limited to you, since internet access, and even TVs and radios, are forbidden within the community. Well, from a certain perspective, we’re all Amish. How money really works is never emphasized enough through traditional media or public educational institutions. Most people believe that the monetary system is somehow sound and fair when there’s overwhelming evidence to the contrary, all over the globe. Ask yourself, do you remember being taught about the origins of money in school? Me neither. I don’t believe that there’s some great, global conspiracy behind the fact that the ethics of money creation isn’t a school subject, but rather that plain old ignorance is to blame for the lack of such a subject primarily. As soon as their math-skill limit is reached, people seem to stop caring about numbers. The difference between a million and a billion seems lost on a depressingly large part of the world’s population. In the chapters ahead we’ll explore the pitfalls of central banking, how money pops into existence and how inflation keeps us all on a leash.</p><p>Paperback book version available here: www.amazon.com/dp/1090109911</p>♦<p>Bitcoin: Sovereignty through mathematics CHAPTER ONE was originally published in HackerNoon.com on Medium, where people are continuing the conversation by highlighting and responding to this story.</p>
 
 </div>
 
