@@ -1,22 +1,23 @@
 body {
-  font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
-  color: #494e52; }
+  font-family: sans-serif;
+  color: #333333; }
 
 a {
   text-decoration: none;
-  color: #32859e; }
+  color: darkred; }
   a:visited {
-    color: #5197ad; }
+    color: firebrick; }
   a:hover {
     text-decoration: underline; }
 
 .last-update,
 .last-updated {
-  font-size: 18px;
-  color: #494e52; }
+  font-size: 12px;
+  color: #777777; }
 
 #show-headlines,
 #show-snippets,
+#show-fulltext {
   cursor: pointer; }
 
 div.section,
@@ -28,14 +29,14 @@ div.item {
 hr.item-separator,
 hr.filler {
   border: none;
-  background-color: #fff;
-  color: #fff;
+  background-color: #ccc;
+  color: #ccc;
   height: 1px; }
 
 .item {
-  font-size: 16px; }
+  font-size: 13px; }
   .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item b {
-    font-size: 18px; }
+    font-size: 13px; }
   .item p, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6 {
     margin: 2px 0px 2px 0px;
     padding: 0; }
@@ -47,41 +48,16 @@ hr.filler {
   .item .item-summary {
     display: none; }
   .item .item-footer {
-    font-size: 18px;
-    color: #FF7E00; }
+    font-size: 12px;
+    color: #777777; }
 
 .item-title {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: bold; }
 
 .feed-title {
-  font-size: 16px;
-  font-weight: bold;
- }
+  font-size: 12px; }
 
 .item-published {
-  font-size: 18px;
-  color: #FF7E00; }
-
-/* my additions */
-
-.content {
-  max-width: 960px;
-  margin: auto;
-}
-
-.built-with {
-  margin-bottom: 1rem;
-  text-align: center;
-  color
-}
-
-.footer {
-  margin: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #f2f3f3;
-  text-align: center;
-}
-
-
+  font-size: 12px;
+  color: #777777; }
