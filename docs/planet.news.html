@@ -60,9 +60,9 @@
      </td><!-- icon/logo -->
      <td style='white-space: nowrap;'>
        <span class='feed-title'>
-         <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
+         <a href='https://paywall.link/to/200a2'>Uncommon Core</a>
         (
-         <a href='https://lnpay.co/t/967232/rss'>Feed</a>
+         <a href='https://lnpay.co/t/d6ca92/rss'>Feed</a>
         )
        </span>
      </td><!-- feed title -->
@@ -73,6 +73,481 @@
       <td style='white-space: nowrap;'>
        <span class='item-published'>Friday, 14 August 2020</span>
       </td><!-- item published -->
+     
+   </tr>
+  </table>
+</div>
+
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <a href='https://paywall.link/t/329aed'>Uncommon Core Podcast – Episode 6 transcript</a>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  <p>Andre Cronje and the Philosophy of Yearn Finance This week, I &#8211; Hasu &#8211; talk to Andre Cronje, a long-time DeFi developer, and creator of Yearn Finance. You can think of Yearn as a smart bank account that automatically allocates your assets to different low-risk investment strategies tha
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  Andre Cronje and the Philosophy of Yearn Finance
+
+
+
+<p>This week, I &#8211; Hasu &#8211; talk to Andre Cronje, a long-time DeFi developer, and creator of Yearn Finance. You can think of Yearn as a smart bank account that automatically allocates your assets to different low-risk investment strategies that execute on the Ethereum blockchain.</p>
+
+
+
+<p>My co-host is Tarun Chitra, the CEO and founder of Gauntlet, a company that helps stress test the incentive structures and economics of cryptocurrency protocols, especially of DeFi protocols.</p>
+
+
+
+<p>We&#8217;re releasing this interview in two parts. The first gives you an introduction to Yearn Finance, it&#8217;s future, and Andre&#8217;s design and investment philosophy in building it. Part II explores the design space for governance systems in DeFi &#8211; one of the hottest topics in crypto right now.</p>
+
+
+
+<p>Listen and subcribe here</p>
+
+
+
+<p>Hasu (00:00:00):<br>Welcome to Uncommon Core, where we explore the big ideas in crypto from first principles. This week, my regular co-host Su Zhu is taking a break and I’m instead joined by Tarun Chitra of Gauntlet. Tarun, welcome to the show! Can you introduce yourself to our audience?</p>
+
+
+
+<p>Tarun Chitra (00:00:17):<br>Hey, yeah, thanks for having me. I&#8217;m Tarun Chitra, I&#8217;m the CEO and founder of Gauntlet, a company that helps stress test, the incentive structures and economics of cryptocurrency protocols, especially defi protocols. But my background is in both high-frequency trading and sort of low-level hardware design. And so I&#8217;ve kind of spread myself across a bunch of different fields and there&#8217;s nothing quite like the current state of defi and crypto to, to make people have to use brain cells that they didn&#8217;t have to use before, so I&#8217;m really excited to be in this world.</p>
+
+
+
+<p>Hasu (00:01:01):<br>together, we are excited to talk to Andre Cronje, a long-time DeFi developer and creator of Yearn finance, which you can think of as a smart bank account that automatically allocates your assets to different low-risk investment strategies that execute on the Ethereum blockchain. Thanks for joining us, Andre! Can you tell us a bit about your background?</p>
+
+
+
+<p>Andre Cronje (00:01:07):<br>Yeah, sure. Definitely definitely much less of a pedigree. Really just a dev. I don&#8217;t even consider myself a particularly good one. I&#8217;m a, I&#8217;m an integrator, I like putting pieces together and then seeing what comes out. So it&#8217;s, it&#8217;s a very exciting space for me right now to be playing in defi. Money Legos is one of the coolest toys that has come up in a very long time. So yeah, I&#8217;ve just been focusing on this the last few years. It&#8217;s been a nice natural evolution from my previous FinTech background. So it&#8217;s I echo Tarun&#8217;s statements. It&#8217;s a, it&#8217;s a very exciting and challenging space to be in right now. And I, I think it&#8217;s also very exploratory which I think is going to lead to a lot more new and exciting things as well.</p>
+
+
+
+<p>Hasu (00:02:05):<br>Yeah. Thank you. I think we can also be happy to have you in this space. I think that you&#8217;re in is one of the most interesting projects right now, which is how we met right. When I wrote an article, I was researching for an article on the governance in Yearn.finance last week. So can you describe in your own words, what Yearn is?</p>
+
+
+
+<p>Andre Cronje (00:02:29):<br>Well, OK, so, so I guess Yearn as sort of an umbrella statement is, is anything I build, whatever I build I throw under Yearn. The original V1 Yearn specifically was a, a lending pool optimizer, I guess, aggregator, I don&#8217;t know what you want to call it. So, so very very simplistically. There were a lot of vendors out there. We had Aave, we had DYDX. We had Compound, we had Nuo, Fulcrum. There was a lot and I spent a lot of time normalizing each one&#8217;s interest rates, how they are reporting it on chain and, and what the net result of their number is because each one has a little, little different nuance in how they do it. And the reason I did that was so that I could figure out where&#8217;s the best place to park my money at any given point in time for the highest aggregate interest rate.</p>
+
+
+
+<p>Andre Cronje (00:03:26):<br>And I realized that these rates fluctuate so much between all of these different pools, because there&#8217;s, there&#8217;s still a lot of capital inefficiencies in our markets. So I spent a lot of time moving these funds around and I started looking at a automated way to do that. And then I came up with the original Yearn, which very simplistically you throw your funds in it. As soon as you interact with the contract, it looks at the different APR rates between the different lenders and then it simply moves the funds there. So it ended up in aggregate getting better yield than any one lender. And because it&#8217;s now a pooled solution, it meant that there was a lot more interaction with the contract, which also increased the granularity of when it switches for different interest rates. And it also sort of subsidized gas because you know, now it&#8217;s not 20 people, each paying gas to change.</p>
+
+
+
+<p>Andre Cronje (00:04:19):<br>It&#8217;s, it&#8217;s one interaction that moves it then as the next one comes in and the APR is still the highest at where it is that it just stays there. I&#8217;d say that was the very, very first iteration. And that later on became the premise for what I then called the V2. My versioning sucks. So I need to change naming standards, but the V2, which became the baseline for the Y pool, which is the yCRV pool which we ended up building on top of that because the concept was why not have profits switching and trading fees. So that was just a nice way to get a little bit higher APR. And at that time, that was pretty much the best rates you could get because you had the optimized lending and now you have the trading fees on top. We had to make some sacrifices for the V2 pool.</p>
+
+
+
+<p>Andre Cronje (00:05:04):<br>Cause the problem is for, for the trades to be efficient, you couldn&#8217;t rebalance the underlying assets the whole time because it would make gas too expensive. So the V2 yearn version has a has a no rebalance withdrawal deposit, which just makes your swaps much cheaper. And then it has a full rebalance, which is when you directly interact. So, so there was some trade offs there after that one was the sUSD pool, which was awesome because Synthetix were kind enough to add liquidity incentives on top and they allowed you to, to stake. The LP token you got out of the issue is the Y pool meta pool into their, their MTA, their reward system. And, and that&#8217;s when I started playing with their rewards contracts. Which, which now, you know, is the basis of YFI. YFII YYFI, YAM, I add to the list.</p>
+
+
+
+<p>Andre Cronje (00:05:59):<br>So amazing respect there for, for Anton, from 1inch and Kain of Synthetix the work that I did there. And then the market was kind of quiet for a long time. So I started playing with a bunch of other tools I was interested in. I started looking into, into synthetic assets. So I started looking into some stable coin stuff started doing the ySwap stuff, but, but the main area I was focusing on was, was yLeverage and yTrade, which was all about leveraged stable coin positions. Cause I wanted to, I wanted to promote trading on the Y pool for curve cause the more trading on that pool, the higher the fees, the better the incentives for the LPs and the higher, the overall APR. So I started holding things like yLeverage, which is flash loan from DYDX into maker.</p>
+
+
+
+<p>Andre Cronje (00:06:48):<br>USDC mints DAI sells the DAI to USDC repays the debt on that side gives you the profit and you decide when you want to close your vault, it hands over the vault, back to you. So, so it&#8217;s up to the user and yTrade was a little bit more of an LP system. So you, you provide your curve LP tokens, which gives you access to the underlying Dai USDC USDT or TUSD. And then that allows you to open a trader position and trade it on top of that. And then COMP came along and that changed quite a lot because now all of a sudden, I, it, it wasn&#8217;t as simple as aggregating on chain information and knowing where the best APR is. And, and, and that&#8217;s, that&#8217;s still the purpose of the yearn system overall is to maximize APR for its LPs. And now you had the situation where, where being a lending provider and compound was the better result because of the added APR on top of the compound token, but you don&#8217;t exactly have a lot of on chain oracles.</p>
+
+
+
+<p>Andre Cronje (00:07:51):<br>And the ones that are, you know, are, are, were fairly easily, abusable still at that time. So I started looking at a, a more, a more like almost token sets, you know, social trading idea behind yield farming, social yield farming, I guess. And I started playing with the concept of creating a sort of collective and how that works of, of yield farmers that are also interested in this stuff. So, you know, as a collective, they&#8217;re a lot faster at identifying strategies. There are a lot faster at, at ranking strategies in terms of their performance. And it&#8217;s a lot faster to, to be able to allocate to the pool, the resources. So, so that&#8217;s sort of where the, the idea of the, the YFI token, the YFI token first came out because it was just for people that are in these things. I built a, which I assume are yield farmers themselves, which, you know, back then that wasn&#8217;t the terminology.</p>
+
+
+
+<p>Andre Cronje (00:08:51):<br>It was just an LP, but anyway so it makes sense that they are yield farmers as well. So these are the people I want to have tokens because these are the people that collectively can make these decisions and keep hunting these opportunities. Because the other thing that was important to me is that if a new strategy came along, it could be added in a short enough time span that it could be maximized, but not so fast as to be able to create a risk area there. And I think that&#8217;s, that&#8217;s something that Hasu has mentioned in his articles as well, which I think is very important for people to know, because, you know, there&#8217;s, there&#8217;s a tradeoff between how quickly you move and how securely but we can unpack that a little bit later. So, so token came about, that&#8217;s why I said, it&#8217;s not going to be a sale.</p>
+
+
+
+<p>Andre Cronje (00:09:38):<br>You know, there&#8217;s, there&#8217;s no financial value to it. It&#8217;s purely as a collective decision making tool for the system. At that time I started looking at the COMP governance solution, which, which I, I do think is fantastic, but I do find it a little bit rigid and I didn&#8217;t at that time yet know what the solution was going to look like. So I, I, I know where my, my skills and abilities fall short. One thing is definitely in terms of you know, proper, proper governance control mechanisms and economics and any of that stuff. So I decided, you know, let&#8217;s leave this to the people that are going to have the token in their hands. Their collective intelligence is better than mine in this area. So I had opted for that. Let the best minds in this industry have a interest in it and then give their opinion on it while I stick to, you know, building out the coding and sticking to those things.</p>
+
+
+
+<p>Andre Cronje (00:10:34):<br>And I think that part has been, has been fairly successful. Cause we definitely have some phenomenal minds currently working on some of these solutions, which they&#8217;re coming up with stuff. I definitely wouldn&#8217;t have dreamed of while, while I, you know, can just stick on sort of the strategy side building out everything and then eventually I ended up with the, with the now V2,yVaults and their ideas to be a yield farming tool. So, so unlike, unlike the V1 Yearn and yPools, which, which are, are static and immutable and you can&#8217;t mess with them and I love them.</p>
+
+
+
+<p>Speaker 3 (00:11:09):<br>I needed a new solution that can upgrade and that can pivot within, within certain rules and restrictions. So, so that&#8217;s why I came up with, you know, let&#8217;s, let&#8217;s let governance vote in strategies, and then you have strategists that are capable of switching between different strategies and things like that. So, so there&#8217;s a whole role ecosystem that I still need to unpack and share that whole design philosophy, but that&#8217;s really how we got to Yearn. So it&#8217;s, it&#8217;s been a lot of mutating because of how the industry itself has been changing and just trying to remain adaptable to that because, because what, what we have now in terms of, of LP profit is very different than what we, you know December Jan beginning of this year. So, so the landscape has changed so much that the solutions have needed to change. And, and that&#8217;s pretty much where we&#8217;re currently at.</p>
+
+
+
+<p>Hasu (00:12:08):<br>Yeah, thanks for this. A very comprehensive overview. So as I said, there are now three yield farming primitives in, in Yearn, which is the first one is the yTokens, the first iteration. And then you have vaults that are paired with strategies, and then you have delegated vaults. So could you please describe, or like summarize very briefly again, the difference between them and why should I use which iteration,</p>
+
+
+
+<p>Andre Cronje (00:12:36):<br>So, so the, the yTokens themselves they&#8217;re there to keep things simple, you know, that&#8217;s, that&#8217;s, you, you don&#8217;t want, you don&#8217;t want exposure to, to yield farming or any of those strategies. You don&#8217;t want someone that&#8217;s going to be moving your money around without you knowing you want something that&#8217;s static and playing. They are, they are only measured in their assets. So DAI has yDAI USDT has yUSDT All the way through to sUSD simplistically, you put in the asset, it gets automated, lent out to different lenders. You get interest rates from there and, and the end. So, so it&#8217;s a very, it&#8217;s a very clean, closed loop solution of the lot it has other than, of course the standard composability of risk and the underlying system risks, which are still high risks.</p>
+
+
+
+<p>Andre Cronje (00:13:26):<br>It&#8217;s, it&#8217;s the safest of the lot, but using it, you&#8217;re going to be looking at, at, you know, a band of about between five to 15% IPR, which, which I still think on a stable coin is phenomenal because you&#8217;re not going to get those rates at your bank in any case. On top of that, if you want a little bit more exposure, but then you, you do take away the native underlying assets. You can also deposit your outputs there into the curve y pool or the BUSD pool or the sUSD pool. And then you get the trading fees as well. But for example, the pool balances underneath can shift. So if you put in, let&#8217;s say 10 million DAI three months ago in, in curve and you, you can&#8217;t withdraw 10 million DAI now, cause there&#8217;s only 6 million DAI in there, but you can still have, you know, the 3 million DAI and then 7 million USD.</p>
+
+
+
+<p>Andre Cronje (00:14:19):<br>So, so you do lose the strict association of the underlying assets, but you do get those trading fees on top, which is still good. And, you know, that&#8217;s, that&#8217;s yielding you upwards of 10 to 20%, depending on the time span you&#8217;re looking at in aggregate sense, since inception about 11%. And now I&#8217;m not talking about additional incentives, you know, like, like the curve you can get from, from being an LP on SNX, you can get from staking the sUSD LP output token or those kinds of things, or those are additional benefits over and above. And then the vaults are definitely the higher risk ones because the money moves. And, and even though, even though you might be comfortable with the strategies it currently has, you might not be comfortable with the strategy. It has two weeks from now. So, so, so there&#8217;s a little bit more involvement and definitely more risk because the YFI community as a whole gets to the point where, where they control what the strategies are and they control when it moves.</p>
+
+
+
+<p>Andre Cronje (00:15:23):<br>But it automates these processes for you. So, so its job is if the current best farm is farming DAI leveraged into comp, and that&#8217;s going to be the strategy for DAI and you provide your DAI, it&#8217;s going to do that strategy, but should that change to now DAI into Y pool for curve tokens and a new strategy is deployed, voted in and then switched to that one. So, so, so because it&#8217;s because it&#8217;s let&#8217;s call it upgradable you know, even though by, by, by contract definition, it&#8217;s not upgradable proxies, but, but you know, I can, we can add a new strategy and then switch to that strategy. So, so let&#8217;s consider that an upgrade, even though the vaults are not, the vaults are static themselves. That definitely adds an additional layer of risk. And that is the risk reward adjustment that you see.</p>
+
+
+
+<p>Andre Cronje (00:16:11):<br>I mean, the vaults are performing a lot higher, but it definitely comes with more risk than the original V1s. And then things like yTrade and ySwap? They&#8217;re, they&#8217;re still in my R and D finalization phase, so I&#8217;m not really trying to promote them yet, except for people that want to experiment a little bit. But I still have a lot more iterations to do on those before, before I&#8217;m happy with, with doing proper public releases on them. So yeah, it&#8217;s, it&#8217;s, it&#8217;s really based on your risk appetite at the, at the one far end of the spectrum, you have the sitting on a lot of, you know, USDT USDC, whatever capital and it&#8217;s currently sitting idle and they don&#8217;t wanna, they don&#8217;t want to expose it to risk, but, but they also don&#8217;t just want to have it sitting idle.</p>
+
+
+
+<p>Andre Cronje (00:16:56):<br>So for them the original, yPools into curve, great choice nice and stable it&#8217;s performed well in the past. That&#8217;s, that&#8217;s where I would park it or for the people that know about it, yield farming and, you know, know what&#8217;s going on a good place to go is the vaults. So I do recommend having, having a little bit of awareness. But another reason why you want to go to the vaults is because it&#8217;s it in quotes, subsidizes gas. So it&#8217;s because again, it&#8217;s this pooled solution. So it&#8217;s not, it&#8217;s not everyone paying for gas the whole time, but a single interaction that, that triggers the chain that then pays for the gas, a unlucky gas lottery, I guess is another good reason to say sitting there. And then, but I mean, at the far end of the spectrum, you&#8217;ve got the, you&#8217;ve got the, you&#8217;ve got the defi guy that he&#8217;s on CT, crypto Twitter, you knows what&#8217;s going on there.</p>
+
+
+
+<p>Andre Cronje (00:17:54):<br>He&#8217;s in telegram, he&#8217;s a discord. He knows what the strategies are. And he probably manages this to himself for the most part. But maybe he just wants to save on gas as well. So then a good reason to go into the vault strategy. I&#8217;ve, I&#8217;ve had a few people that I&#8217;ve spoken to that just want to take the weekend off. And then, you know, they, they don&#8217;t want to be jacked in the whole time. So when they want to take the weekend off, they park the funds in there, so they don&#8217;t have to worry about it. But if you&#8217;re, if you&#8217;re that, that complete end of the spectrum person that knows what&#8217;s going on is updated, then I still recommend you manage your money yourself. That&#8217;s, that&#8217;s still the, the, the, my money, my responsibility peak area, but, you know, everyone can&#8217;t have all of the information all the time, especially not with how quickly things are currently changing.</p>
+
+
+
+<p>Andre Cronje (00:18:42):<br>I, I do think it&#8217;ll, it&#8217;ll subside and we&#8217;ll go back to, to something a little bit more normalized where, you know, it doesn&#8217;t change every eight hours, but instead changes, you know, once a month. And that&#8217;s where I&#8217;d like to see it as well, because I&#8217;m, I&#8217;m, I&#8217;m a, I&#8217;m a big, I&#8217;m a big advocate for sustainable yields. And right now we&#8217;re in a very unsustainable space, which, which causes me a little bit of concern a lot of concern, but, but, you know, that&#8217;s, that&#8217;s, that&#8217;s part of the cycle we&#8217;re going through. So, so, so that&#8217;s fine. So, so I guess I&#8217;d say those are sort of, you&#8217;re different, you&#8217;re different benefits and the risks that comes with it. I mean, personally, I still sit more on the, on the Yearn V1 side. I&#8217;m, I&#8217;m not, I&#8217;m not as volatile or I just want to outperform what I can do in my, in my local currency savings account that I&#8217;m happy. It doesn&#8217;t have to be,</p>
+
+
+
+<p>Hasu (00:19:40):<br>When you say you sit more on the V1 side, you mean with your own money because you also use Yearn to invest your own money, right?</p>
+
+
+
+<p>Andre Cronje (00:19:48):<br>Yeah. So, so, so the majority of sitting in there, which I consider to be the safest area, and then what I&#8217;m willing to risk, I play in the vaults, or I play as an LP because there, I know there&#8217;s more risks. It&#8217;s, it&#8217;s, it&#8217;s fun playing there, but, but I still prefer sustainability. Sustainable APR is a, is a very important thing that we&#8217;re, we&#8217;re currently losing sight of a little bit, but hopefully we&#8217;ll get back there. And obviously as, as market and capital inefficiencies improve as well, we&#8217;ll, we&#8217;ll also see that line flatten out to, to where it&#8217;s, it&#8217;s technically supposed to be comparative to the rest of the world&#8217;s interest rate minus fees from banking, et cetera.</p>
+
+
+
+<p>Tarun Chitra (00:20:34):<br>So what one natural kind of next question related to this is, you know, how, how complex do you think these strategies are going to get? And especially in terms of, you know, reallocation to different yield farming really at venues. I, you know, I think maybe when Yearn V1 came out, it was much more clear that sort of the Yearn or InstaDapp type of strategy of, or the, what, you know, yToken one strategy of optimizing dollar denominated or stable kind dollar denominated APR is, is kind of like a good user experience. But now that you have the whole system for, for really starting to explore a bigger strategy space, you know, how complex do you think things will get? You know, I think, you know, we know that there&#8217;s this economy of scale to having gas costs shared across the pool. So that means you have more gas and implicitly to spend on strategies. And then, so maybe walk us through your thought process of that, but you&#8217;ve kind of seen in the community. Do you think complexity will dominate, or do you think people will stick with simple strategies? Would they be sort of directional strategies trying to chase momentum or will they be trying to be more like market neutral?</p>
+
+
+
+<p>Andre Cronje (00:21:58):<br>So, so from, from my perspective the things I write, I like to keep very simple strategies, you know, do do one small thing and don&#8217;t do too much. But, but that just because that suits my specific development style the more complex, the more risk. So, so from, from, from the, what strategies will I keep writing fairly basic. I don&#8217;t like I don&#8217;t like too many protocols working together at the same time. As that increases your amount of failures from the strategies I&#8217;ve been discussing with people that I think are phenomenal, they, they get super complex. So, so what I mean by that is, is as we&#8217;re seeing more of, you know, a options market developing and a perpetual market and a leverage market, then you, you, you can start adding in these different hedging strategies and you can, you can go to Synthetix and you can, you can mention then take that into a pool and then hedge that against, you know, something that maybe you take out on UMA.</p>
+
+
+
+<p>Andre Cronje (00:22:58):<br>So, so I think it&#8217;s, it&#8217;s becoming increasingly possible to do increasingly complex. I think the more complex, the strategy, the different vetting process that would need to go through, but, but, but definitely from, from what I&#8217;ve, from what I&#8217;ve spoken to a lot of. And I mean, I, I think it has a lot to do with, with, with who&#8217;s building the strategy as well. Cause like the, the, when, when I speak to guys like the framework guys, you know, they&#8217;re, they&#8217;re very much into, into these, these hedged yielding strategies will where they might fund a perp and then hedge that on the other side. And like, it&#8217;s, it&#8217;s, it&#8217;s very good yield, but, but I&#8217;m not from that world. So it&#8217;s very difficult for me to quantify. Because one of my, one of my code rules is still, I just, I just codify what I do as a human.</p>
+
+
+
+<p>Andre Cronje (00:23:58):<br>So, you know, if I, if I, as a human can go deposit and then see the APR and withdrawal and then maybe get an output token and sell that for the underlying asset, and then that&#8217;s something I can codify. I&#8217;m happy with that strategy. But yeah, I mean, at, at the, at the baseline, you know, a strategy as, as simplistic as, as put DAI into compound and you get interest and that&#8217;s a good strategy, but at a layer on top of that, now you have add DAI into compound and farm COMP. And now you have at DAI into farm COMP sell COMP to DAI. And now you can take it a step further and you can go DAi, folded, leverage, whatever you want to call it, you know, four times and then farm and sell COMP. So, so again, risk reward versus complexities slash APR.</p>
+
+
+
+<p>Andre Cronje (00:24:46):<br>I, I don&#8217;t, I don&#8217;t, as I currently discuss this, know what that mix is going to be, but, but if it goes the way I&#8217;d like it to go, then, then I think it&#8217;s going to become increasingly complex to, to maximize those market inefficiencies and capital inefficiencies until it gets on until, until the strategies themselves flatten out, you know, that, that line to the point where it&#8217;s, it&#8217;s aggregate in the market and to do that, you do need to mult you, you do need to leverage across multiple points and that will increase your complexity. So yeah, I&#8217;m, I&#8217;m really excited to see what people are building.</p>
+
+
+
+<p>Tarun Chitra (00:25:29):<br>Yeah, for sure. I mean, I think one of the reasons for instance, gnosis&#8217;s on chain exchange is so much, you know, sorry, Martin is so much just, it&#8217;s never going to be used as much as Uniswap is because it relies on this off chain Oracle to actually tell it sort of give it a solution of how to clear the auction because they went with an overly complex kind of design and sometimes overly complex, off chain design is the, is the a theoretically correct design. It solves the problem in some optimal sense, but given the computational constraint of the traders and the trading itself, you kind of have to adapt your strategies to the fact that you&#8217;re in this low compute environment, Ethereum&#8217;s expensive, very variable costs. So do you ever see a world where the strategies are not strictly emulated on chain in the sense that, you know, a lot of the, the types of, you know strategies that people would use them in centralized crypto trading or real, real finance normal trends is, you know, probably a few orders of magnitude more complicated and you don&#8217;t really want running on chain, or do you see actually this kind of new nouveau thing for, for defi as being simple on chain strategies will dominate and have like the highest amount of capital in flow.</p>
+
+
+
+<p>Tarun Chitra (00:27:03):<br>So maybe to put another way, do you see the majority of, of capital that is going into these strategies really focusing on the simple but scalable strategies or these kinds of complex, but optimized strategies. And it&#8217;s, if it&#8217;s a latter, do you see a world in which this has to be done off chain or on a different chain?</p>
+
+
+
+<p>Hasu (00:27:23):<br>And maybe, maybe to build on your question Tarun like the most extreme version of that, that I can see is that some venture fund or hedge fund starts raising money on Yearn, right. By creating a vault. And then just saying the strategy is, did you trust us to invest this money? And we are going to return it in one year.</p>
+
+
+
+<p>Andre Cronje (00:27:48):<br>I may look those, those, all of those possibilities exist. I think that&#8217;s why that&#8217;s why the, the collective governance is important again, to drive where that goes. If, if it&#8217;s down to my personal opinion, I don&#8217;t like things that happen off chain. It&#8217;s the same reason why while I spent most of my time originally normalizing all of the different APR from all of the different lenders. Cause I didn&#8217;t want to make off chain decisions. Even, even with these new farming strategies, they, they, they annoy me a little bit because you&#8217;re, you&#8217;re making in quotes off chain decisions on, you know, is, is COMP currently more valuable or is curve more valuable or I don&#8217;t know. YAM. Or valuable for argument? I, I think, I think the more you do off chain, the more risk you add versus if it&#8217;s, if it&#8217;s on chain, it&#8217;s verifiable, everyone can see it, everyone can do it.</p>
+
+
+
+<p>Andre Cronje (00:28:52):<br>That&#8217;s. That&#8217;s where I personally would like to see it. And that&#8217;s where I personally would like it to stay. To me, to me, if it&#8217;s not happening in a CRM it&#8217;s not happening now, now that does not preclude where we might be in a, in a few months and or years from now, when, when we have, you know, a few more layer, two solutions and we have more currently layer one change that ended up becoming, you know, sort of roll up side chains. And, and then that might be a different story because you, you can still verify it at the base ETH layer. But I&#8217;m very hesitant now, again, this is my personal opinion. I mean, it&#8217;s up to, it&#8217;s up to YFI holders to decide, but, but in my personal opinion, I don&#8217;t think any strategies should be used that can&#8217;t a hundred percent be verified chain,</p>
+
+
+
+<p>Tarun Chitra (00:29:43):<br>Yeah. I mean, I, I, the only reason I asked is that there&#8217;s also this kind of adverse selection aspect to having everything on chain of, you know, everyone kind of knows what let&#8217;s just say, we&#8217;re in a world where we&#8217;re where Yearn is controlling, like Yearn vaults control, 40% of capital. And so every reallocation transaction that&#8217;s sent sort of has Yearn as, you know, the whale when they actually, when the contract makes a trade, a lot of other people follow or a lot of other people front and run the vault sort of behavior. Do you, do you see that that competition sort of being stable in the long run where, you know, you have manyVaults and they&#8217;re competing and sort of they compete towards towards a single equilibrium or do you see it as a strictly capital aggregation game of whoever is the biggest in terms of vault creation, whether it&#8217;s yam, whether it&#8217;s Yearn, whether it&#8217;s whoever else shows up, ends up kind of dominating. And the reason I ask this is if you stay fully on chain, you actually do expose these strategies to a ton of adverse selection because the code is open source and you can look at the historical transactions and you know, exactly the logic. So yeah, maybe what are your thoughts on that?</p>
+
+
+
+<p>Andre Cronje (00:31:09):<br>Look, I mean, it&#8217;s, it&#8217;s, you&#8217;re, you&#8217;re, you&#8217;re opening your competitive advantage and you&#8217;re opening your playbook. There&#8217;s, there&#8217;s no doubt about that. And I currently see it with the vaults. Like when I, when I deploy a new strategy for, for example, the latest one with the, the LINK delegated vault was to borrow TUSD and then put that into stable and put that into the savings because that was doing upwards of 50% APR. And, and that&#8217;s a much higher offset than the more 0.1% you&#8217;re borrowing. And that net benefit is your net result by pressure as well. But, but after deploying that just when I deployed it, there was, there was no TUSD in, in in mStable. And now it&#8217;s kept at, at max cap 55% weight. So, so, and, and I mean the, the, the same with the yCRV and the same with the USDC pools.</p>
+
+
+
+<p>Andre Cronje (00:32:06):<br>So, so it&#8217;s already people, people that know how to do these things. They&#8217;ll, they&#8217;ll, they&#8217;ll come to the discord and they&#8217;ll ask people, Hey, what&#8217;s the current strategy? And the reason they&#8217;re asking that is not because their money is in the vault, it&#8217;s because they want to go do it themselves because it&#8217;s, that&#8217;s, that&#8217;s the easier way to find out what I&#8217;m supposed to do. And, and I mean, in a, in a, in a traditional capitalist sense, I&#8217;d say that&#8217;s bad, you know, because obviously you want to protect your IP, your solution, and you want that money in there because that&#8217;s the structure. But, but I think in an open society, that&#8217;s fine. Cause, cause you&#8217;re still going to have, you&#8217;re still gonna have the lazy farmers, you know, the, the guys that don&#8217;t want to do that all the time. I mean, just, just me trying to review the different forks code gave me so much fatigue from fork fatigue that I was at a point where when a new one launched, I was just like, you know what, whatever, I&#8217;ll just do whatever you guys want.</p>
+
+
+
+<p>Andre Cronje (00:33:05):<br>I&#8217;m not even gonna look at this anymore. And I think, I think a lot of people we&#8217;ll sort of get to that space as well. And I mean, especially with gas feeds what they are now, you&#8217;re not at a certain point, your, your, your size of investment. It also just makes sense to live in a vault because you don&#8217;t have to worry about those exorbitant gas fees. Because just cause there&#8217;s a lot of solutions that currently don&#8217;t make sense because of that. Now, now again, these inefficiencies will disappear as we move to, to Eth2, or move to roll up solution or layer two solutions. And those things will happen over time. And maybe the market changes to the point where, you know, something like Yearn doesn&#8217;t need to exist in a year from now anymore. It just needs to exist for the problems that are presented now.</p>
+
+
+
+<p>Andre Cronje (00:33:47):<br>So, so I I&#8217;d say little bit 50 50 I mean, it&#8217;s, it&#8217;s good. So the people can use it, copy the Yearn vaults. And I do actually highly recommend it because create a competitive fee structure there, get it to the point where it&#8217;s a zero sum game and people are just, you know, having zero fee solutions. Cause I think that again, fixes capital inefficiencies. And, and that does obviously subtract value from, from my yearn solution. But I mean, I don&#8217;t see why that&#8217;s bad. If, if, if there&#8217;s more access and, and we&#8217;re, we&#8217;re, we&#8217;re getting this incredible current, you know, huge APR line down to a more reasonable place. That&#8217;s, that&#8217;s fine. I mean the, the, the same arguments, although guess it&#8217;s a little bit different. I want it to say the same argument can be made for, for backs, you know, cause we&#8217;re seeing a lot more digital banks and the barriers for banking is also emerging, but, but banks will always have sort of a regional connectivity.</p>
+
+
+
+<p>Andre Cronje (00:34:59):<br>It was a discussion of that on the forum once about, you know, creating different Yearns for different regional and or demographic segments, which also think is good. It goes like one, one of the reasons why I supported, the why I support the YFII fork is because you know, that they&#8217;re there. As they themselves say a Chinese, you know, demographic that&#8217;s, that&#8217;s China focused defi. And that for example, is a demographic that, that me as yearn would not have gotten into because you know, my, my sites don&#8217;t have translations my, my Twitter and stuff. Doesn&#8217;t talk to that crowd. I&#8217;m not on Wechat actively. So, so, so that to me is good. Even though it&#8217;s a competitor because that&#8217;s, that&#8217;s a market segment, I would have in any case not touched. So having, having people have access to it is a positive to me. And, and I guess that&#8217;s, that&#8217;s probably where, where my, my perspective will differ from, for example, a YFI token holder, because to them, they want to lock in as much as possible into, into yearn because that&#8217;s the highest, you know, ROI for them on, on their governance participation. But, but to me, the more of these solutions we have and the more inefficiencies we exploited to give more people access. I, I see that as a positive and always,</p>
+
+
+
+<p>Hasu (00:36:22):<br>Yeah. So zooming, zooming out a little bit. So I originally thought about Yearn as a sort of hedge fund or like a robo advisor. And I know in a different podcast, you call it a smart savings account, even though you weren&#8217;t quite happy with the name. I think it&#8217;s very fitting, but I think the more we talk about it, the, my, I see it as a actually a two sided marketplace for investing where, on the one side you have the LPs who provide capita. And on the other side, you have strategy providers who provide the extra that investment strategies. So do you agree with this framing?</p>
+
+
+
+<p>Andre Cronje (00:37:03):<br>Hundred percent! So, so, so the way I&#8217;ve been, I&#8217;ve been mentioning that in some of my different talks is, you know, there&#8217;s, there&#8217;s, there&#8217;s the LP who I just want to provide DAI and get my base DAI returns, I don&#8217;t really care what you do with that. And then on the other hand, you have the strategist, which, which is technically, you know, It&#8217;s a it&#8217;s, it&#8217;s, it&#8217;s a capital deployer, it&#8217;s a fund. So like what, what I almost want to see one day which I think will be pretty cool is when, is when there&#8217;s so much capital that, that the strategy writers can actually go to a protocol and, you know broker a better deal. So we will provide this capital, but you need to give us, you know, this rebate or whatever. And I think when we get to that point, then, then it becomes really sexy because then, then the, the power of the capital in itself has weight.</p>
+
+
+
+<p>Andre Cronje (00:37:58):<br>And, and, and this is I&#8217;m sorry to sidetrack here a little bit, but, but this is something that I saw with the delegated faults, where, you know, as, as, as individuals and using the LINK vault, as an example, as individuals, a lot of people do take their length. They put it in Aave, they, they borrow USDT and they go put that in curve and they outperform the, the interest that they are paying and they take that difference and they go buy more LINK, and then they put that back into Aave and they keep doing that process. And, and as an individual let&#8217;s, let&#8217;s say a hundred people are doing it that that helps, but it happens at different times at different points in the markets. And now someone skips it, maybe in another one, doesn&#8217;t do it. But when you pool all of this and the vault starts doing it on a, on a consistent basis, you know, it&#8217;s creating this constant by pressure on the side as well.</p>
+
+
+
+<p>Andre Cronje (00:38:50):<br>And, and I like to think of the, the vaults sort of as, as their own whales that have their own weight in this ecosystem. And I think we&#8217;ve, we&#8217;ve, we&#8217;ve seen what they can do in some circumstances. So, so, so definitely, I think the current strategy developers, you know, are, are, are just dudes like me, who are just see, Hey, here&#8217;s a cool way to make a little bit of extra per hour. So let&#8217;s do the strategy. But I think the ones in three months, or six months from now are going to be fairly, fairly sophisticated capital deployers that, that know how to leverage that to their advantage. Because, you know, there&#8217;s if there is, for example, an incentive system in, and of, it makes a lot of sense, you know, add that incentive referral and then deposit all of the funds because your, your, your net benefit is going to be higher than doing it individually across a bunch of different markets. So long story short. Yeah. I agree. A hundred percent with that perspective, you mentioned</p>
+
+
+
+<p>Hasu (00:39:48):<br>One actual interesting thing that, you know, what you just said made me think about is there&#8217;s been kind of this rebirth, I think, in crypto of memetic trading cause a normal finance, I think memetic trading sort of died in the two thousands. You know, when I think of memetic trading there, I think of like activist investing and, you know, some guy going on TV and being like X as a scam. And you know, I, I, there&#8217;s an actual interesting thing here where the weight vaults themselves become the memes that trade they&#8217;re, if they&#8217;re they&#8217;re a whale, they kind of are the memetic trade. So, you know, in that sense, do you ever see kind of vaults having memes as lives of their own in the sense that like vault creators or strategy developers develop a whole meme ecosystem around a certain type of strategy and everyone just follows, it becomes a momentum trade more than a sort of raw trade</p>
+
+
+
+<p>Andre Cronje (00:40:45):<br>Like, like almost self fulfilling prophecies with capital deployment. It, I mean, it would be awesome. I wouldn&#8217;t mind, but, but for it&#8217;s it&#8217;s I, I, I don&#8217;t. Okay. So, so, so, so a good example, right, is, is the yCRV vault that started farming YFII. And, and a lot of people attribute, like YFII&#8217;s price decline to, to the vault that&#8217;s constantly, you know, farming and selling and farming and selling. And that creates a lot of I&#8217;ve, I&#8217;ve started calling them parasitic vaults because they just, you know, leach off of these other governance tokens for, for their own best case. Like it&#8217;s, it&#8217;s, I&#8217;m, I&#8217;m, I&#8217;m really actually unhappy with it, but at the same time, it was very interesting to see, but, but I, I traced all of the sell events. And now, while that obviously did make the order book thinner, it was not the thing that kept driving the price down that I saw from, from a lot of the other farmers that were in that ecosystem.</p>
+
+
+
+<p>Andre Cronje (00:41:49):<br>But everyone enjoyed the narrative of this vault being this parasite and then feeding off of these other thing. And then, and then a lot of people in, in like discord and telegram, I saw a lot of people start saying, you know, you might as well just sell because the vault is farming it in any case. So there&#8217;s no point in holding it. So, so it induced this idea that if the vault is farming you, you&#8217;re going to decline. So might as well not try. And then everyone else, you know, sell, and that actually creates that prophecy in itself. So, so I&#8217;m, I&#8217;m, I&#8217;m tempted to say that that&#8217;s already, I&#8217;m already observing that. I I&#8217;d like to see with the, with the delegated vaults, the more positive side where, you know, they&#8217;re constantly buying. So that means on for people that are buying, I definitely prefer the positive narrative over the negative narratives, but, but yeah, I think so.</p>
+
+
+
+<p>Andre Cronje (00:42:39):<br>I mean, I know a lot of, I know a lot of on chain traders that, you know, they, they trade based on what they see the whales they do follow. So if they see a whale is in a position and then that will begin to exit that position, they exist that position because they followed that pattern behavior. And I think with the, with the yVaults, if, if they play out well that that concept will be, will be super imposed almost, you know, it&#8217;d be because it&#8217;s happening on a grander scale. Cause now taking the yCRV vault as an example, you know, it&#8217;s not, it&#8217;s not one whale you&#8217;re following with $2 million. It&#8217;s, it&#8217;s this vault that has 30 million sitting in it at one point 40. So I, I think due to the open nature of what they are doing I can definitely see a culture like that form around it. But again, that&#8217;s, that&#8217;s, that&#8217;s one of those, those fascinating side effects that like, like so much has already happened, that I could not predict them in any kind of design ideas. So, so I actually think that&#8217;ll be really cool.</p>
+
+
+
+<p>Hasu (00:43:49):<br>Cool. And in some sense, you know, maybe, maybe this might be a [?] comparison, but do you kind of, you know, my first impression was sort of Yearn was your V2 once you had vaults was really, it was really like Numarai for yield farming. So I think one of the things that, you know, old school crypto investors and people thought was that this notion of kind of memetic slash crowdsource trading would be would really work in the normal markets. But so far I would say it&#8217;s been pretty conclusively, pretty bad. It, whereas I pointed out the yVaults have done quite a good job of this kind of crowdsource trading model, even in one month or, you know, I don&#8217;t know for you, it must feel like it&#8217;s been like a year since. So, so do you see kind of on chain trading as the, you know, what are, what are kind of the advantages for on chain trading that make it so much better for these kinds of crowdsource experiments? Because it does seem, you know, it&#8217;s only been a short amount of time, but I would say it seems like there&#8217;s just such a large advantage and it seems like it&#8217;s working a lot better than it does in the normal market. So maybe do you have any kind of color as to why that happens? Like how the community, why the communities are so much more vibrant? Like w you know, what&#8217;s this, like, what&#8217;s your gut feeling for the secret sauce?</p>
+
+
+
+<p>Andre Cronje (00:45:25):<br>I think it&#8217;s a combination and, and like you said, gut feeling, this is a hundred percent gut feeling. I have no supporting data, but It&#8217;s been one month of craziness, so let&#8217;s not, you know, you have to there&#8217;s no, there&#8217;s no, there&#8217;s no strong statistical inference. Absolutely zero. The, the, the only thing I can comment on, you know, number one is, is the open nature of the vaults. The fact that anyone can see those strategies. And I mean, there&#8217;s, there&#8217;s, there&#8217;s been a lot of sites that have, that have come onto the stage: stats.finance/yearn, feel-the-yearn, all community built and, and all of them have a singular job of, of seeing what the vaults are currently doing. So, so I think that&#8217;s, that&#8217;s already sort of step one. So versus, you know, in sort of traditional trading markets or, or even if we take it off chain and we, and we just look at the off chain markets it&#8217;s a lot more closed loop. So you, you don&#8217;t, you don&#8217;t necessarily see what that big trader in finance is doing because you can&#8217;t really monitor it as closely.</p>
+
+
+
+<p>Andre Cronje (00:46:35):<br>So step one, I think is, is this open nature of the vaults and the strategies themselves, and then thing number two is, is I think the, the access to information is, is a lot easier slash spreads a lot faster. Now, now, again, in traditional finance, you know, there&#8217;s, there&#8217;s a lot of structures to prevent people from discussing with competitors or, or different groups or, or, or, you know, something that&#8217;s not your LPs maybe, but, but in, in, in, in crypto because of the, the open nature of a theory that that information gets disseminated so quickly. So, so, so what I, what I like to do is I like to watch how long it normally takes from me deploying a strategy on chain, not, not even hooking it up. So, so this is me a strategy for myself that I want to play with because I normally deploy them on Eth and, then play with them for a week or so before I turn them into an official strategy.</p>
+
+
+
+<p>Andre Cronje (00:47:38):<br>And, and as soon as I do that, how long until I see people talking about that strategy on different discords or different telegrams, or, or them start discussing it, or, or dissecting it to try and see why it might be better than the current strategy. And, and on average, that&#8217;s within a few hours, you know, where, where if I go back to my traditional banking and finance days, that&#8217;s, that&#8217;s not something that happens. You, you didn&#8217;t have access to the other guy&#8217;s playbook. And even if you did, you, you didn&#8217;t share that information. So, so I I&#8217;d say those two qualities are kind of the self fulfilling prophecies, where, where it&#8217;s gotten to the point where, where if a vault switches through the strategy, people go, Oh, okay. That must be the better strategy. Let&#8217;s, let&#8217;s follow along. So I, if I had to wager a guess, I&#8217;d say, I think those two factors largely play in it. But you know, as you said, it&#8217;s, it&#8217;s been live for a month and right now there&#8217;s a lot of excitement. And right now there&#8217;s a lot of attention that could very well be a very different picture, you know, six months from now. So, so again, fascinated to see how this evolves, but, but I think there&#8217;s two, there&#8217;s two qualities probably have a large impact on why we&#8217;re seeing the, the, the sort of the mythic nature around it.</p>
+
+
+
+<p>Hasu (00:48:58):<br>Yeah. Yeah. I think I fully agree with it. And I think that there is a large, very large demand in this space to just like one button allocate capital and put it to work, but, but in a way that is that the user can understand and that they can trust. And I think that&#8217;s, that&#8217;s where the big strength of these on chain strategies comes in versus the more discretionary strategies that may be more profitable and a lot harder to like front run and such, but they also demand a lot more trust in the capital locator. So going back to this two sided market place for investing, I would be curious, so what is my, how do you incentivize people to provide strategies in the future?</p>
+
+
+
+<p>Andre Cronje (00:49:46):<br>Gotcha. So, so right now the, the strategy creator gets a percentage of the performance fee. So what I mean by that is, let&#8217;s say, let&#8217;s say the let&#8217;s take the YFII vaults. The strategy there is to is to stake, to form the YFII governance tokens, then to swap that back to, to the to the yCRV LP token of that 0.5% is currently taken as a performance fee on every time that liquidation event occurs, the others go back to the LP. And then of that 0.5, the strategy creator you as let&#8217;s say, 50% or whatever. So, so for now it&#8217;s zero because I&#8217;m the strategy creator. And I don&#8217;t really care about the output. But that&#8217;s the, that&#8217;s the design model to incentivize strategy creators. So as a strategy creator, I want my strategy to be the best, and I want it to be the one used because it has, you know, net recurring benefits for me.</p>
+
+
+
+<p>Andre Cronje (00:50:50):<br>But that&#8217;s, that&#8217;s, that&#8217;s current design. How it, how it ends up looking, I think might be very different. Maybe it&#8217;s a, maybe it&#8217;s a inflation model where, you know, tokens are assigned to strategy creators when, when it comes to sort of the, the incentivization slash fee structure modules, I&#8217;m largely throwing that out up into the air for, for the governance participates to, to discuss and vote on, because I don&#8217;t consider myself an expert in that area. And then to see, but yeah, so, so currently as we speak now it&#8217;s a percentage of performance fee what it ends up being, who knows.</p>
+
+
+
+<p>Hasu (00:51:29):<br>Yeah. So in a marketplace for an, an open marketplace for investment strategies I think we have pretty substantial evidence that the, the lowest fee strategies are attracting the most capital. We see this in the passive investment space and traditional finance where the, the ETF has one basically has the dominant investment vehicle and among ETFs, the ones that have the lowest total expense ratio, they dominate the market. So given that strategies basically pay some amount of fees to the governors, the, the, the YFI holders and also pay some amount of fees to the actual strategy provider. Do you think that the end game is going to be that basically any strategy, any, or like the strategy providers and the YFI holders, they become one because if someone already holds YFI, then they can, and they can benefit from already getting the fees that way. Do you think that that they can offer a more competitive product in the market, cheaper?</p>
+
+
+
+<p>Andre Cronje (00:52:46):<br>I mean, look where wherever you cut down fees you&#8217;re going to be better off. So, so, so my rule right now with these vaults is I just need to be outperforming any competitor. And that difference that&#8217;s free game to governance. Like, like maybe because I&#8217;m, I&#8217;m fine with putting my money in there, on, on that basis. So, you know, I&#8217;m not, it doesn&#8217;t have to be earning 22%. It&#8217;s fine if it&#8217;s earning 20%, because it means I don&#8217;t have to spend all that time researching and deciding where to go and, you know, swapping it myself and gas and et cetera, et cetera. But because there&#8217;s, there&#8217;s a lot of hidden expenses that actually that&#8217;s different topic, but let me quickly just touch on too, that there&#8217;s, there&#8217;s a lot of hidden expenses that people don&#8217;t calculate into their yield farm, you know, so, so it&#8217;s, it&#8217;s, it&#8217;s always an, and I&#8217;m guilty of this myself, and that&#8217;s why it&#8217;s a metric I want to get rid of, but, but this idea of, of daily APR daily growth, annualized, and then you say this is APR is actually a gross misrepresentation.</p>
+
+
+
+<p>Andre Cronje (00:53:47):<br>Cause, cause even if you&#8217;re talking about let&#8217;s say a hundred percent APR currently, this is what you annualized from the last 24 hours change. So, so let&#8217;s say you have $10,000. You want to invest. Now. Now you might be excited to, to swap from your current strategy to there because so much higher rates currently. But you know, if your money was there in the last 24 hours, on 10,000, you would have had 27 bucks. And that&#8217;s very quickly offset by the gas fees. You&#8217;re just paid to do that migration from the withdrawal on the one side and the deposit on the other side. So, so, so that, that&#8217;s more back on the original topic of, you know, what, what is my net result of growth minus fees, minus research minus time. But to answer the question in a straightforward as possible, I have always considered it to be a little bit of a zero sum game because with the open access of information and the quick dissemination offset information, it is possible to have competitors that are just going to be zero.</p>
+
+
+
+<p>Andre Cronje (00:54:55):<br>It&#8217;s also possible. And, and I think this is why, you know, we have we have competitive pricing rules and a bunch of different things like this and traditional markets, because it&#8217;s also possible that a bunch of these yield aggregators decide they&#8217;re all gonna charge 5% and that&#8217;s the next standard. And that&#8217;s also on the bad side of the spectrum. The, the honest answer is I don&#8217;t have a clue. We&#8217;ll, we&#8217;ll see how it evolves. I think, I think there is more than enough capital available and different appetites that there&#8217;s, there&#8217;s a lot of room for a lot of different solutions and a lot of different pricing models.</p>
+
+
+
+<p>Tarun Chitra (00:55:36):<br>One, one quick comment is a, you know, I know there&#8217;s this campaign, not just from you, but for many people to to, to get rid of APR, but the normal markets have not even still moved to full market cap weighted indexes, they&#8217;re still [?] So it might take forever.</p>
+
+
+
+<p>Andre Cronje (00:55:59):<br>Yeah. Look, I actually tweeted it earlier today that, that, you know, the, the new daily APR that&#8217;s, that&#8217;s the, that&#8217;s the circulating supply via versus fully diluted market cap argument. I mean, you, it&#8217;s, it&#8217;s, it&#8217;s a statement that doesn&#8217;t necessarily mean anything and you can, you can use that information. I&#8217;m just, I&#8217;m just worried about the impression it creates for the uninformed user, because I&#8217;m like, like, like when I was doing this back in, back in early year, like, like Jan Feb March, I, I felt a lot more confident that the people putting their money into these systems had a lot more information and knowledge to how the systems were working. And, and I think it was a crowd that wanted a little bit more responsibility, you know, like, like when, when, when they put in there their a hundred dollars, they want to know exactly where is that hundred dollars.</p>
+
+
+
+<p>Andre Cronje (00:56:58):<br>And at any given point of time, I want to go see where is that hundred dollars. And, and these last few months have filled me with so much fear because the, the amount of capital going into the systems and the speed at which they&#8217;re going into these systems clearly tells me that, that, that sort of, that wants to be informed has, has completely flown out of the window. And then right now people are just yellowing into whatever they see as the highest APR, right, without actually considering what their net result is, you know, minus gas, minus opportunity costs and what that is in aggregate. Cause you go, if you go look on the Yearn V1 vault, you you&#8217;ll see, they report their APR as, as realized, you know, so if you had to put in $1 and day one, how much percentage growth has there been till now?</p>
+
+
+
+<p>Andre Cronje (00:57:49):<br>And that&#8217;s often not a sexy number. You know, it might be 8%, but, but now in a, in a, in a given block, the borrowing on sUSD can spike to the point where it&#8217;s at 64%. And then, then I, and I, I did fall victim to this early, when I started, but I&#8217;m vehemently avoiding it currently. Then, then it is fun to, to jump on Twitter and report that 65% because that&#8217;s cool. But at the same time, now someone moves their funds expecting 65% consistently. And, you know, just because it was 65 for a block and the rest of the time it was North 0.1, isn&#8217;t, isn&#8217;t going to get you what you think you&#8217;re getting. And, and, and that&#8217;s where I&#8217;m worried. So, so I think it was fine reporting it six months ago because the capital flowing in was informed capital.</p>
+
+
+
+<p>Andre Cronje (00:58:40):<br>And I mean, I, I don&#8217;t say this with any disrespect, but, but I just feel like a lot of the capital that&#8217;s being deployed now is, is not informed capital. I, yeah, I I&#8217;m, I&#8217;m just worried about that kind of stuff. And, and the more I&#8217;m seeing the inflows, the more I&#8217;m worried about how we are representing this information to the outside world. But at the same time, I also see when I tweet about something like this, I get zero engagement, but when I tweet 170% APR, then, you know, it&#8217;s shared in like 4,000 times. So, so, so clearly the crowds are speaking and they&#8217;ve, they&#8217;ve made their decision. I&#8217;m, I&#8217;m noticing we&#8217;re back. We&#8217;re back in that, in that market space where we&#8217;re now, when, when you point out that, Hey, there might be a riskier or, Hey, be careful, you&#8217;re you, you get attacked and flooded versus, you know, six months ago when you pointed that out, it was shared to the extent that everyone knew.</p>
+
+
+
+<p>Andre Cronje (00:59:39):<br>And, and I mean, I show that even happened with, with the article Hasu did, where, where, you know, I saw people attacking him for it. And I was like, it&#8217;s, it&#8217;s, it&#8217;s important that the stuff gets shared. Like, I don&#8217;t know. Anyway, I posted it a few days ago as well, where, you know, I, I told people that they shouldn&#8217;t get attached to these numbers cause there&#8217;s so much emotional attachment to these numbers. And, and that, that in itself is dangerous as well. But, but sorry, guys, I&#8217;m, I&#8217;m going off on a completely different tangent now.</p>
+
+
+
+<p>Hasu (01:00:11):<br>I, yeah, I really liked that you would post the, the realized yields instead of the APR. I just think it&#8217;s super important to like train your users in the right way. And I mean, we&#8217;ve seen with stuff like impermanent loss, which I think has also caused a lot of damage property to LPs, just this name and the expectations that it creates and how misleading it is. I think that these things can, can take, take a life of their own really quickly. So it matters like getting the naming and the expectations right.</p>
+
+
+
+<p>Andre Cronje (01:00:47):<br>Yeah. And yeah, I like, like, you&#8217;re, you&#8217;re, you&#8217;re, you&#8217;re, you&#8217;re always going to have that sector of people that are not going to care about that. And, you know, they&#8217;re just going to want to report the big numbers because they want to attract as much as they can for whatever reason it is they want. But yeah, I agree. I think we need to start standardizing some of these things and reporting them in similar fashions because most, most of the, most of the aggregate sites I see now that report APR are doing daily adjusted. And I, I just don&#8217;t think that&#8217;s a good metric.</p>
+
+
+
+<p>Hasu (01:01:24):<br>This concludes the first part of our interview with Andre. In the second part, which we’ll release in a few days, we focus on governance both in Yearn and in DeFi systems in general. Governance, in my opinion, is not only the hottest topic in crypto right now with many projects releasing their governance tokens at insane valuation, but also one of the most misunderstood. I can’t wait to share that discussion with you. See you next time!</p>
+<p>The post Uncommon Core Podcast &#8211; Episode 6 transcript appeared first on Uncommon Core.</p>
+
+</div>
+
+<div class='item-footer'>
+  14:43  &bull;
+    <span class='item-time-ago-in-words'>
+       21 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section' style='width: 800px;'>
+
+
+
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     <td>
+        <div style='width: 50px'>{}</div>
+     </td><!-- icon/logo -->
+     <td style='white-space: nowrap;'>
+       <span class='feed-title'>
+         <a href='https://paywall.link/to/955f8'>Lucas Nuzzi</a>
+        (
+         <a href='https://lnpay.co/t/1e85fb/rss'>Feed</a>
+        )
+       </span>
+     </td><!-- feed title -->
+     
+     <td width='100%'>
+          <!-- note: width is a suggestion; will get smaller to fill space-->
+     </td>
+     
+   </tr>
+  </table>
+</div>
+
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <a href='https://paywall.link/t/5594b3'>Crypto’s Weirdest Cognitive Dissonance</a>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  <p>We all stood behind the money printer go brrr meme. We need to live up to what we preach.</p>♦<blockquote>Cognitive Dissonance, noun</blockquote><blockquote>the state of having inconsistent thoughts, beliefs, or attitudes, especially as relating to behavioral decisions and attitude change.</blockq
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  <p>We all stood behind the money printer go brrr meme. We need to live up to what we preach.</p>♦<blockquote>Cognitive Dissonance, noun</blockquote><blockquote>the state of having inconsistent thoughts, beliefs, or attitudes, especially as relating to behavioral decisions and attitude change.</blockquote><blockquote>(Oxford Dictionary)</blockquote><p>We all like to think that we’re changing the world with this thing called crypto; reiterating upon a flawed financial system through decentralization, disintermediation and open access for all. After all, Bitcoin was created on the brink of the worst financial calamity in almost a century, when the opacity and cronyism of 21st century finance threatened to destroy value of an unprecedented scale.</p><p>While quantitative easing and bailouts were increasing the complexity of global economies and blurring the role of central banks, Bitcoin was being legitimized as a transparent and provably fair alternative. The successful bootstrap of its network gave birth to an entire industry that converged around the ethos of decentralization and openness.</p><p>We have embraced this ethos to build Unstoppable Applications, Decentralized Finance and Personal Banks in what’s often promoted as an entirely new financial system.</p><p>However, when it comes to living up to these ideals, there are times that crypto disappoints. There are times when it seems like instead of reiterating upon the opaque financial system we’ve inherited, crypto is merely replicating it. The debates that took place this week around supply transparency perfectly encapsulated this cognitive dissonance. It started with a seemingly simple question:</p>“What is the total supply of ETH?”<p>This question broke Crypto Twitter. As many found out, the answer turns out to be “it’s complicated.”</p>♦Source: CoinDesk Research<p>CoinDesk Research compiled the responses from 5 different data providers, and, as shown above, there is no consensus. Some respondents pointed at custom scripts, blockchain explorers and third-party querying tools; all of which highlighted an undeniable issue: there is no definitive answer. And instead of an overdue discussion on why there isn’t consensus on ETH’s supply, the conversation got dismissed with a blank “it’s hard to calculate it”.</p>“It’s hard to calculate it” is a bad answer<p>We all know it’s hard to calculate it. No Ethereum client (the software required to become a node on the network) features a standardized way to verify total supply of Ether. Since Ethereum’s account-based data structure was built from the ground up, it has always been a hard exercise to make assessments on supply, especially in comparison to Bitcoin and all of its forks.</p><p>For context, Bitcoin Core (Bitcoin’s main client) features a command called gettxoutsetinfo that grants any user the ability to audit Bitcoin’s supply for themselves. This is part of Bitcoin’s RPC command line, which, put simply, is an interface that allows users to perform the equivalent to API calls on their own nodes to do things like query wallet balances, broadcast transactions, amongst other functions. Gettxoutsetinfo sums up all valid Bitcoin balances (UTXOs) visible to a user’s node at any point in time and lands on a single BTC supply figure.</p><p>Ethereum, on the other hand, has features that make this calculation process considerably more difficult on a relative basis. For example, Ethereum blocks are appended to its blockchain at a fast rate (every ~15 seconds) through so-called uncle/ommer blocks. These are blocks found roughly at the same time by different miners. Instead of selecting one or the other, the protocol “merges” them together. The reward is then split between miners based on the composition of their blocks, which complicates the tracking of ETH issuance.</p><p>Then, there are the idiosyncrasies of complex smart contracts that require data providers and blockchain explorers to adopt their own methodologies to account for who owns what, when. Then, there are rounding heuristics at the discretion of the party making the calculation. In order to deal with these idiosyncrasies, anyone trying to land on an authoritative estimate of ETH’s supply is required to make methodological decisions at their own discretion; decisions that will ultimately skew the final figure. So, yes, this is by no means an easy exercise.</p><p>However, it was odd to see people fixate on the difficulty of the calculation and fail to acknowledge that the lack of consensus on the total supply of ETH is a valid concern. It was particularly weird to see pushback coming from people whose full time job is to promote the ideals of decentralization and openness.</p><blockquote>However, it was odd to see people fixate on the difficulty of the calculation and fail to acknowledge that the lack of consensus on the total supply of ETH is a valid concern.</blockquote><blockquote>It was particularly weird to see pushback coming from people whose full time job is to promote the ideals of decentralization and openness.</blockquote><p>Perhaps all the ad hominem that tend to follow any sentence with an implicit or explicit “Bitcoin vs Ethereum” comparison in them has clouded people’s judgement. But make no mistake, this lack of consensus should be taken seriously, especially if you care about ETH. The importance of strong assurances around a cryptoasset’s supply go far beyond transparency and auditability — it’s also very much a matter of security.</p><p>Consider that Bitcoin Core is as old as this industry itself and also enjoys a large portion of its developer mindshare. Nevertheless, it still experienced a couple of inflation bugs in its history. Ethereum clients are not infallible, and without a standardized RPC routine to audit ETH’s supply, potentially catastrophic bugs become harder to find.</p><p>With this in mind, the cavalier attitude seen on crypto twitter towards the lack of consensus on supply data should come as both odd and concerning. In the interest of not making generalizations, I must acknowledge that there were in fact members of the Ethereum community that not only recognized the severity of this issue, but were also brave enough to call out the cognitive dissonance — kudos to them.</p>“No right way to calculate it” is the right answer<p>At this point, any estimate of ETH’s total supply is as good as the methodology employed. CoinMetrics has done a lot of work to abstract away any subjectivity from our total ETH supply methodology. We’ve even gone through the effort of developing a new data model to audit the supply of various cryptoassets. This model converts blockchain data into the double-entry booking format, which is particularly useful to track inflation (subscribe to our State of the Network newsletter for future updates on this).</p><p>When we applied this data model and accompanying methodology to Ether, we have found that our total ETH supply figures very closely match Etherscan’s, Ethereum’s largest blockchain explorer. This is generally good news given Etherscan’s importance to the Ethereum ecosystem. However, albeit minor, there was still a 0.00052 ETH discrepancy found by Coin Metric’s In-House-Blockchain-Indiana-Jones, Antoine Le Calvez:</p>body[data-twttr-rendered="true"] {background-color: transparent;}.twitter-tweet {margin: auto !important;}<blockquote><p>&#x200a;&mdash;&#x200a;@khannib</p></blockquote>function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}twttr.events.bind('rendered', function (event) {notifyResize();}); twttr.events.bind('resize', function (event) {notifyResize();});if (parent && parent._resizeIframe) {var maxWidth = parseInt(window.frameElement.getAttribute("width")); if ( 500  < maxWidth) {window.frameElement.setAttribute("width", "500");}}<p>We believe Etherscan made a tiny rounding error in the block referenced in the tweet, but without looking into their methodology, it is hard to say. This highlights that, without a protocol-defined methodology to calculate supply, it is very unlikely that two parties will agree on what Ether’s total supply is, at least at the decimals level. And as much as I want you to trust Coin Metric’s data (knowing the care that goes into calculating it), this should be no replacement for the ability to verify it for yourself.</p>♦As of Block Height 10648267, Ether’s supply stood at 112,155,515.65573If you care about ETH, take this criticism seriously and call your local Geth maintainer<p>The other good news is that this is an issue that can probably be fixed. Just like with AA, step number #1 is to acknowledge that there’s a problem. Step number 2 is to convince the maintainers of popular Ethereum clients, like Geth, Parity and OpenEthereum to build an RPC subroutine that converges on a single methodology to calculate total supply and issuance.</p><p>In order to truly live up to values of openness and decentralization, the equivalent to gettxoutsetinfo should be very minimum benchmark for any crypto asset. It’s a seemingly small feature, but a requirement for any objective assurances around supply. This is particularly important for more experimental cryptonetworks such as Ethereum, as an equivalent RPC would would allow ETH users to have better clarity around supply, especially in the event a bug makes ETH issuance inadvertently go brrr. It also simplifies the job of third parties by providing a protocol-level methodology we can follow.</p>♦
+
+</div>
+
+<div class='item-footer'>
+  13:16  &bull;
+    <span class='item-time-ago-in-words'>
+       23 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section' style='width: 800px;'>
+
+
+
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     <td>
+        <div style='width: 50px'>{}</div>
+     </td><!-- icon/logo -->
+     <td style='white-space: nowrap;'>
+       <span class='feed-title'>
+         <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
+        (
+         <a href='https://lnpay.co/t/967232/rss'>Feed</a>
+        )
+       </span>
+     </td><!-- feed title -->
+     
+     <td width='100%'>
+          <!-- note: width is a suggestion; will get smaller to fill space-->
+     </td>
      
    </tr>
   </table>
@@ -122,7 +597,7 @@
 <div class='item-footer'>
   01:59  &bull;
     <span class='item-time-ago-in-words'>
-       10 hours ago
+       a day ago
     </span>
 </div>
 
@@ -212,7 +687,7 @@
 <div class='item-footer'>
   19:32  &bull;
     <span class='item-time-ago-in-words'>
-       16 hours ago
+       a day ago
     </span>
 </div>
 
@@ -299,7 +774,7 @@
 <div class='item-footer'>
   14:28  &bull;
     <span class='item-time-ago-in-words'>
-       22 hours ago
+       2 days ago
     </span>
 </div>
 
@@ -389,7 +864,7 @@
 <div class='item-footer'>
   06:07  &bull;
     <span class='item-time-ago-in-words'>
-       9 days ago
+       10 days ago
     </span>
 </div>
 
@@ -479,7 +954,7 @@
 <div class='item-footer'>
   01:41  &bull;
     <span class='item-time-ago-in-words'>
-       14 days ago
+       15 days ago
     </span>
 </div>
 
@@ -569,7 +1044,7 @@
 <div class='item-footer'>
   20:34  &bull;
     <span class='item-time-ago-in-words'>
-       16 days ago
+       17 days ago
     </span>
 </div>
 
@@ -659,7 +1134,7 @@
 <div class='item-footer'>
   20:04  &bull;
     <span class='item-time-ago-in-words'>
-       18 days ago
+       19 days ago
     </span>
 </div>
 
@@ -749,7 +1224,7 @@
 <div class='item-footer'>
   04:13  &bull;
     <span class='item-time-ago-in-words'>
-       23 days ago
+       24 days ago
     </span>
 </div>
 
@@ -865,7 +1340,7 @@ The Road Ahead
 <div class='item-footer'>
   00:00  &bull;
     <span class='item-time-ago-in-words'>
-       29 days ago
+       30 days ago
     </span>
 </div>
 
@@ -2048,183 +2523,6 @@ Show More</p>
 
 <div class='item-footer'>
   01:07  &bull;
-    <span class='item-time-ago-in-words'>
-       2 months ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section' style='width: 800px;'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     <td>
-        <div style='width: 50px'>{}</div>
-     </td><!-- icon/logo -->
-     <td style='white-space: nowrap;'>
-       <span class='feed-title'>
-         <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
-        (
-         <a href='https://lnpay.co/t/967232/rss'>Feed</a>
-        )
-       </span>
-     </td><!-- feed title -->
-     
-     <td width='100%'>
-          <hr class='filler'>
-     </td><!-- filler -->
-      <td style='white-space: nowrap;'>
-       <span class='item-published'>Tuesday, 23 June 2020</span>
-      </td><!-- item published -->
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' style='width: 800px;'>
-
-<table width='100%'>
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>  
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/17e38b'>Two Spooks</a>
-        </span>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  It may or may not be true that there are no extant photographs of Johann C. Schmidt, aka Max Stirner. The ones I may know of lack the auratic power of the two penetrating character sketches Friedrich Engels did of him: the first, a remarkable, vulpine profile he drew from memory for John Henry Mackay
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  It may or may not be true that there are no extant photographs of Johann C. Schmidt, aka Max Stirner. The ones I may know of lack the auratic power of the two penetrating character sketches Friedrich Engels did of him: the first, a remarkable, vulpine profile he drew from memory for John Henry Mackay, [&#8230;]
-
-</div>
-
-<div class='item-footer'>
-  23:35  &bull;
-    <span class='item-time-ago-in-words'>
-       2 months ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section' style='width: 800px;'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     <td>
-        <div style='width: 50px'>{}</div>
-     </td><!-- icon/logo -->
-     <td style='white-space: nowrap;'>
-       <span class='feed-title'>
-         <a href='https://paywall.link/to/59881'>Beautyon</a>
-        (
-         <a href='https://lnpay.co/t/74ddb9/rss'>Feed</a>
-        )
-       </span>
-     </td><!-- feed title -->
-     
-     <td width='100%'>
-          <!-- note: width is a suggestion; will get smaller to fill space-->
-     </td>
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' style='width: 800px;'>
-
-<table width='100%'>
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>  
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/673eb1'>First of all, their website has this:</a>
-        </span>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  <p>First of all, their website has this:</p><p>&quot;We use cookies to improve your experience on our site&quot;</p><p>Which means they&#39;re not for Liberty.</p><p>Second, this tool sits on top of the existing internet as a layer. It isn&#39;t a replacement for it.</p><p>It&#39;s very unlikely that
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  <p>First of all, their website has this:</p><p>&quot;We use cookies to improve your experience on our site&quot;</p><p>Which means they&#39;re not for Liberty.</p><p>Second, this tool sits on top of the existing internet as a layer. It isn&#39;t a replacement for it.</p><p>It&#39;s very unlikely that it will take off, especially since it relies on a new exotic language that no one knows. In order to win, they must get widespread adoption of this new language (after they&#39;ve finished it) and then get developers to adopt it, and then businesses to run on it. That&#39;s a, &quot;Big Ask&quot;.</p><p>Ruby on Rails and Ruby itself are a good example of how great sounding languages and tools are cool for a while and then fade away. Rust is the latest version of this, where hobbyist developers are re-creating tools in Rust. Will it take off? Who knows?</p><p>What we can say for sure is that none of these projects help people serve the public in ways that are exponentially better than LAMP on the existing rails. Bitcoin, which is a truly novel addition to the existing tools people can use is something much more interesting precisely because it does something that wasn&#39;t possible before and it integrates with the existing tools and infrastructure without novel languages or rebuilding and replacing the entire internet.</p><p>I could be totally wrong, of course!</p>♦
-
-</div>
-
-<div class='item-footer'>
-  12:27  &bull;
     <span class='item-time-ago-in-words'>
        2 months ago
     </span>
