@@ -60,6 +60,559 @@
      </td><!-- icon/logo -->
      <td style='white-space: nowrap;'>
        <span class='feed-title'>
+         <a href='https://paywall.link/to/200a2'>Uncommon Core</a>
+        (
+         <a href='https://lnpay.co/t/d6ca92/rss'>Feed</a>
+        )
+       </span>
+     </td><!-- feed title -->
+     
+     <td width='100%'>
+          <hr class='filler'>
+     </td><!-- filler -->
+      <td style='white-space: nowrap;'>
+       <span class='item-published'>Thursday, 27 August 2020</span>
+      </td><!-- item published -->
+     
+   </tr>
+  </table>
+</div>
+
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <a href='https://uncommoncore.co/uncommon-core-podcast-episode-8-transcript/'>Uncommon Core Podcast – Episode 8 transcript</a>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  <p>Crypto&#8217;s Killer Product So Far &#8211; Intro to Perpetual Swaps with Su Zhu For today’s episode, I sat down with Su Zhu to learn all about perpetual swaps. There’s probably not a person in this space who has more authority on this topic than him. The first half of the episode serves as a gen
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  Crypto&#8217;s Killer Product So Far &#8211; Intro to Perpetual Swaps with Su Zhu
+
+
+
+<p>For today’s episode, I sat down with Su Zhu to learn all about perpetual swaps. There’s probably not a person in this space who has more authority on this topic than him. The first half of the episode serves as a general introduction to perpetual swaps, while in the second half, we explore how perpetual swaps are coming to DeFi and why they are the single biggest primitive that is still missing from the DeFi puzzle. While the episode can get pretty technical at times, we tried to follow a logical buildup, so no prior knowledge should be required. Please note that I put some links to definitions and followup reading into the show notes. Enjoy the episode.</p>
+
+
+
+<p>In this episode:</p>
+
+
+
+<ul><li>What is a perpetual swap and how does it work</li><li>The history of perp swaps and their usage outside of cryptocurrency</li><li>How the oracle problem is misunderstood</li><li>AMM and central limit order book: mapping the two approaches to perpetual swaps in DeFi</li><li>Tradeoffs between perps in CeFi and DeFi</li><li>Perpetual swaps as money legos</li><li>How DeFi perp swaps will enable a new form of stablecoin</li><li>The role of insurance funds and auto liquidation</li></ul>
+
+
+
+<p>Listen and subscribe here</p>
+
+
+
+<p>Hasu (00:00:03):<br>To start out the discussion: what is a perpetual swap, and how does it work?</p>
+
+
+
+<p>Su Zhu (00:00:10):<br>A perpetual swap is the idea that the buyer is buying synthetic exposure to an asset and the seller is selling or shorting exposure to that same asset. So the word perpetual there has an important meaning, which is that it has no expiration. On like a futures contract where it&#8217;ll have a predetermined date at which the derivative no longer exists and gets settled. A perpetual swap seeks to maintain the exposure for the buyer and seller perpetually. And so that, that is in a gist what a perpetual swap is. There&#8217;s a lot of different ways that it can be traded and there&#8217;s a lot of different ways that it&#8217;s structured, but fundamentally it&#8217;s a way for participants in a market to come together and exchange risk.</p>
+
+
+
+<p>Hasu (00:01:12):<br>Yeah. So maybe just slightly rephrase what you said. So for regular futures, the price of a contract tends to gradually converge with the spot price or the index price as expiry comes closer. Right. but this is not the case in a perpetual swap because it never settles. So can you explain maybe how, how it is done in perpetual swaps, how the perpetual contract can successfully track the underlying index price?</p>
+
+
+
+<p>Su Zhu (00:01:47):<br>Sure. So the arbitrage mechanism of the future is as you alluded to, well, well defined, right? Because the contract will essentially define the index at which the derivative will necessarily settle on its expiry date. So if it&#8217;s a cash settled future that settles on, let&#8217;s say the TWAP (en.wikipedia.org/wiki/Time-weighted_average_price) of four spot exchanges, then on that day, everyone knows that that will be the price that these derivatives end at. So from there, people can buy the spot, sell the future, and vice versa, to replicate the risk that they&#8217;re getting. With the perpetual swap, because there&#8217;s no expiry, there has to be some other incentive for buyers and sellers to meet the natural demand of the market. So the market generally wants to be long. Then you expect perpetual swaps to need to incentivize sellers to come in in order for that market to happen.</p>
+
+
+
+<p>Su Zhu (00:02:53):<br>So there&#8217;s a few ways that perpetual swaps can do this. The popular way in cryptocurrency is to have a scheduled funding payment between buyers and sellers. So in that example, if people are bullish, then swaps will be generally paying positive funding payments, whether every eight hours such as in the case of BitMEX, OKEX, Huobi, or every hour in the case of FTX [inaudible] futures, and then continuously in the case of Deribit, but just in general, the idea that the buyers are going to have to pay the sellers some amount of money, every period in order for the seller to stay in that position. So that creates an arbitrage opportunity from the seller, right? Cause the seller can come in and short these perpetuals, buy the spot, and now they have essentially a crypto dollar, right? They&#8217;ve, they&#8217;ve regenerated the exposure of $1 and they&#8217;re collecting interests while doing so. And if they clicked an interest rate, that&#8217;s attractive to them, then they&#8217;re happy to be in that position. And if they&#8217;re not, then they&#8217;ll unwind it. So that in a gistt is kind of how perpetual swaps became very popular because you could buy or sell a perpetual swap and know that your exposure never disappears.</p>
+
+
+
+<p>Hasu (00:04:18):<br>Right? So you think you&#8217;re talking for example, about the case where I deposit BTC on a derivatives exchange. So I&#8217;m long my collateral. And then I sell the perpetual swap contract for the same position size as my collateral and thereby neutralize my long exposure and create a crypto dollar. Correct?</p>
+
+
+
+<p>Su Zhu (00:04:41):<br>Yeah, exactly.</p>
+
+
+
+<p>Hasu (00:04:43):<br>Okay. So for the funding rates, so a mental model that I, that has worked well for me was to not actually see these as perpetual, but just imagine that, so let&#8217;s say in the example where you have a funding rate every eight hours to just see these as distinct futures contracts that settle every eight hours, and then you&#8217;re automatically rolled over into, into a new future. Do you think that&#8217;s a solid model?</p>
+
+
+
+<p>Su Zhu (00:05:20):<br>It&#8217;s not quite, it&#8217;s not quite the model I would use. I kind of, I get what you&#8217;re trying to get at, but I think a main difference is that in the case of the cash settled future, you know, that the swap will converge to the index price. Whereas in the case of a perpetual, you don&#8217;t know that the raw price will converge to the index. In fact, when the market is very bullish or very bearish, that price will not converge, but you&#8217;ll get paid something in lieu of convergance. So in these formulas they&#8217;ve been generally made quite aggressively to pay arbitragers because they want to protect the integrity of their market. And the trust that people have, that it will track the index, that it will track the underlying. So these payments are large enough that they seem like they&#8217;ve essentially paid for the difference between the swap price, the observed swap price and the observed index price. So I think you&#8217;re right, but I think there&#8217;s some nuance there where it doesn&#8217;t have to converge.</p>
+
+
+
+<p>Hasu (00:06:25):<br>Gotcha. Gotcha. So there&#8217;s this persistent myth that I also, I also subscribed to for some time before, like learning what&#8217;s actually true that perpetual swap contracts were invented in the cryptocurrency space, but you actually taught me that it&#8217;s not true. So gave maybe give us a quick overview about the history of the perpetual swap contract.</p>
+
+
+
+<p>Su Zhu (00:06:59):<br>Sure. So, I mean, in general, it depends on how specific we want to be on what is perpetual swap, right? Some people might say, well, perpetual swap in its modern sense was invented in crypto. Some people might say, well, it has a predecessor, or it has a ancestor which is the idea of an index swap or equity link swap. Basically the idea that two counterparties meet in a market and decide to sign up paperwork to exchange cash flows, right? That that&#8217;s pretty much all the perpetual swap is. So if you take that sort of philosophical view of what a perpetual swap is then obviously they&#8217;ve been around for probably 30, 40, 50 years, right? Because it&#8217;s just the beginning of the modern financial markets. There&#8217;s been a lot of demand for sophisticated counterparties to make their risk exposure synthetic rather than actual. And these reasons range from tax efficiency to capital efficiency, to more broad offshoring of risk. There&#8217;s a whole host of reasons why participants wanted this in the OTC markets. But the reality became that the vast majority of, for instance, equity exposure of European funds into Asian equities is not via owning Asian stocks. It&#8217;s via owning equity swaps. So these swaps will be collecting and receiving payments based on some criteria. And the buyer gets exposure to the index. The seller gets exposure to the negative index. So the sellers are typically banks, right? Investment banks they&#8217;ll sell these swaps and then they&#8217;ll buy the underlying markets.</p>
+
+
+
+<p>Su Zhu (00:08:52):<br>And the most common benchmark is the MSCI, the Morgan Stanley composite index. So there&#8217;s trillions of dollars in these indices. And these swaps are essentially perpetual swaps because there&#8217;s a funding payment, it&#8217;s benchmarked to LIBOR plus minus something. And there&#8217;s also an index. And so this concept is not new. This concept is not new, right? The main reason participants like this is because there&#8217;s no need to roll it, right. There&#8217;s simply a payment. So the problem with the problem with the futures is that participants need to constantly, re-meet in the market and roll their position. And that, that creates a lot of uncertainty because what if that market shifts very quickly, what if that role is not available? And so as a result, you tended to see in the retail market as well a key predecessor would be the contract for difference or the CFD.</p>
+
+
+
+<p>Su Zhu (00:10:00):<br>And this is a very popular market in the UK and Australia, pretty much in markets where CFDs also get preferential tax treatment because they&#8217;re considered bets and gambling is sort of lionized in the Anglo sphere, basically it&#8217;s not taxed, right? So, you know, the idea being that if you&#8217;re a sports bettor, shouldn&#8217;t be taxed on winnings cause you&#8217;re negative EV anyways. And so, but, but then as a result, you know, when you invest in stocks, you do get taxed because governments tend to think that when people make money from investing, they should pay some of that back. So it&#8217;s kind of an arbitrage because now if you say, well, I&#8217;m not investing, I&#8217;m betting, but the number will go up and they say, okay, well, yeah. Then what do I do? So as a result, see if these very popular in these countries and same concept there there&#8217;s an overnight funding rate.</p>
+
+
+
+<p>Su Zhu (00:10:54):<br>You know, one key difference is that usually these are not peer to peer, but these are peer to dealer, customer to dealer. So the dealer sets the funding rates. The dealer takes a bit of a spread on that funding rate and that&#8217;s not an, it&#8217;s not a peer to peer market. And the Japanese market, perpetual swaps are also very popular. Also known as CFDs in that market. Because again, there&#8217;s no expiry and you could consider the entire FX market to be a perpetual swap market as well, because there is a funding payments exchanged every day, they&#8217;re called &#8220;tomorrow next swaps&#8221; or &#8220;tom next&#8221; swaps basically the payment that you receive or pay to be long, let&#8217;s say Dollar versus Yen, Euro versusUSD. These are all payments that are analogous to funding rate payments. And if you&#8217;re in the interbank market, then it is almost like a peer to peer market, right?</p>
+
+
+
+<p>Su Zhu (00:11:52):<br>Where there&#8217;s no bid-ask, you can exchange it at the same price you can buy and sell at the same price and your exposures are carried forward through time. So, so I think that that being the backdrop, I think the explosion of crypto perpetual swaps was made possible by a few things happening at the same time. I think one was that spot markets became close enough in line that you could start constructing indices of them to benchmark a swap against because that wasn&#8217;t always the case, right. There used to be 5-10% arbitrages between spot exchanges. And it&#8217;d be very difficult to construct such an index that you&#8217;d want to benchmark to. I think when BitMEX launched their swap, they had to change their index radically several times, right? Like first they had Bitfinex in and then they took it out. Now they have OKCoin and they took it out and then they made it just Coinbase and they made it…at that time. It was very hard to figure out what that should be.</p>
+
+
+
+<p>Su Zhu (00:12:53):<br>I think also perpetual swaps became a strictly better product than what at that time was the weekly futures on OKEX. So before, before perpetual swaps, everyone traded the weekly OKCoin or OKEX futures and as well as their quarterlies. But the problem with the weekly is that retail clients often forget to roll their positions. So if you don&#8217;t, if you don&#8217;t remember it, so let&#8217;s say sell your expiry one week and buy the next one week. Then on Friday evening, you&#8217;ll you&#8217;ll log in and you realize that you&#8217;re not long anymore. You&#8217;ve already gone to expire. So quite often then hen the market maker would actually analyze this and then say, Hey, you know, 30% of open interest is not getting rolled.</p>
+
+
+
+<p>Su Zhu (00:13:39):<br>You know what, all the price action will often be that it, you know, it gets dumped into the expiry print. So anyone who doesn&#8217;t roll they&#8217;re there. And if you&#8217;re long, let&#8217;s say you&#8217;re synthetically saying that you&#8217;re going to sell your position at any price. Right. Because you didn&#8217;t roll.</p>
+
+
+
+<p>Hasu (00:13:53):<br>You&#8217;re a forced buyer or a forced seller.</p>
+
+
+
+<p>Su Zhu (00:13:53):<br>Yeah. And so you&#8217;re yeah, you&#8217;re basically when you don&#8217;t roll, it&#8217;s not that you&#8217;re doing nothing. You&#8217;re, you&#8217;re giving the market a market order. That that&#8217;s what you&#8217;re saying. So you see basically the market tank into the expiry print and then moon right afterward. This is a very common pattern at that time because market makers realized that this is how you make a ton of money. Right. You slam it down and in theory they should be defending spot, right. Because if you&#8217;re letting your long expire, you&#8217;re basically if you&#8217;re market neutral, you&#8217;re presuming, you&#8217;re saying the market that you&#8217;re going to now bid spot to replicate your exposure back to get your long back. Right. So if you don&#8217;t defend spot, then the guidance has the opposite position to you. He&#8217;s going to essentially smash the print in his favor against your position. Right. He basically selling your position as low as possible. So that you&#8217;re, you are synthetically selling that print.</p>
+
+
+
+<p>Hasu (00:14:51):<br>So a lot of people in crypto talk about trading around these expirys of I guess weekly or monthly futures on CME. So is that basically what you described?</p>
+
+
+
+<p>Su Zhu (00:15:10):<br>Yeah. So it&#8217;s similar. I mean, the CME print is definitely very important. I think, I think not just psychologically, but also from a flows point of view, just in terms of, if people don&#8217;t people don&#8217;t roll a futures, right. And sometimes people don&#8217;t, what they&#8217;re saying is that they don&#8217;t want to have it anymore, that they don&#8217;t want to be long anymore, or they don&#8217;t wanna be short anymore. And that that&#8217;s treated as a, as a market order hits the market. So sometimes this can be very big. Sometimes it can be very small and sometimes people can see this and then anticipate it. So there&#8217;s definitely game theory to it. You can&#8217;t just say &#8220;because of this, then that&#8221;, the market is dynamic. Right. But there&#8217;s a lot of important things happening on that print, essentially. There&#8217;s a lot of risk being exchanged or not exchanged based on that print.</p>
+
+
+
+<p>Su Zhu (00:16:28):<br>Sure. And just to give an example of how it&#8217;s hard to interpret sometimes, right? Let&#8217;s say someone is long lot of futures on CME, and then they seem to be expiring them so that they didn&#8217;t roll them to the next month. But they could be now buying spot during the TWAP window instead as a passive client. So that&#8217;s actually what some of these guys like Paul Tudor Jones and, and some other macro fund managers supposedly did, which was that they wanted to get in fast because they thought Bitcoin was gonna moon, so they first bought CME futures because that&#8217;s the easiest way to access these. And then later they said, well, I want to actually get the Bitcoin spot. How do I get that? It&#8217;s a couple of choices, right? One is you could find someone to trade the future versus spot with you because you already let&#8217;s say long, I don&#8217;t know, $200 million worth of Bitcoin through futures.</p>
+
+
+
+<p>Su Zhu (00:17:19):<br>It&#8217;s a bit annoying to transfer that into spot, right? Well, it&#8217;s not actually that annoying because all you have to do is let your futures expire. And then as in it, in the expiry window, in the, you know, the, the expiry definition, you then buy spot Bitcoin every minute to get your exposure back. And you have no slippage, right? Because the price that you buy spot at is the same as the price that your futures are defined to expire at. So, so in a way that that mechanism is very powerful. And so when someone expires their longs, it could mean that they&#8217;re not, they don&#8217;t want to be anymore, or it could mean that they&#8217;re going to switch it into spot, which is also very bullish. So just to give an example.</p>
+
+
+
+<p>Hasu (00:18:03):<br>Gotcha. So do you think that the perpetual swap contract is strictly better than monthly or weekly futures and as a result, is it going to completely crowd out that form of contract?</p>
+
+
+
+<p>Su Zhu (00:18:17):<br>I think it&#8217;s not strictly better. I think it&#8217;s definitely an improvement versus weekly futures for retail. I think it&#8217;s a very good retail product. I think for institutional players or for a more sophisticated players, they also need month end futures, but they also need quarterly futures. Good example would be to hedge options flows, right? So options typically concentrate around the month end and the quarterlies. And if you&#8217;re an options market maker, you definitely need to trade a future that is in line with your options expiry. Because if you just, if you, if you just trade perpetual, swap against it, you&#8217;re going to be in big trouble. If the funding changes is a lot, because you have to price in how much swap funding you expect to pay or receive over the interval of your options life. Right. And so, so that, that process of pricing it in, you&#8217;re going to want to see how the actual month end future, would it be traded, to price it.</p>
+
+
+
+<p>Su Zhu (00:19:19):<br>So, so that that&#8217;s one. And then two is that if you&#8217;re, let&#8217;s say a miner. You&#8217;re, let&#8217;s say a, a, a spread trader. You, you generally want to lock in the duration of your positions in line with your, your actual cash flows, right? So let&#8217;s say, you&#8217;re going to, you think you&#8217;re going to mind this much BTC over three months, you probably just want to sell a future and be done with it. You don&#8217;t want to sell a swap and then have to deal with checking. If the funding is in line with what you expect, you know, you kinda just want to do the kind of just want to do the simplest trade. So there is always going to be a lot of demand for quarterlies. The quarterly open interest on the Chinese exchanges is very high. On Huobi and OKEX. Actually, if you sum those up, it&#8217;s usually higher than BitMEX swap. And, and the, even after introducing swaps, the quarterly openings is still much higher than perpetual swaps on those exchanges. So there, there is clear longterm demand for trading quarterlies. I think the weeklies have been generally dominated by swaps and I, and I heard some rumors that they even want to delist their weeklies cause they just thought it&#8217;s a bifurcating liquidity and there&#8217;s no point to them anymore.</p>
+
+
+
+<p>Hasu (00:20:36):<br>Yeah. Okay. Yeah. That makes total sense. So whereas the feature of the perpetual swap is basically that you&#8217;re automatically rolled over or that it never expires a feature of the weekly or monthly is that it does expire when you want it to. And so in both cases, you, you, you save mentol and financial transaction costs, it only depends on what you actually, what, okay. Interesting. So I want to go, go back to one thing you said earlier about the early days of BitMEX and how they had to reconstruct their index multiple times and so on. So a lot of people say that in in blockchains and DeFi in particular, the oracle problem is an intractable problem that can never be solved, but isn&#8217;t, isn&#8217;t the problem of index construction exactly the same as the oracle problem?</p>
+
+
+
+<p>Su Zhu (00:21:40):<br>It&#8217;s exactly the same. And so I think to say the Oracle problem can&#8217;t be solved as clearly is clearly I think a very, either theoretical statement or a very ignorant statement, because I think the oracle problem is simply how do you bring the needful information from observations to settle financial contracts, right? So this is already being done in the, in the centralized finance space for quite a long time. And the fact that there can be issues with this does not imply that it cannot be done relatively correctly and usefully for people. I think that that&#8217;s where that&#8217;s where, you know, for a long time there was the idea that, well, the Oracle problem is intractable, therefore DeFi could not exist.</p>
+
+
+
+<p>Hasu (00:22:37):<br>Yeah.</p>
+
+
+
+<p>Su Zhu (00:22:38):<br>But, but if you just zoomed out, you could make the same statement and say CeFi could not exist, but clearly it does exist. So, so clearly there&#8217;s some kind of a strange is that there&#8217;s simply, it&#8217;s simply a question of how do you map the trustworthiness of index composition in the real world into the into crypto or into the blockchain? And I would point out that, you know, for me, I&#8217;m aware of many inefficiencies that have occurred on CeFi index constructions, right? When I was at Deutsche Bank, as a trader, as a prop trader, you know, there are people sitting around all day trying to think about how do we aribtrage index construction, right?</p>
+
+
+
+<p>Su Zhu (00:23:24):<br>There is entire desks that will say, okay, we&#8217;re going to bet on what things will go into the index. We&#8217;re going to abuse the fact that this stock is more likely to enter it and by pushing it up and is even more likely to enter the index, all these games, right? And you even saw it recently with some of these Chinese companies where they know how MSCI [and ?] do their definitions. So they create a shell company and then they basically do everything that&#8217;s needed to get it into some of these small cap indices, then into mid cap, and then the large cap. And then I forgot the name of the stock, but there was some stock where they managed to get this into one of the biggest indices and no one had done due diligence. This is a real company, right? That, that they had actual stuff going on. And the stock went down 99% of the day [when] the index providers said, we&#8217;re going to look into this, if this is a real thing or not, and they&#8217;re gonna look into it. It immediately went down 99%.</p>
+
+
+
+<p>Su Zhu (00:24:22):<br>And the, and the fascinating thing about that was that that was the week before. It was about to get included in a very big index, like an even bigger one. And so there were some funds that were betting on that inclusion and because the flow would have been very big because people will be forced to buy the stock. If it gets included, then people were betting that this will get included because it fit all the criteria. But then somehow before that happened, the index came out and said, Nope, we&#8217;ve changed our mind. We don&#8217;t want it. You know? So, so CeFi, indices, they&#8217;re just trying to achieve a goal. Same as DeFi oracles, they&#8217;re trying to achieve a goal of saying, we&#8217;re going to bring in this information and it&#8217;s going to be useful for settling these contracts. And people generally understand how it&#8217;s going to go down and what the goals are, but there&#8217;s, I mean, there&#8217;s always a requirement to zoom out and ask, have we achieved the goal? And if they haven&#8217;t, then there&#8217;s always room for humans.</p>
+
+
+
+<p>Hasu (00:25:20):<br>Yeah, yeah, yeah. I agree. I think that that&#8217;s probably going to be the future of oracles as well. Right. So you have, you have a definition of what an index or an oracle are supposed to do, then you have a human looking at data and cleaning the data. So it fits the goals and then they submit the data on chain or in whatever way it is supposed to be used. So, yeah. And so to to end the section on I guess the history of perpetual swaps, I I&#8217;d like to move into DeFi. So in the past in crypto, you could, I guess you could say the perpetual swap is the killer product so far in the crypto space. Would you agree with that?</p>
+
+
+
+<p>Su Zhu (00:26:14):<br>Yeah, I think so.</p>
+
+
+
+<p>Hasu (00:26:15):<br>Yeah. And I think nothing has, has like this kind of adoption, especially from, from retail, but it has been surprisingly quiet around perpetual swaps in DeFi. And today we want to explore a little bit, if that&#8217;s going to change how that&#8217;s going to change what you can look forward to. So what different approaches exist to create perpetual swaps in DeFi and what, what projects may be about to launch in these categories?</p>
+
+
+
+<p>Su Zhu (00:26:53):<br>Sure. So I think DeFi perp swap projects, they generally can be divided into two distinct types. The first being central limit order book driven and the second being automated market maker or AMM driven, and it&#8217;s bit of a mouthful, but central limit just means that some participants are hosting bids and offers and amending them as underlying markets move continuously. So this would be venues like DYDX upcoming DerivaDEX, a few others in that kind of vein. And the idea there is you&#8217;re almost mapping the centralized exchange experience into DeFi, right? So when you trade on BitMEX or Deribit or FTX, that is exactly what&#8217;s happening, right. There is no automated market maker. They&#8217;re just real people putting in bids and offers all day long and do that process when the bid of one participant is higher than the offer of another a trade occurs, right?</p>
+
+
+
+<p>Su Zhu (00:28:09):<br>The matching engine sees that and submits a trade ticket. submits a fill to each side and life goes on. So this approach, this approach has some strengths and weaknesses, right? For, for DeFi. I think the main strength is that it&#8217;s simple. You&#8217;re just trying to say, I&#8217;m going to be decentralized BitMEX, I&#8217;m going to, I&#8217;m going to let people exchange risk in this way. And that, that&#8217;s quite simple. I think that the downside of that is that you&#8217;re now taking a workflow from centralized markets. And you&#8217;re trying to put it in DeFi and say that it&#8217;ll somehow be more useful to people because it&#8217;s decentralized, right. But you&#8217;re giving up a lot in the process. You&#8217;re giving up the fact that, well, for one, possibly all these orders are being seen on chain, so they can be frontrun.</p>
+
+
+
+<p>Su Zhu (00:29:10):<br>Right. You&#8217;re also giving up a lot of latency. You&#8217;re also getting a lot of performance, right. You know, a centralized exchange matching engine might be able to handle a million requests in a second, whereas there&#8217;s no blockchain that can handle that. So it&#8217;s, it&#8217;s kind of, that that&#8217;ll be the main challenge. So for the ones that are going this approach, they&#8217;re thinking very heavily about how do we scale, right? How do we scale? How do we do off-chain matching in a way that people still trust, that&#8217;s still DeFi enough? So, so that approach I think is, is fundamentally a bet that the scaling will be sufficient to create the experience that is good enough, that, you know, users that don&#8217;t want to use KYC users that want to be able to just use a web wallet, get in and out. They&#8217;ll be familiar with that.</p>
+
+
+
+<p>Su Zhu (00:30:02):<br>And so the advantages is that they&#8217;ll be familiar with how it works in in centralized exchanges already. So Serum would be another one that&#8217;s in that category, right? Serum will be based on Solana and they&#8217;re, they&#8217;re backed by FTX, which would also bring that expertise from central limit order book trading in as well. But again, you have to, you have to create a user experience where they&#8217;re saying this is actually a really good and really useful versus what I can already do on CEX, on a centralized exchange. So the second, the AMM approach, there&#8217;s a few projects in that space, FutureSwap, Perpetual Protocol, Synthetix itself. And, and these are saying, okay, well, why don&#8217;t we take the DeFi primitive of the AMM, the automated market maker, and say people when they come into our order book and they, and they want to buy or sell, they don&#8217;t need to wait for the other side to be there. There will be a pool of capital waiting for them, right. And that pool will trade against the client. And there will be token holders who are backing this pool, and then they can hedge themselves in any number of ways. So, so, so this approach is trying to more, more explicitly tease out the advantages that DeFi might have over CeFi, right. Which is that it could, permissionlessly create this big pool of capital that sits as the market maker.</p>
+
+
+
+<p>Hasu (00:31:46):<br>Yeah. I want to get into the the advantages of what perpetual swaps could do in DeFi versus CeFi also a little bit later. So but to, to maybe for our, for our listeners. So in a previous episode where you gave me an introduction to DeFi in general, you made the distinction between peer to peer contracts or peer to peer trading and peer to pool trading. So p2p is the central limit order book. Right. And peer to pool is exactly this AMM model.</p>
+
+
+
+<p>Su Zhu (00:32:24):<br>Yes, absolutely.</p>
+
+
+
+<p>Hasu (00:32:28):<br>So I I guess not a lot of people including me have thought about how you actually use the AMM model for perpetual swaps, because like, I&#8217;m trying to think how you would like in a regular pool where you swap assets, you have this pool of of two different, or even more different assets in a, in a pool. And then people can put in one asset and take out another, and the ratio in which they can trade these with the pool changes. So I&#8217;m kind of struggling to envision how this would work for, for swap contracts.</p>
+
+
+
+<p>Su Zhu (00:33:06):<br>Yeah. I mean, without getting too technical, the easiest way to think about it is, imagine that you and I, and some other people, we opened a bit BitMEX account and we deposited our money together. Right. And we said, this strategy will be whenever someone comes to buy, we sell to them and then we can all see, we can all log in and see what the risk of our position is. And we also can calculate what percentage of this account we contributed. And from there, you can imply what your risk is, right? So let&#8217;s say the account is, well, let&#8217;s say just you and me and we shorted 1 million of of BTCUSD swaps. Then you would say, okay, well, you&#8217;re now short 500k and I&#8217;m short 500k, and you would, if you wanted to hedge, you would then go and buy spot yourself.</p>
+
+
+
+<p>Su Zhu (00:34:02):<br>And you can say, okay, now I am hedged and I have replicated that risk. So that, that approach clearly works because the people in the pool are arbitragers fundamentally, and they&#8217;re getting their fills automatically rather than having to post liquidity in the order book. So you can think of it as a virtual AMM, it&#8217;s not a real AMM in the sense that it&#8217;s not like Uniswap where the aggressor into the order book is actually removing some assets and contributing others. Right? There are no real assets being exchanged. Instead, there are positions that generate PNL that are getting given to accounts, that are being given to participants, whether they like it or not, these positions get given to you. So Synthetix really is a virtual AMM, right? Because as a, as a minter in the system, you have no control over what people will do.</p>
+
+
+
+<p>Su Zhu (00:35:10):<br>You know, you, you kind of know what people generally do, but at any point in time, someone could do something totally weird. And your exposure is changing before your very eyes. Right? So that means that the, you know, the biggest minters, I mean we are one of the biggest minters on Synthetix, they&#8217;re calculating what the pool is doing and what the risk of that pool is, and then hedging it. Right. And [inaudible] you know, are there incentives to mint the opposite risk to neutralize the overall risk of the pool? Because some of these protocols will be paying incentives for you to bet against other people that have come in. Right. So let&#8217;s say there&#8217;s only buyers, right. Well then probably all these AMM protocols will have a way to incentivize you to come in and say, okay, we&#8217;re going to actually pay you to short on our AMM, because if the AMM can attract an equal amount of buyers and sellers, then it actually has no capital at risk. Right. It&#8217;s done as a middleman, it&#8217;s officially become the peer to peer, it&#8217;s negotiated peer to peer, right. It&#8217;s intermediating a peer to peer transaction. So that&#8217;s kind of the dream of all these virtual AMMs, which is that it can through, through incentives balance that risk so that the minters or the contributors to this AMM pool have the least amount of risk.</p>
+
+
+
+<p>Hasu (00:36:40):<br>Yeah. Okay. Yeah. So I&#8217;ve, I&#8217;ve long, I guess, waited for a time to ask some questions about Synthetix because I&#8217;ve never really looked into it, but so the way that I understand it is it&#8217;s not, it&#8217;s not directly peer to peer in the like BitMEX sense where a long and a short meet and then the contract is created, right? So it all starts out with an exchange and, correct me if I&#8217;m wrong. It starts out with an exchange where you can trade these virtual tokens that represent the PnL basically. And, and via that exchange and via the price discovery, the market can signal that it wants, it wants to buy long tokens or short tokens. And then this other group, the minters can go and deposit collateral and mint against that collateral the token that is demanded by the market and then sell it and to, to tell if that makes sense for them. They, they would have to basically see at what price they can, can hedge the exposure. Is that roughly accurate?</p>
+
+
+
+<p>Su Zhu (00:37:52):<br>It&#8217;s got the main strokes, right? It&#8217;s the mechanism that that, that is used is a bit different, basically what it is, is as an SNX holder, you then can mint sUSD, right? sUSD is the baseline of the ecosystem. When you meant sUSD you are now taking on your pro-rata proportion of the global pool of all assets minted. So if everyone else has minted sUSD and then immediately bought sETH, synthetic ether, with their sUSD, then if you just mint sUSD, you are now short ether because the, as the price of ether goes up, your debts to the system will go up. So if you, if you mint sUSD, and then you immediately convert to what everyone else on aggregate holds, then you have no risk because you have converted to those assets, right?</p>
+
+
+
+<p>Su Zhu (00:38:58):<br>So that design is essentially making it so that most people end up minting ether, or not minting, they, they end up buying synthetic ether because they&#8217;re bullish on ether. And also because everyone else is minting it. So that also creates some problems for people who let&#8217;s say are only trying to you know, mint, they wanna mint sUSD but then they want to use it in some other way. Right? So there&#8217;s initiatives where they want to encourage people to come in and mint inverse ether or mint inverse BTC, because there&#8217;s also a lot of sBTC that is being traded into. And so…</p>
+
+
+
+<p>Hasu (00:39:51):<br>Before you go into that. So for every sETH that exists, there must also exist some inverse sETH?</p>
+
+
+
+<p>Su Zhu (00:40:02):<br>No, no, there doesn&#8217;t exist this. And it&#8217;s getting a little bit convoluted, I guess, I guess the simplest way I can explain it is if you, if you imagine a pool, right, this pool is not balanced by nature, who is underwriting the performance of the synthetic assets? Well, it is the people who own SNX, they, in order for them to claim their weekly fees, they have to get their collateral ratio in line. Right now it&#8217;s a 600% collateral ratio, for instance. So that means that if their debt goes higher than a certain ratio against the value of their SNX, that they can no longer claim rewards. Right. And when they are in the system, they&#8217;re betting against everyone, who&#8217;s making synthetic assets. Right.</p>
+
+
+
+<p>Hasu (00:41:02):<br>Yeah. So basically the other side is not tokenized. And you could say it&#8217;s virtual or whatever. It&#8217;s taken by implicitly taken by the SNX collateral holders. The minters.</p>
+
+
+
+<p>Su Zhu (00:41:28):<br>Yes, that&#8217;s right. So it&#8217;s a virtual AMM system. That&#8217;s not leveraged, so it&#8217;s not a perpetual swap system yet. They&#8217;ve announced that they want to go into leverage as well. And so that&#8217;ll be another big product in the market.</p>
+
+
+
+<p>Hasu (00:41:47):<br>So something that I, I like a lot about DeFi is the ability to tokenize any position that you have with any particular dApp and then use it in a different one. So do of these upcoming systems that you described, allow you to tokenize your perpetual swap position and withdraw it and use it somewhere else?</p>
+
+
+
+<p>Su Zhu (00:42:23):<br>I think they&#8217;ll all want to, for sure, because the biggest upside that DeFi perpetuals have is that they can interact with all the stuff that&#8217;s already in DeFi, right? Whether that&#8217;s, Uniswap pools, Balance pools, you could imagine stuff where you can imagine stuff where if there&#8217;s a 50, 50 pool ether and a short ETH perp, then that&#8217;s actually now a crypto dollar, right. That, that pool token is now equivalent to a dollar. Or you can imagine, you know, on, on YFI, right. You could imagine that that ETH vault could be evolved where the strategy is to sell your ETH to USDC or sell it to yUSD and then yieldfarm with that yUSD, and then also buy an ETH perp to maintain that ETH exposure. And as the market goes down, they would automatically take their yUSD and use it to remargin their ETH perps so they don&#8217;t get liquidated.</p>
+
+
+
+<p>Su Zhu (00:43:34):<br>There&#8217;s all sorts of things that you can imagine happening. And so I think that&#8217;s part, part of the reason why, you know, we, we&#8217;ve been very bullish on DeFi perps as a key primitive, because it&#8217;s really it&#8217;s really can eat a lot of the things that people currently think of as being indispensable in DeFi. I think, you know, the idea, the idea is, okay, if people want leverage on their ETH, they want be able to borrow against it. Well, one way they do it is they put up their ETH and they borrow dollars, but another way is they could sell their ETH all to dollars and buy a perp. Right. And that&#8217;s actually what CeFi traders do. A lot of CeFi traders. They mostly hold dollars and then, or stable coins. And then they buy perps. I think one of the big reasons why FTX did so well is that they recognize this.</p>
+
+
+
+<p>Su Zhu (00:44:20):<br>They recognize that, Hey, actually in crypto, not everyone wants to hold BTC as collateral. They want to hold their own coin, or they want to hold dollars as collateral, and they just want to trade it. Right. And so here, here, you&#8217;re getting people that same upside where they can hold whatever collateral they want, they can put under their positions they want very efficiently. And so I think in general, the ones that are going to be able to benefit more from composability will likely get product market fit much earlier. The ones that are going less composable, more scalable. Cause, cause if there&#8217;s an obvious, composability scalability, trade off at the moment in the way that Ethereum has been developing, I think those will take a different route to adoption, but that may also bear fruit in its own way. If they&#8217;re able to create an experience that is really rock solid for users that makes it competitive with centralized exchanges.</p>
+
+
+
+<p>Hasu (00:45:28):<br>Yeah. Yeah. I would love to go a bit deeper into this idea of creating stable coins or crypto dollars. So I have a couple of friends who receive payment in BTC and instead of selling it, I recommend it to them to instead deposited on BitMEX or Deribit and convert into a high-yield crypto dollar, basically doing the trade that we discussed earlier. And I think this has insane potential if it, if we get, can get this in DeFi. So I would like to explore a bit like how exactly it would work. So in my mind, for example, we would have, you would have WBTC, and then you would have a short BTC token that represents basically a short position on one of these perpetual swap exchanges. And what do you, you could then wrap these two into a new token that is basically a tokenized crypto dollar, right?</p>
+
+
+
+<p>Hasu (00:46:39):<br>Then you could go even further and lend out the original, long BTC to earn even more yield. So you would have basically the yield from the short position. If the market is bullish, you get paid positive funding and you get paid yield from supplying it on Aave or Compound, and you have a stable coin and it&#8217;s in one token and it exists on chain. I think that is in my view, a killer use case. So do you think that this is going to crowd out to a degree existing stablecoins given that this is also trust minimized, right? There&#8217;s no central issuer.</p>
+
+
+
+<p>Su Zhu (00:47:18):<br>Yeah. I think it&#8217;s not going to crowd out because as I mentioned before, in a different podcast, there is a huge demand for stablecoins that can be converted to Fiat very easily. Whether it&#8217;s USDT or USDC. So it&#8217;s not a winner-take-all game in any way, but I do think that these stable coins are very cool and they could make it less appealing to hold, shall we say algorithmically balanced stable coins. There&#8217;s less of a need for a algorithmally balanced stablecoin with a network effect, because there&#8217;s just no need, right? You, you can easily create a meta stablecoin that is earning the best yield across many things. And I think that gets back to aggregation theory, right? Which is that, you know, even with all these perp swaps, and then you can imagine once these are all out an aggregator that comes on top and says, you know, if you want to short BTCUSD or ETHUSD, I will automatically rebalance your short across five different perp exchanges that will find where it is the most attractive. And then with your long leg, I will find the leg that is, that is the best. And then I will then wrap it for you in a stablecoin. So then when people are seeing this, they may just deposit a stablecoin, this may be a yVault.</p>
+
+
+
+<p>Hasu (00:48:46):<br>Yes, I was just going to say that, yeah, it&#8217;s basically a yToken for perpetual swaps.</p>
+
+
+
+<p>Su Zhu (00:48:50):<br>I think there&#8217;s, there&#8217;s a lot of there&#8217;s a lot of cool stuff that can be done. And really what it&#8217;s doing is it&#8217;s automating what people already do in CeFi, but it&#8217;s making it accessible. It&#8217;s making it very simple to understand, and it&#8217;s trust minimized.</p>
+
+
+
+<p>Hasu (00:49:12):<br>And mostly, people can withdraw it from the exchange, which they could never do. Right. They can transact it. You, you cannot, you can create a crypto dollar on BitMEX, but you can&#8217;t send it to someone else.</p>
+
+
+
+<p>Su Zhu (00:49:23):<br>Is that you can&#8217;t send your account someone else. Right. You have to take the coin out. You can&#8217;t give someone your position in BitMEX, but you could do that in DeFi. You could give someone your perpetual swap, right.</p>
+
+
+
+<p>Hasu (00:49:35):<br>Do you think that BitMEX and Deribit and so on will have to enable this?</p>
+
+
+
+<p>Su Zhu (00:49:42):<br>I&#8217;m not a believer that DeFi will kill all applications of CeFi. I, I think that there&#8217;s a lot of value to what&#8217;s happening in CeFi from the point of view of, of they&#8217;re already, they&#8217;re already mapping what&#8217;s happening in traditional finance, but in a very agile and very regulatory arbitrage way. So in a sense, they have, you know, 1 million orders per second, they create experience where you can trade huge sizes against other counterparties. You can create huge sizes against retail. That kind of experience, I don&#8217;t think is that disrupted by DeFi actually, because that experience is ultimately optimizing for different things, right? So there, there there&#8217;ll be parts of the CeFi experience that are highly attackable by DeFi. And I think we&#8217;ve already seen that, right? I think altcoin trading is highly attackable by DeFi because these altcoins are already illiquid as hell on centralized exchanges but they&#8217;re not even that much more illiquid and DeFi.</p>
+
+
+
+<p>Su Zhu (00:51:06):<br>They&#8217;re probably less illiquid because there&#8217;s all these people putting in pools to try to earn some money. So you, you, you, you kind of already have beaten many altcoin exchanges. And I think that&#8217;s why you&#8217;re seeing suddenly all the top exchanges list all the DeFi tokens as fast as possible without any feed, because they&#8217;re terrified of the idea that people don&#8217;t even bother depositing. And in fact, people withdraw from centralized changes to try to buy DeFi tokens. It&#8217;s a pull factor to DeFi, right? Where all the Uniswap tokens going up a lot, people saying, why am I even trading on a centralized exchange where these tokens suck and the ones on DeFi are awesome. So I think that part of CeFi is heavily challenged. I think staking assets as well, and governance based assets as well. You know, if you put it on an exchange, you&#8217;re losing tons of the functionality, right?</p>
+
+
+
+<p>Su Zhu (00:51:55):<br>If you hold certain assets on an exchange, you don&#8217;t get the rewards, you don&#8217;t get the right reward, right. You don&#8217;t get the right governance rate and all these newer DeFi projects, they&#8217;re making it explicit that they want you to participate in the governance. They want you to participate in what&#8217;s happening and they reward the ones that do and they inflate away the ones who don&#8217;t care. And through that process, I think it makes them stronger because it, it compels the community to care about what&#8217;s happening and not just bet on number go up or number go down. So I think those parts, those parts of DeFi are, are very threatening to what&#8217;s happening in CeFi. I think that in the perp space, the capital that&#8217;s currently in cash and carry trades, that&#8217;s in these kinds of things. Those can also migrate to DeFi as well, and people will in general get a cheaper cost of leverage than they get right now, because their desire to be long, will be matched with people who just want to own the stablecoin.</p>
+
+
+
+<p>Su Zhu (00:52:59):<br>In theory, anyone who&#8217;s long stablecoins anywhere. They could be a provider of leverage to someone who wants to be long ETH a long BTC, right? Because that dollar can be used to create the to, to be swapped into a risky asset for them. So I think it bridges that vast expanse between the trillions of fiat and dollars in the market and the demand for leverage. So I think that the last frontier would be the ones where you&#8217;re trying to compete on scalability with centralized exchanges, with these very fast market data, you know, these very fast co located servers. I think that that game is a game that will be the last if ever that DeFi would come for.</p>
+
+
+
+<p>Hasu (00:53:54):<br>Hmm, something you said earlier. I thought that was super interesting because I never realized, but DeFi tokens tend to have an ongoing proof of work for the user, right? It&#8217;s not just the moment they are mined initially or created initially that there&#8217;s a proof of work, but if you&#8217;re a holder of these tokens and you don&#8217;t want to get diluted, then you have to perform a constant proof of work, basically for the entire duration of the asset. It&#8217;s just kinda crazy.</p>
+
+
+
+<p>Hasu (00:54:27):<br>So about another trade off between DeFi perps and CeFi perps. So we saw Deribit announce KYC, we saw BitMEX announce KYC. Isn&#8217;t that one of the major benefits of DeFi and one of the major pull factors in the future?</p>
+
+
+
+<p>Su Zhu (00:55:03):<br>For a lot of users that want the centralized exchange experience, but without KYC, there&#8217;s going to be a lot of value in the DeFi perps that take the first approach that I mentioned, which is a central limit orderbook. That means that they can market make, it can work a bid, they can work an offer, they can get that same experience that they get elsewhere. Right. So, so I think there is a big set of that. I think that the exchanges where… So, so I think one thing that is interesting is people are quite okay KYCing if they think it&#8217;s worth it and it&#8217;s trustworthy. So I think when, when FTX did their token and you had to KYC to be able to get the token, all of a sudden people were like, all, obviously I&#8217;ll KYC for this it&#8217;s easy money. Right. And I think, and so I think that there&#8217;s, yes, there is the demand to not KYC, but at the same time, also people don&#8217;t value their KYC very much in dollars. So it&#8217;s kind of a, it&#8217;s kind of, ultimately, it&#8217;s still about comfort. It&#8217;s still about trust and still about costs.</p>
+
+
+
+<p>Su Zhu (00:56:17):<br>So that&#8217;s why I think centralized exchanges, can they compete from the fact that for one they they have specific client bases. Some of them are more experienced with what&#8217;s happened in the traditional CFD space, right? For instance, an exchange like ByBit, their, their DNA is much more from the traditional retail FX space. So they understand the affiliate marketing, they understand that kind of a kind of a flywheel. And so, you know, there there&#8217;s a plurality of business models. I think that that can exist in this ecosystem. And I think that there&#8217;s, I don&#8217;t see many reasons why it&#8217;s winner take all in any case, but I do think that there will be some parts of trading that will be heavily challenged.</p>
+
+
+
+<p>Su Zhu (00:57:12):<br>And I think one interesting example of this is just copy trading, right. Or asset management. I think a really cool thing you can do now with perp swaps is, you know, let&#8217;s say some guy tweets that he&#8217;s a really good trader and all this kind of stuff. Well now, like in theory, he could create a portfolio. Even cooler if it&#8217;s a shielded portfolio where he is putting his positions out online and people can shadow him. And let&#8217;s say, if he&#8217;s good, you know, the traffic is all on chain. And then people could then invest in something where they get the signal at the same time that he does. So, so they get the same fill, right? All these kinds of things. They can&#8217;t really happen very easily on a centralized exchange, you know, you have to get the guy to API keys, you&#8217;d have to hook up his algo to your thing, and you have to trust that it&#8217;s going to work.</p>
+
+
+
+<p>Su Zhu (00:58:05):<br>I think that asset management on chain is going to be pretty big. I think that you know, yVaults have been kind of an example of that, but there will be a lot of other types. I think that I&#8217;m more excited about the sort of non zero sum convex opportunities that will be created by the explosion of design space from DeFi, as opposed to saying, you know, what, what things in CeFi will, will, will be dominated, stripping on it by this, I think net it improves the whole experience of both CeFi and DeFi. Another example of that would be, you know, in CeFi right now, your collateral earns nothing. But when you integrate, you know, I could imagine a CeFi exchange integrating like a DeFi perp, right. It could include it in the aggregation. There could be a market maker that brings that in, and now</p>
+
+
+
+<p>Hasu (00:59:00):<br>You don&#8217;t even need to do that. Right. You can just hook into Compound or Aave and supply the collateral.</p>
+
+
+
+<p>Su Zhu (00:59:08):<br>Yeah. You, you could also do that. And then, and then you could take one step further and kind of do a, kind of do more sophisticated strategies or to do more sophisticated bridging of liquidity. So there&#8217;s, there&#8217;s always going to be like a meeting in the middle then if you will, because the centralized exchanges, what they have as a, as a strength, is a capital flow, right. They, they have people that want to trade there because they trust the brand. They understand the user experience, the client experience, they know that it&#8217;s safe, they want to be KYCed, right. They don&#8217;t want people to be able to randomly withdraw through a web wallet. They, they want there to be a very hard withdrawal process. If it&#8217;s an institution you know, on some exchanges, you know, we, we have protocols where I have to get called. People have to get called for that withdrawal to go through a video has to be a video call. So, so, so, so I think that many participants, when they&#8217;re handling large amounts of money, they prefer this kind of thing. And other participants if they just want to click around, they honestly might go fully to a DeFi solution. And there&#8217;s a whole range in between.</p>
+
+
+
+<p>Hasu (01:00:20):<br>Okay. So by the way, I always saw explored some other ways that centralized exchanges can hook into DeFi protocols, such as Compound, in an article called &#8220;The great race to crypto banking&#8221;, I&#8217;ll be putting that link in the show notes.</p>
+
+
+
+<p>Hasu (01:01:08):<br>So I have a final topic that I&#8217;d like to explore. We both have in the past argued that the BitMEX insurance fund was too large. And I&#8217;d have two questions about that. So first earlier in March, this year, there was this huge day where Bitcoin crashed like to 3500 on BitMEX. And some analysts have suggested that the insurance fund would have been drained in the single day, had been mixed, not internalized the toxic flow. You remember that event, right? Did that change your mind about the like the optimum size of the insurance fund?</p>
+
+
+
+<p>Su Zhu (01:01:58):<br>It definitely, it definitely made me think that it&#8217;s not the worst thing in the world for one of the biggest exchanges to have a bit more of a larger one. Right. I think that the way that BitMEX works with its cascading liquidations it definitely benefits large participants to know that there is a big insurance fund back here, but, but I think that the market will come to more capital efficient ways to solve this problem. Right. I don&#8217;t think that having a gigantic pool that just sits there and, and I don&#8217;t know that this is the best approach. I actually think a tokenized approach ultimately is better where you can tokenize the future revenues of the system, something like that. But in any case, in any case, I think that, you know, if that makes a partial liquidation, if they had some kind of a non cascading function, I think it wouldn&#8217;t even have gone down that much. Cause it was really all been BitMEX led after a certain point. Right. I think below 4.6, it was entirely BitMEX led. BitMEX went over a thousand dollars below everywhere else [inaudible]</p>
+
+
+
+<p>Hasu (01:03:19):<br>Yeah, it was 100% BitMEX.</p>
+
+
+
+<p>Su Zhu (01:03:20):<br>Yeah. I mean, we were very fortunate that day because the way that we were positioned, but, you know, there were people trying to trade market neutral that got blown out because there were a long BitMEX, short elsewhere, and then they get wiped out on that leg. So, you know, it&#8217;s, I mean, it, it definitely gives shorts […] on a day, you know, they, they feel good knowing that insurance fund is there, but on the other hand you feel like every other exchange that day, they didn&#8217;t have any problems with their insurance fund or any huge problems. And I think part of reason is that they liquidated it in a slightly different way and the prices were more orderly the move down. Right. So I think, I think that BitMEX took a big hit after that day, in terms of client trust in terms of having their market go so low and stay so low for so long.</p>
+
+
+
+<p>Su Zhu (01:04:14):<br>I think that I think that big insurance funds, I don&#8217;t, I don&#8217;t anticipate there being another one. I think that it makes being the first that they managed to accumulate this when, when clients sort of didn&#8217;t really care or didn&#8217;t really calculate how much they were losing to the slippage. And now that there&#8217;s a lot of other ways, you know, people now know they can get partially liquidated. On Deribit or on FTX where they don&#8217;t lose their entire position, just because it starts going into margin call. I think people are realizing that like, this is real money that they&#8217;re putting out there that they&#8217;re losing. So I think that I don&#8217;t expect big growth in any other insurance funds.</p>
+
+
+
+<p>Hasu (01:04:55):<br>Yeah. And to shill our own book here once more. So we also had an article on the design space for insurance funds and liquidation mechanisms, and I&#8217;ll also be putting that into the show notes. So my, my second question is, and that&#8217;s something we did not explore in the article, but it is nonetheless very interesting to me is how does DeFi change the design space for insurance funds and liquidation mechanisms? Is there anything that we can do now in DeFi that maybe we couldn&#8217;t do that hasn&#8217;t been tried in the CeFi space?</p>
+
+
+
+<p>Su Zhu (01:05:36):<br>Yeah. So it&#8217;s a few things you can do, right? That, that created embedded backstop to the system while be more capital efficient. I think one is you could, you could mint new exchange tokens whenever insurance one goes negative. That&#8217;s kind of a cool concept, right? Because you&#8217;re using future cash flows. And meanwhile, everyone else who&#8217;s trading pays a cheaper price. Right.</p>
+
+
+
+<p>Hasu (01:06:02):<br>One protocol that does that is Maker.</p>
+
+
+
+<p>Su Zhu (01:06:05):<br>Yeah, Maker- Exactly. They do this. I think another, another good way is through staking, right? People who stake the exchange token, they bear the risk of the insurance fund going bad, but they earn more of the fees. So in a way they&#8217;re kind of like the equity holders. I think, I think there&#8217;s a lot of interesting ways you can handle that problem. Ultimately, what you&#8217;re trying to do is try and do a risk insurance, right? You&#8217;re trying to insure against a move that wipes out participants to the point that you cannot pay some other participants. And that gets us back to that AMM discussion which is like, how do you ultimately ensure that the flow is relatively balanced and that the people who are the people who are needed to be able to back up the payments can actually make those payments.</p>
+
+
+
+<p>Su Zhu (01:06:57):<br>So I can imagine there being some synergy with insurance protocols, right, where there&#8217;s people that put money in passive pools that say, I also want to do a credit delegation, or I also want to do some kind of a delegation where I want to earn a higher yield and I&#8217;m okay being slashed if this exchange goes down or this exchange&#8217;s pool goes down. Like a really cool development we just saw was I think, I think Aave proposed a yearn improvement proposal, which was to allow credit delegation in Aave. And then you could imagine, you could imagine, like in the future, like other types of credit delegation regarding insurance funds for perpetual protocols being very much about how do we, how do we access that vast pool of capital that&#8217;s sitting there and wants to earn more money, right? Because that, because the capital is relatively risk seeking, right. It&#8217;s apparently shown the interest in farming random coins, right. hundred million of it goes into random projects that are unaudited like every week. So clearly there&#8217;s risk tolerance here. And hopefully some of that risk can be harnessed in a sort of market efficiency way that, that is a win win. Right.</p>
+
+
+
+<p>Hasu (01:08:18):<br>So it doesn&#8217;t just go into the next decentralized Ponzi scheme, but instead it goes into the also-risky and high yielding insurance fund of a perpetual swap protocol. But that also yield something for the greater good, for likethe DeFi space as a whole. Yeah. Makes sense. Yeah. Yeah. So thank you for this amazing discussion.</p>
+
+
+
+<p>Su Zhu (01:08:45):<br>Well, thanks for, thanks for the talk. This was a lot of fun.</p>
+<p>The post Uncommon Core Podcast &#8211; Episode 8 transcript appeared first on Uncommon Core.</p>
+
+</div>
+
+<div class='item-footer'>
+  10:00  &bull;
+    <span class='item-time-ago-in-words'>
+       2 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section' style='width: 800px;'>
+
+
+
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     <td>
+        <div style='width: 50px'>{}</div>
+     </td><!-- icon/logo -->
+     <td style='white-space: nowrap;'>
+       <span class='feed-title'>
+         <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
+        (
+         <a href='https://lnpay.co/t/967232/rss'>Feed</a>
+        )
+       </span>
+     </td><!-- feed title -->
+     
+     <td width='100%'>
+          <hr class='filler'>
+     </td><!-- filler -->
+      <td style='white-space: nowrap;'>
+       <span class='item-published'>Wednesday, 26 August 2020</span>
+      </td><!-- item published -->
+     
+   </tr>
+  </table>
+</div>
+
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <a href='https://paywall.link/t/670633'>The Stack: A Love/Hate Story</a>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  For a while now, I&#8217;ve been interested in what I think of as &#8220;stack research&#8221; &#8212; investigations into how the high-tech built environment stack works at all levels. I have a milquetoast cyberpunk story to tell you that sheds some light on the matter. It is about how I retrieved t
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  For a while now, I&#8217;ve been interested in what I think of as &#8220;stack research&#8221; &#8212; investigations into how the high-tech built environment stack works at all levels. I have a milquetoast cyberpunk story to tell you that sheds some light on the matter. It is about how I retrieved this remote control for my [&#8230;]
+
+</div>
+
+<div class='item-footer'>
+  21:32  &bull;
+    <span class='item-time-ago-in-words'>
+       14 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section' style='width: 800px;'>
+
+
+
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     <td>
+        <div style='width: 50px'>{}</div>
+     </td><!-- icon/logo -->
+     <td style='white-space: nowrap;'>
+       <span class='feed-title'>
          <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
         (
          <a href='https://lnpay.co/t/967232/rss'>Feed</a>
@@ -122,7 +675,7 @@
 <div class='item-footer'>
   21:23  &bull;
     <span class='item-time-ago-in-words'>
-       a day ago
+       3 days ago
     </span>
 </div>
 
@@ -209,7 +762,7 @@
 <div class='item-footer'>
   01:42  &bull;
     <span class='item-time-ago-in-words'>
-       2 days ago
+       3 days ago
     </span>
 </div>
 
@@ -299,7 +852,7 @@
 <div class='item-footer'>
   16:14  &bull;
     <span class='item-time-ago-in-words'>
-       3 days ago
+       4 days ago
     </span>
 </div>
 
@@ -718,7 +1271,7 @@
 <div class='item-footer'>
   10:17  &bull;
     <span class='item-time-ago-in-words'>
-       5 days ago
+       6 days ago
     </span>
 </div>
 
@@ -808,7 +1361,7 @@
 <div class='item-footer'>
   07:53  &bull;
     <span class='item-time-ago-in-words'>
-       7 days ago
+       8 days ago
     </span>
 </div>
 
@@ -1199,7 +1752,7 @@
 <div class='item-footer'>
   14:43  &bull;
     <span class='item-time-ago-in-words'>
-       12 days ago
+       13 days ago
     </span>
 </div>
 
@@ -1286,7 +1839,7 @@
 <div class='item-footer'>
   13:16  &bull;
     <span class='item-time-ago-in-words'>
-       12 days ago
+       13 days ago
     </span>
 </div>
 
@@ -1373,7 +1926,7 @@
 <div class='item-footer'>
   01:59  &bull;
     <span class='item-time-ago-in-words'>
-       12 days ago
+       13 days ago
     </span>
 </div>
 
@@ -1463,7 +2016,7 @@
 <div class='item-footer'>
   19:32  &bull;
     <span class='item-time-ago-in-words'>
-       13 days ago
+       14 days ago
     </span>
 </div>
 
@@ -1550,7 +2103,7 @@
 <div class='item-footer'>
   14:28  &bull;
     <span class='item-time-ago-in-words'>
-       13 days ago
+       14 days ago
     </span>
 </div>
 
@@ -1640,7 +2193,7 @@
 <div class='item-footer'>
   06:07  &bull;
     <span class='item-time-ago-in-words'>
-       21 days ago
+       22 days ago
     </span>
 </div>
 
@@ -1730,7 +2283,7 @@
 <div class='item-footer'>
   01:41  &bull;
     <span class='item-time-ago-in-words'>
-       26 days ago
+       27 days ago
     </span>
 </div>
 
@@ -1820,7 +2373,7 @@
 <div class='item-footer'>
   20:34  &bull;
     <span class='item-time-ago-in-words'>
-       28 days ago
+       29 days ago
     </span>
 </div>
 
@@ -1910,7 +2463,7 @@
 <div class='item-footer'>
   20:04  &bull;
     <span class='item-time-ago-in-words'>
-       30 days ago
+       1 months ago
     </span>
 </div>
 
@@ -2652,209 +3205,6 @@ The Road Ahead
 
 <div class='item-footer'>
   21:01  &bull;
-    <span class='item-time-ago-in-words'>
-       2 months ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section' style='width: 800px;'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     <td>
-        <div style='width: 50px'>{}</div>
-     </td><!-- icon/logo -->
-     <td style='white-space: nowrap;'>
-       <span class='feed-title'>
-         <a href='https://paywall.link/to/15a7e'>Jimmy Song</a>
-        (
-         <a href='https://lnpay.co/t/8d16e0/rss'>Feed</a>
-        )
-       </span>
-     </td><!-- feed title -->
-     
-     <td width='100%'>
-          <hr class='filler'>
-     </td><!-- filler -->
-      <td style='white-space: nowrap;'>
-       <span class='item-published'>Friday, 03 July 2020</span>
-      </td><!-- item published -->
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' style='width: 800px;'>
-
-<table width='100%'>
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>  
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/0d7615'>Bitcoin: A Declaration of Monetary Independence</a>
-        </span>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  <p>The system is rigged. We all can see it in the opulent residences of the rich in San Francisco which lie blocks away from the squalid tents of the homeless. We can feel it in the way that certain people and businesses do little to better civilization yet make ludicrous amounts of money. We can hea
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  <p>The system is rigged. We all can see it in the opulent residences of the rich in San Francisco which lie blocks away from the squalid tents of the homeless. We can feel it in the way that certain people and businesses do little to better civilization yet make ludicrous amounts of money. We can hear it in the frivolity with which certain people spend money and the morbid gravity of those whose souls are crushed by debt.</p>♦<p>That the system favors certain people and screws over others is obvious even to a five-year-old. Why the system is so unfair is not at all obvious and is the source of much political confusion. People on the left think the rich get there through exploiting the poor. People on the right think the poor get there because they’re lazy. What’s the truth? What’s going on and why is the system rigged?</p>Fiat Money is Unfair<p>At the root of the unfairness of the current system is money. This is not the first place people look, but it is where every sound analysis leads. The system is unfair because the money itself is unfair.</p>♦<p>To see how this is the case, let’s start with what we’ve been observing the past 4 months. Governments all around the world have spent with complete abandon. But where does that money come from? Who’s paying for all the stimuli and bailouts and grants? The amounts in these emergency measures to revive the economy in the past few months are absolutely staggering. They are well in excess of revenue these governments collect in taxes.</p><p>There are two possible answers. The money is coming from no one in particular and not paid for by anyone (something for nothing), or the cost is hidden and paid by people, just not obviously (something for something).</p>How Fiat Money Works<p>Is it really so simple? Can we help everyone who needs help just by printing more money without bad effects? Can we get something for nothing?</p>♦<p>If it really is that simple, this leaves us with the obvious question. If the government can just print money to pay for everything, why are we paying taxes at all? If the Fed/US government can spend $6 trillion to revive the economy and it doesn’t have any other effect, why not spend $60 trillion or $300 trillion (enough to make every person in the US a millionaire)?</p><p>The fact that this hasn’t been done (and just common sense) is evidence that we can’t get something for nothing. This is a convenient lie to give the people the illusion of getting government services without cost.</p><p>Despite what we may want to believe, we can’t get something for nothing. Such claims that legislators promote are the economic equivalent of perpetual motion machines: that is, impossible.</p><p>The spending is paid for via less purchasing power or what we call inflation. So why haven’t we seen that much inflation? Hasn’t the Consumer Price Index (CPI) been 2–3% for a long time now? For USD, at least, there’s something called the “exorbitant privilege” which is the result of a particular historical event, namely the result of WWII.</p>♦The Dollar Hegemony<p>The dollar privilege, or dollar hegemony, is propped up through its position in international trade. Oil, in particular, has to be bought with dollars, so every company and every country has to keep some reserve in dollars (or get loans in dollars) if it wants to buy oil. Because of the dollar’s usefulness in buying oil, international trade tends to be settled in the dollar as well. As a result, the dollar has far more liquidity than any other currency. So in a liquidity crisis like we have now, capital flows toward the dollar, meaning that there’s higher demand for USD.</p><p>The demand for the dollar offsets the dollar inflation or expansion. To be more precise, it’s actually the other way around. The Fed is expanding the supply of USD to offset the crazy dollar demand around the world. This, in turn, means that other currencies depreciate relative to the dollar. In other words, USD inflation gets exported. Though the US does produce many goods that get exported around the world, the exorbitant privilege is in being able to export the dollar. The trade deficit is essentially goods that enter the US for newly printed money.</p>♦<p>Monetary expansion (a.k.a. quantitative easing, credit facilities, loan programs, money printing) is an obscured tax. We cannot get something for nothing and $6 trillion in monetary expansion will have the effect of taking stored value from all owners of the money, which is an implicit tax. What’s more, since a lot of the dollar holders are not in the US, this effectively taxes people around the world who have no say at all in US government, let alone the Fed’s monetary policy! All those people, companies and countries that hold the dollar are getting taxed without representation.</p><p>The morality of monetary expansion is explained by a 14th century Bishop, Nicole Oresme:</p><blockquote>For every change of money…involves forgery and deceit, and cannot be the right of the prince, as has previously been shown. Therefore, from the moment when the prince unjustly usurps this essentially unjust privilege, it is impossible that he can justly take profit from it. Besides, the amount of the prince’s profit is necessarily that of the community’s loss. But whatever loss the prince inflicts on the community is injustice and the act of a tyrant and not of a king, as Aristotle says. And if he should tell the tyrants’ usual lie, that he applies that profit to the public advantage, he must not be believed, because he might as well take my coat and say he needed it for the public service.</blockquote><p>The euphemisms for fiat money printing are legion: “loans,” “debt,” “bond issue” or some other financial instrument that implies being paid back. This is to give the illusion that the value is being taken, not from the holders of the dollar, but from some specific entity that lent it the money and that the debt will be paid back in some way later. This is the ethical equivalent of seizing my coat and saying it’ll be given back later because the government has need of it. At the very least, I should be compensated for the fact that my coat is being used by the government.</p>♦<p>And indeed, there is compensation being paid by the government, but it doesn’t go to you or me, it goes to the Central Bank, or more precisely, the private and undisclosed shareholders of the member banks of the Federal Reserve in the form of interest. So in a way, someone else gets compensated to borrow your goods! Imagine if the government seized your car for 6 months and compensates some banker you’ve never met that doesn’t have anything to do with your car. That’s what’s happening when the Fed expands the money supply.</p><p>As Oresme says above, monetary expansion is an unjust seizure of wealth. The open and honest way for any government to pay for its services would be to explicitly tax the citizens. People generally don’t like taxes so will not consent without a really good reason. This is how governments were held accountable in hard money societies, as government couldn’t tax too much without a revolt.</p>♦<p>Yet the government can and does tax its citizens, just not explicitly or openly. Instead it does so covertly and implicitly through inflation. By this mechanism, it satisfies the right by having low explicit taxes and the left by providing lots of government services. Deficit spending/monetary expansion is a loophole that every government has exploited to tax its citizens for the last 50–100 years.</p>How Bitcoin Is Different<p>Bitcoin has two unique qualities which make it especially fair. First, it is near impossible to counterfeit. Anyone running a full node can check quite easily whether the bitcoins they received are genuine (spoiler: BCH is not bitcoin nor is BSV). That is, Bitcoin is easily recognizable and cannot be faked.</p><p>Second, it is impossible to inflate Bitcoin beyond the supply schedule created at its inception. The entire community of full node operators and bitcoin holders would have to agree to make that happen (spoiler: it won’t). That is, it’s a hard money with a hard cap.</p>♦<p>These are specifically the two properties that make implicit/covert taxation so difficult and incentivizes an open and honest government. No longer can the sovereign just print more money to fund its latest program, it would either have to save revenue from prior years, cut some other program or tax the populace to pay for it. The loophole of deficit spending, which is really just printing more money and imposing an implicit tax on all dollar holders, is closed and spending has to be aligned with revenue.</p><p>Oresme’s insight that money belongs to everyone that owns it reveals a fundamental truth: monetary expansion violates the property rights of everyone who holds the money. Bitcoin is the first money to enforce the ideal that the money belongs to everyone who holds it, and not some authority that claims it with threats of violence.</p><p>Bitcoin is the first money that makes the monetary abuse by authorities impossible. Bitcoin is impossible to inflate without consent from everyone. On a Bitcoin Standard, the path that governments have to take in order to raise revenue is to get explicit consent for taxes instead of implicit theft through inflation.</p>Conclusion<p>The monetary system that we’re under is a tyranny. The Fed is an independent organization and is not accountable to voters. Furthermore, the dollar standard means that inflation gets exported to people outside the US, who have even less say. The dollar hegemony is an unjust system where the wealth of the world is controlled by an organization that’s able to tax without anyone’s consent.</p><p>The rallying cry of 1776 was “no taxation without representation.” The entire world is being taxed by an organization in which only the very powerful and rich have representation. It’s time to end the Fed.</p>♦<p>This isn’t a new sentiment. Ron Paul wrote a book about it over a decade ago. But now, we can do something about it outside of our broken political system. We can buy bitcoin and declare monetary independence. Real justice means economic justice. Fairness means a system that isn’t rigged. Bitcoin propels meritocracies. Bitcoin expunges systemic unfairness.</p><p>The system is rigged. Bitcoin fixes this.</p>♦
-
-</div>
-
-<div class='item-footer'>
-  15:20  &bull;
-    <span class='item-time-ago-in-words'>
-       2 months ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section' style='width: 800px;'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     <td>
-        <div style='width: 50px'>{}</div>
-     </td><!-- icon/logo -->
-     <td style='white-space: nowrap;'>
-       <span class='feed-title'>
-         <a href='https://paywall.link/to/b7400'>Elaine Ou</a>
-        (
-         <a href='https://lnpay.co/t/2c7cfb/rss'>Feed</a>
-        )
-       </span>
-     </td><!-- feed title -->
-     
-     <td width='100%'>
-          <hr class='filler'>
-     </td><!-- filler -->
-      <td style='white-space: nowrap;'>
-       <span class='item-published'>Thursday, 02 July 2020</span>
-      </td><!-- item published -->
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' style='width: 800px;'>
-
-<table width='100%'>
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>  
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/478a02'>Cancel Caltech</a>
-        </span>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  There&#8217;s a petition circulating around Caltech to remove Robert Millikan&#8217;s name and image from campus buildings and fixtures. Millikan won a Nobel Prize in Physics for his oil drop experiment and was the founding president of Caltech. But, it turns out he was also a proponent of eugenics, 
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  <p>♦</p>
-<p>There&#8217;s a petition circulating around Caltech to remove Robert Millikan&#8217;s name and image from campus buildings and fixtures. Millikan won a Nobel Prize in Physics for his oil drop experiment and was the founding president of Caltech. But, it turns out he was also a proponent of eugenics, and that is Unacceptable.</p>
-<p>I&#8217;m reminded of an incident a couple years ago, when one very woke Stanford student urged the university to rename Terman Library. You see, Lewis Terman was a eugenics supporter, and that kind of hate has no place on a diverse and inclusive campus like Stanford University.</p>
-<p>That was all well received, until someone informed the kid that Terman was in fact named after Frederick Terman, the former Dean of Engineering and cofounder of Stanford Research Park. That&#8217;s why Terman is the name of the Engineering library and not the Race Science library. Lewis Terman, the eugenicist, was Frederick&#8217;s dad.</p>
-<p>This mistake has happened multiple times.</p>
-<p>I&#8217;m also reminded of that time the Palo Alto school board decided to rename Terman Middle School (this time they got the right Terman). A board committee chose the name Yamamoto Middle School, in honor of Fred Yamamoto, a Japanese-American who was sent to FDR&#8217;s concentration camps during WWII. Staunchly loyal to the country (or inordinately optimistic), Yamamoto later enlisted in the Army and died in battle.</p>
-<p>A hero and inspiration to us all. BUT &#8212; </p>
-<p>The school board somehow overlooked the fact that Fred shares a surname with another famous Yamamoto &#8212; Admiral Isoroku Yamamoto, who led the bombing of Pearl Harbor. </p>
-<p>Parents complained, and the school board swapped in the name of a Holocaust survivor, Ellen Fletcher. Fletcher Middle School it is.</p>
-<p>Maybe the lesson here is that building names are stupid. It&#8217;s not an honor to have a namesake if names change with the latest Radical Chic. And if names are so impermanent, it&#8217;s stupid to affix one to a building. Just put a Victim-of-the-Month placard on the front entrance, if that&#8217;s what you&#8217;re trying to do.</p>
-<p>I&#8217;m not surprised to see this kind of bullshit go down at Stanford, where they have multiple departments dedicated to Grievance Studies. But I always had higher expectations for Caltech. No athletic recruits, no diversity quotas, no humanities department. That&#8217;s what a real university should look like. </p>
-<p>Many years ago, when Quora was still a thing, I answered a query: &#8220;Does Caltech have the hardest undergraduate experience in the world?&#8221;</p>
-<blockquote>
-<p>It’s all a matter of perspective: To a Caltech student, the Feynman Lectures might be a little bit hard. To a Stanford student, 8th grade algebra might be hard.</p>
-Show More</p>
-<p>Having volunteered on the Caltech admissions committee, I know that every single student admitted to the university has the background and capability to take on Caltech&#8217;s curriculum.</p>
-<p>Hans pointed out that most of the undergraduates were 1st or 2nd in their high school class. This is true. Caltech&#8217;s student body is not diverse. Because of the uniformity of academic backgrounds, Caltech can optimize its course curriculum to a very specific and high-achieving demographic.</p>
-<p>Why are there are no introductory classes? Caltech does not admit students who need introductory classes. Freshman Math starts with multivariable calculus. If you need a bit more handholding when it comes to partial differential equations, you go to MIT.</p>
-<p>When comparing average course offerings between universities, Caltech might seem hard. In reality, Caltech puts highly-capable students on track to achieve the best of their potential.</p>
-<p>Then there’s the other type of “hard” – not in terms of academic rigor, but in sheer number of hours. Yes, with 130+ units of core curriculum in the hard sciences, the course requirements are indeed hard work.</p>
-<p>This is the part that usually causes students to become jaded. The long hours consumed by coursework leaves little time for socializing or exploration. Caltech has a relatively low graduation rate compared to other top-ranked universities. The students who end up leaving, generally do so because their priorities are no longer academic &#8212; not because the school was “too hard”.<br>
-</blockquote>
-<p>Hard as in demanding, time-consuming, you-must-surrender-your-soul. You&#8217;re not left with spare bandwidth to notice microaggressions, and it doesn&#8217;t matter because Demoralization is a Feature, not a Bug &#8212; That overwhelming sense of inadequacy is exactly how you&#8217;re supposed to feel when contemplating the Poincaré conjecture! There&#8217;s an old Caltech webcomic called Crippling Depression, which basically sums up the nature of scientific research and life at Caltech. </p>
-<p>We always thought it was the challenging coursework that crushed our egos, but hey maybe it was actually the racist building names. The students should demand reparations.</p>
-
-</div>
-
-<div class='item-footer'>
-  08:50  &bull;
     <span class='item-time-ago-in-words'>
        2 months ago
     </span>
