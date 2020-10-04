@@ -60,6 +60,160 @@
      </td><!-- icon/logo -->
      <td style='white-space: nowrap;'>
        <span class='feed-title'>
+         <a href='https://paywall.link/to/7046c'>Ruben Somsen</a>
+        (
+         <a href='https://lnpay.co/t/886302/rss'>Feed</a>
+        )
+       </span>
+     </td><!-- feed title -->
+     
+     <td width='100%'>
+          <hr class='filler'>
+     </td><!-- filler -->
+      <td style='white-space: nowrap;'>
+       <span class='item-published'>Saturday, 03 October 2020</span>
+      </td><!-- item published -->
+     
+   </tr>
+  </table>
+</div>
+
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <a href='https://paywall.link/t/92de48'>Nice article, Shinobi.</a>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  <p>Nice article, Shinobi. Just to add, to make it practical you will specifically need non-interactive novation, which means Alice and Bob have a jointly owned UTXO on a statechain AND they have their individual DLC outputs in yet another statechain: twitter.com/SomsenRuben/status/1301941070985654280
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  <p>Nice article, Shinobi. Just to add, to make it practical you will specifically need non-interactive novation, which means Alice and Bob have a jointly owned UTXO on a statechain AND they have their individual DLC outputs in yet another statechain: twitter.com/SomsenRuben/status/1301941070985654280</p><p>It&#39;s really nice how with this setup you can separate and completely isolate all the tasks to run a DEX:</p><p>- the statechain entity</p><p>- the price oracle</p><p>- the orderbook matching</p>♦
+
+</div>
+
+<div class='item-footer'>
+  15:29  &bull;
+    <span class='item-time-ago-in-words'>
+       21 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section' style='width: 800px;'>
+
+
+
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <a href='https://paywall.link/t/1e4dc4'>SNARKs and the future of blockchains</a>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  <p>SNARKs are often seen as a magical panacea to “solve” scaling. While SNARKs can provide incredible benefits, the limitations need to be acknowledged as well — SNARKs can’t solve the existing bandwidth constraints that blockchains are facing today.</p><p>This article is meant to demystify SNARKs by
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  <p>SNARKs are often seen as a magical panacea to “solve” scaling. While SNARKs can provide incredible benefits, the limitations need to be acknowledged as well — SNARKs can’t solve the existing bandwidth constraints that blockchains are facing today.</p><p>This article is meant to demystify SNARKs by giving a (relatively) simple overview of what they can and can’t do for blockchains. We’ll look at how its functionality in relation to blockchains can be concisely summarized as Non-Interactive Witness Aggregation (NIWA). If you understand how Bitcoin works, you’ll be able to understand this article.</p><p>It should be noted that SNARKs are still very much an area of active research. Many SNARK variants either aren’t efficient enough to prove complex statements, have proof sizes that are impractically large, or require a trusted setup. That said, a lot of progress has been made over the years, and it’s expected that we’ll continue to see improvements in the coming decade. This article is written in anticipation of such improvements, even if it may not be practical today.</p>What is a SNARK?<p>A SNARK is a construction that allows you to efficiently validate a result, given a rule set and a starting point. The inputs that led to the result are not revealed (“zero knowledge”). Confused already? This simple chess example will explain.</p><p>Chess example</p><p>- Rules: The chess rule set<br>- Start: Starting position A of the board<br>- Result: New position B of the board</p><p>The regular way of proving that the game validly transitioned from position A to B is to simply reveal all the moves and checking whether they were valid. SNARKs can do the same thing, but better:</p><p>- The set of moves does not have to be revealed (private, less data)<br>- Verification is more computationally efficient</p><p>There is one caveat — SNARKs tend to be computationally expensive to create. This can however still be worthwhile in systems where many people wish to validate the same result, such as blockchains. Only one person needs to put in the effort to create the SNARK, increasing verification efficiency for everyone.</p><p>Blockchain example</p><p>- Rules: The full node software<br>- Start: The block header &amp; UTXO set hash at time A<br>- Result: The block header &amp; UTXO set at time B</p><p>Similar to our chess example, the regular way of validating the transition would be to start with the UTXO set (all unspent transactions) at time A, receive all the blocks, and update the UTXO set all the way until we reach time B. With a SNARK, none of this data would be needed to prove validity. In fact, if time A is set to the genesis block (empty UTXO set) and time B is set to now, then the entire chain can be validated without receiving any of the historic data.</p><p>It’s important to note that for time B the entire UTXO set is required, as opposed to just the UTXO set hash. While this data is not strictly required for proving validity, we also care about availability. If all you had was the UTXO set hash, then while you know a valid state exists, you wouldn’t actually know what that state is. This would mean you can’t spend any coins, because you don’t have the data that allows you to prove that a specific UTXO is part of the set. In the chess analogy, you would have a hash of the new board position, but don’t actually know what that position is, so you can’t continue to play the game.</p><p>Note that whoever made the SNARK (presumably miners) would have this data (as it’s needed to create the SNARK in the first place), but they could potentially choose to withhold it from you.</p>The SNARK blockchain<p>In order to guarantee that everyone can spend their coins, all the data that’s needed to update the UTXO set must be communicated with each block. You’ll need to know which UTXOs were spent (inputs) and which were newly added (outputs). This is so-called non-witness data.</p><p>The validity of the transition can be verified by a single SNARK, replacing all witness data (scripts, signatures), and taking up almost no bandwidth. The relationship between inputs and outputs would not be apparent — a block would look like one big coinjoin transaction. The bulk of the data would be non-witness data.</p><p>Contrary to popular belief, SNARKs can’t solve the fundamental issues behind light clients or non-federated sidechains, because non-witness data must always be downloaded. Full nodes have the crucial ability to reject a valid SNARK if non-witness data is missing, whereas if a light client neglected to download non-witness data, it could mistakenly consider a chain with missing data valid. If even a single piece of non-witness data is withheld by miners, nobody would be able to create new blocks with valid SNARKs, except for those specific miners, turning it into a permissioned system.</p>SNARKs consume witnesses<p>SNARKs for blockchains can perhaps best be summarized as enabling the following function:</p><blockquote>Non-Interactive Witness Aggregation (NIWA)</blockquote><p>I use the term “witness” here liberally. In Bitcoin, the witness is the data inside a transaction that proves whether a specific UTXO is allowed to be created. But over time, this UTXO (non-witness data) becomes a witness of its own when it gets spent. When 1 BTC gets sent from Alice to Bob to Carol, Bob’s transaction is a witness to the transfer from Alice to Carol. In the same vein, all spent transactions since genesis are witnesses to the current UTXO set.</p><p>Also note that a SNARK is in itself a witness. If each individual transaction is validated by a SNARK, we can also NIWA these SNARKs into a single SNARK per block. And because outputs become witnesses the moment they are spent, we can even take unconfirmed but already spent outputs in the mempool and aggregate them as well. Alice to Bob to Carol becomes Alice to Carol, achieving non-interactive transaction cut-through. This can be especially powerful when a single UTXO with many branching off-chain transactions is forced on-chain, such as may be the case for Lightning Channel factories.</p>In short<p>We’ve summarized the core functionality of SNARKs for blockchains with NIWA. Any witness data can be non-interactively aggregated by a SNARK. The non-witness data that remains is a direct reflection of the state of the system — the UTXO set. While SNARKs can achieve amazing things such as allowing you to catch up from genesis by merely downloading the UTXO set and a single SNARK, or non-interactively aggregating sequences of unconfirmed transactions into a single transaction, there still remains a need to publish all non-witness data for each new block in order to allow all nodes to update their UTXO set. The fundamental bandwidth constraints of blockchains are therefore not solved by SNARKs.</p><p>— Ruben Somsen</p><p>Thanks to Sanket Kanjalkar for the helpful discussion and comments.</p>♦NIWA in action. SNARKs consume witnesses and are also a witness of their own. SNARK eat SNARK.♦
+
+</div>
+
+<div class='item-footer'>
+  13:42  &bull;
+    <span class='item-time-ago-in-words'>
+       22 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section' style='width: 800px;'>
+
+
+
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     <td>
+        <div style='width: 50px'>{}</div>
+     </td><!-- icon/logo -->
+     <td style='white-space: nowrap;'>
+       <span class='feed-title'>
          <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
         (
          <a href='https://lnpay.co/t/967232/rss'>Feed</a>
@@ -122,7 +276,7 @@
 <div class='item-footer'>
   22:02  &bull;
     <span class='item-time-ago-in-words'>
-       3 days ago
+       4 days ago
     </span>
 </div>
 
@@ -212,7 +366,7 @@
 <div class='item-footer'>
   16:06  &bull;
     <span class='item-time-ago-in-words'>
-       4 days ago
+       5 days ago
     </span>
 </div>
 
@@ -302,7 +456,7 @@
 <div class='item-footer'>
   23:45  &bull;
     <span class='item-time-ago-in-words'>
-       10 days ago
+       11 days ago
     </span>
 </div>
 
@@ -392,7 +546,7 @@
 <div class='item-footer'>
   08:46  &bull;
     <span class='item-time-ago-in-words'>
-       15 days ago
+       16 days ago
     </span>
 </div>
 
@@ -482,7 +636,7 @@
 <div class='item-footer'>
   23:31  &bull;
     <span class='item-time-ago-in-words'>
-       17 days ago
+       18 days ago
     </span>
 </div>
 
@@ -694,7 +848,7 @@ The eschatological task hidden in Bitcoin
 <div class='item-footer'>
   15:53  &bull;
     <span class='item-time-ago-in-words'>
-       19 days ago
+       20 days ago
     </span>
 </div>
 
@@ -784,7 +938,7 @@ The eschatological task hidden in Bitcoin
 <div class='item-footer'>
   21:46  &bull;
     <span class='item-time-ago-in-words'>
-       30 days ago
+       1 months ago
     </span>
 </div>
 
@@ -3124,186 +3278,6 @@ The eschatological task hidden in Bitcoin
 
 <div class='item-footer'>
   01:41  &bull;
-    <span class='item-time-ago-in-words'>
-       2 months ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section' style='width: 800px;'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     <td>
-        <div style='width: 50px'>{}</div>
-     </td><!-- icon/logo -->
-     <td style='white-space: nowrap;'>
-       <span class='feed-title'>
-         <a href='https://paywall.link/to/55bbf'>Kunt Svanholm</a>
-        (
-         <a href='https://lnpay.co/t/f628d4/rss'>Feed</a>
-        )
-       </span>
-     </td><!-- feed title -->
-     
-     <td width='100%'>
-          <hr class='filler'>
-     </td><!-- filler -->
-      <td style='white-space: nowrap;'>
-       <span class='item-published'>Wednesday, 29 July 2020</span>
-      </td><!-- item published -->
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' style='width: 800px;'>
-
-<table width='100%'>
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>  
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/66ffbf'>The AlienCoin Attack Vector</a>
-        </span>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  ♦<p>In response to Reed Wommack and John Vallis discussing Bitcoin and Scarcity www.pscp.tv/w/1PlJQNzqAMBxE</p><p>While writing these words, I’ve just finished listening to Reed Wommack’s conversation with John Vallis. Both Reed and John are great thinkers and I’m proud to have connected and interact
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  ♦<p>In response to Reed Wommack and John Vallis discussing Bitcoin and Scarcity www.pscp.tv/w/1PlJQNzqAMBxE</p><p>While writing these words, I’ve just finished listening to Reed Wommack’s conversation with John Vallis. Both Reed and John are great thinkers and I’m proud to have connected and interacted with them both on several occasions. In the conversation, the abstract concept of “AlienCoin” was brought up. Imagine that a species of alien makes contact with earth and that we start trading with them. They’re using AlienCoin, a type of money with similar properties to Bitcoin but with a longer history and overall better properties. It is, in other words, a better Bitcoin. Would we humans switch to this coin or not in our search for an absolutely scarce asset that can be used as money?</p><p>I’ve written a lot about the concept of absolute digital scarcity and how it was more of a discovery than an invention and how it could only be discovered once. This is my definition of it, from Bitcoin — Independence Reimagined:</p><p>The One Shot Principle:</p><p>Absolute mathematical scarcity achieved by consensus in a sufficiently decentralized distributed network was a discovery rather than an invention. It cannot be achieved again by a network made up of participants aware of this discovery, since the very thing discovered was resistance to replicability itself.</p><p>Hal Finney said it like this:</p><p>“Any successful replacement of the Bitcoin block chain will forever undermine the credibility of any successor. How is an investor to know that it won’t happen again? Rebooting now may benefit a few thousand early adopters. What happens when hundreds of millions use Bitcoin 2.0? They’ll be just as jealous and envious of you as you are of others. Given the precedent you want to set, how will you argue against yet another reboot?”</p><p>In the interview, Reed mentions that there’s probably a finite amount of say, Bitcoin Cash as well as Bitcoin. This is not how I see it. As I’ve mentioned before, scarcity is all about how you choose to frame it. If you see Bitcoin Cash as a “Forks-of-Bitcoin”-token, it is not scarce. There are thousands of those. Around the time when these fork-coins were popular, there was a website where you could create your own by just a few clicks. My point about the discovery of scarcity on the internet is that we needed to frame this as soon and as rigidly as possible in order for it to actually work. I believe that the early history of Bitcoin was that framing process. It is not over yet. The fact that the Bitcoin Cash fork didn’t really work was one of the main things that convinced me that Bitcoin was actually decentralized enough to not give in to proposed monetary policy changes pushed onto the project from the outside. It could only be changed from within and I concluded that this was so unlikely that it would almost certainly never happen.</p><p>Now onto AlienCoin, a very fascinating concept indeed. Even though the probability of the scenario ever happening is probably close to zero, it’s a thrilling thought experiment nonetheless. A scenario like this wouldn’t even have to involve aliens, let’s just say that we discovered another decentralized computer network with better properties and more proof of work than Bitcoin somehow. I would still stick to Bitcoin and so should (and most likely would) everyone else. I’ll try to explain why.</p><p>Have you ever played Sid Meier’s Civilization? In every incarnation of the game there’s a technology tree. Some technologies are prerequisites for others. Bitcoin is standing on the shoulders of giants. Not only did it require cryptography, hashing algorithms, merkle trees and ASICs to function properly but before that mathematics, writing, hexadecimals, semiconductors, microprocessors, computer graphics and probably the wheel, agriculture, pottery and even ceremonial burial or archery as well. The point is that time moves in one direction and one direction only. The order in which events play out have a huge impact on the results. If you dry yourself off before you shower, you will have a very different result than if you do it afterwards. This is true for Bitcoin’s own history as much as it is true for whatever historical events that played out before it was discovered as well. Each day that passes, Bitcoin becomes more “Lindy”. People have a more and more concise view of what it is, and what history it has. Bitcoin was fairly distributed among humans because the earlier you got in, the higher the risk you took. More risk, more reward. I wasn’t truly 100% convinced of Bitcoin’s functionality until the Bcash fork happened and the users resisted the will of more than 90% of the Bitcoin companies by running their own nodes. An alien coin would have to convince every hodler of last resort on earth that switching to the new coin would be a good idea before they’d part from their bitcoins. Like I said earlier, scarcity is all about how we frame it. The hodlers have agreed already. They hodl Bitcoin, nothing else. The thing about this philosophy is that we’ve already decided what the finite unit for wealth transfer we have is Bitcoin. An AlienCoin would just be another altcoin, even if it functioned as Bitcoin for the aliens. At least for a very long time. In order for anyone that has lived through the early years of Bitcoin to change their mind, they would have to be convinced of the superiority of this new system and that would take a long time, if it’s possible at all. What guarantees do we have that another, even more superior system wouldn’t show up the next day?</p><p>Bitcoin is a four dimensional invention. The direction of time itself plays a huge part in what is. Having doubts about it is a fools game because the organism works and grows precisely because we believe it does. It feeds on human incentives and the more you learn about its connection to praxeology and thermodynamics the more convinced you become. This makes the system even more robust and valuable which will onboard, and convince even more users every day and on and on it goes. It is the optimist’s version of Roko’s basilisk. If we ever interact and trade with aliens in the future, we should exchange all sorts of things with them but we’d better hold on to our most valuable possession. The thing that makes us a type 1+ civilization on the Kardashev scale instead of just a 0,7 one. The best thing we have. The pinnacle of our achievements.</p><p>Some of us have been in Bitcoin longer than others and we’re all at different stages in our perception of it. I’m not saying that I’m 100% right and that everyone else is wrong, but I have come to realize one thing. This rabbit hole is way deeper than any of us can imagine.</p><p>Loved the conversation guys, now I can’t get AlienCoin out of my head! A final question: How do you know Satoshi wasn’t an alien in the first place?</p>♦
-
-</div>
-
-<div class='item-footer'>
-  20:34  &bull;
-    <span class='item-time-ago-in-words'>
-       2 months ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section' style='width: 800px;'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     <td>
-        <div style='width: 50px'>{}</div>
-     </td><!-- icon/logo -->
-     <td style='white-space: nowrap;'>
-       <span class='feed-title'>
-         <a href='https://paywall.link/to/59881'>Beautyon</a>
-        (
-         <a href='https://lnpay.co/t/74ddb9/rss'>Feed</a>
-        )
-       </span>
-     </td><!-- feed title -->
-     
-     <td width='100%'>
-          <hr class='filler'>
-     </td><!-- filler -->
-      <td style='white-space: nowrap;'>
-       <span class='item-published'>Monday, 27 July 2020</span>
-      </td><!-- item published -->
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' style='width: 800px;'>
-
-<table width='100%'>
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>  
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/ca42a4'>Misjudging Bitcoin</a>
-        </span>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  ♦MOON TIARA MAGIC<p>In The United States District Court for the District of Columbia, “UNITED STATES OF AMERICA v. LARRY DEAN HARMON”, Chief Judge Beryl A. Howell (a ‎Barack Hussein Obama appointee) made a problematic ruling on the nature of Bitcoin, relying only on hearsay and third party sources, w
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  ♦MOON TIARA MAGIC<p>In The United States District Court for the District of Columbia, “UNITED STATES OF AMERICA v. LARRY DEAN HARMON”, Chief Judge Beryl A. Howell (a ‎Barack Hussein Obama appointee) made a problematic ruling on the nature of Bitcoin, relying only on hearsay and third party sources, which misguided her to a totally wrong conclusion. Here we dissect the part of the judgement that mischaracterises Bitcoin. It is full of errors, and should not have been used to make the judgement.</p><p>Bitcoin is not “a decentralized form of electronic or digital currency that exists only on the internet”. Bitcoin is a database, copies of which are held by people who download a piece of software to run it. Bitcoin is also not “an alternative currency” and simply asserting that it is does not make it so. Bitcoin is never transferred anywhere. Entries are made in the publicly visible database. No one “owns” Bitcoin. The fact that Bitcoin has units does not confer the property of money to it. For example, memory storage devices and rulers have units but are not considered money.</p><p>Any proof that Bitcoin has a characteristic cannot come from case law or a layman. An accurate description that is not description by analogy is possible in this matter, and in every instance this is the only description that should be submitted to any court in any proceeding. Relying on second hand descriptions of what Bitcoin is is not necessary, and it is not correct to describe discreet technical operations and devices by analogy only.</p><p>Bitcoin is not “an alternative currency”. It is a database. Bitcoin transactions are entries in a database, which is identical in nature to all other databases where information is stored. The numbers in the Bitcoin database can represent literally anything, because it is data. The idea that Bitcoin is money rests solely in the minds of the people who choose to treat Bitcoin as money. It is not actual money itself. Bitcoin is never transferred anywhere. Bitcoin users sign messages and write them to the global database. Nothing is transferred from one person to another in Bitcoin, and ownership is never transferred in Bitcoin; all data in the Bitcoin network is a property of the Bitcoin database, and not of any particular user.</p><p>The capitalisation conventions in Bitcoin have no bearing on the nature of Bitcoin, and have been adopted by people desperate to try and contextualise Bitcoin. Anyone can make a copy of the Bitcoin network’s database and call it something else, with its own naming conventions. That would not make any aspect of the copy money. It is not true that “tokens” are transferred in Bitcoin. The use of the word “token” emerged from users of Social Media attempting to contextualise Bitcoin through analogy. At no point is Bitcoin ever a “token”, like a subway token or ticket.</p><p>Units of Bitcoin are not stored by reference to an address. Bitcoin addresses are keys used to sign messages that are sent to the network for storage. The authors making this false claims cited in the memorandum admit themselves that they are analogising the address to a user name and that addresses are similar to a bank account number, both of which are absolutely false.</p><p>Bitcoin is never transferred from one address to another. Bitcoin is always sent to the network and stored. The controller of a Bitcoin address never receives anything, because nothing is transferred. Bitcoin users scan the database to see if a message signed to their key has been written to the database. This is not “reception” in any sense, because the location of the “recipient” is immaterial. People on the ground seeing skywriting are not, “recipients of messages”, they are viewers only. This is how Bitcoin works. The nodes that store copies of the Bitcoin database are not linked together; they are all separate and totally independent of each other.</p><p>The “sending” and “receiving” terms in Bitcoin are analogies adopted by the computer illiterate public to help them contextualise Bitcoin’s internal processes. Bitcoin confirmations are records on the database, and nothing more. Bitcoin is no different in function to forum software that makes note of what author wrote what text. The only difference being that people have unilaterally chosen to accept messages in lieu of money. This is a choice the public has made that has nothing to do with Bitcoin’s nature, and there have been several other attempts to do what Bitcoin does that the public refused to accept. All of these systems relied on databases, and the only difference between them all is the public’s acceptance.</p><p>Bitcoin addresses are not owned by anyone. They are pieces of text that have a context in the Bitcoin database. Users of Bitcoin have the power to sign messages with keys they keep secret, but they are not owners of those strings and neither are they owners of the copies of the database they use to verify messages. The only way a claim that users “own” keys is to suffix with “in the ordinary sense of the word”, which is not sufficient for a court proceeding where only material facts are to be taken into consideration.</p><p>Bitcoin keys can be stored in many media like any other text, or no media at all, in the form of memorised words. To make the claim that a set of memorised words is money stretches the credulity of even the most stupid person. Bitcoin is not money, has never been money, and is text only. It is always text, all the time, and you cannot assert that it is money because a computer illiterate author asserts that it is because he wants to sell a book.</p><p>Similarly, no amount of case law can turn Bitcoin into money. The genetically modified seed that grew the tree of “Bitcoin is money” found its genesis with computer illiterates and ambulance chasers desperate to sell books and run crony capitalist front foundations to control this new phenomenon. They don’t have the language or understanding to classify Bitcoin, and those that have the intelligence to do so, quickly realise that they can’t possibly tell the truth, or their new careers as Bitcoin gatekeepers and “Thought Leaders” will be over. They know that Bitcoin is just a database that people accept for accounting. It is as dull and pedestrian as that, and you can’t run a “Legal Centre” or be a “Thought Leader” in something boring and mundane as an Excel spreadsheet.</p><p>The various guides written for “Legal Professionals” will all need to be deprecated and replaced with works that accurately describe how Bitoin works without analogies, comparing its operation to other databases that are in common use. This is the only way the “Legal Professional” and the courts will ever be able to rule on Bitcoin correctly. If they do not, then all databases on earth will be subject to the same rulings that have been made against users of Bitcoin.</p><p>It will mean that all online video game companies could be sued for being “Money Transmitters” because users can trade in game goods between each other. None of the judgements against Bitcoin users make a distinction that separates game monies with Bitcoin, and the mere difference in operation does not count as a difference in nature. Both Bitcoin and MySQL (a database) are databases working with the same thing; data, or plain text.</p><p>In order to say that Bitcoin is different to MySQL in law, a distinction would need to be made so that math operations required for Bitcoin are legally distinct, separate and controlled. This would be a direct violation of the Constitution, and impossible in the USA.</p><p>Operating a Bitcoin full node or sending messages to the network is not “Money Transmission”, even if the service is paid for. If you accept money to transmit a message to the Bitcoin network you are no different to a telegraph operator. You can charge by whatever means you see fit to perform this service, per word or per character, and this is the same in Bitcoin, because the database entries are scarce. You therefore, in order to run a business, need to charge sufficient money to make a profit and replace your Bitcoin so you can continue to send messages on the network. This is not “Money Transmission” and Bitcoin has no official price either. If the price of Bitcoin by agreement of the two parties using the network is agreed to be 0, does this mean that the act is still money transmission, or not? These are the difficult questions that people who assert that Bitcoin is money cannot and will not answer, because they’re either ignorant or they know the truth and want to obscure it for their own personal gain.</p><p>In no way is writing messages on a database “engaging in the business of receiving money for transmission or transmitting money within the United States, or to locations abroad, by any and all means, including but not limited to payment instrument, wire, facsimile, or electronic transfer.” If this were not the case, every text message that had a number in it could be construed as “Money Transmission” if the two parties agreed to a fee to send or receive text. When your accounts are prepared by H&amp;R Block, and they send you the forms to sign, you have paid them for this service. Their records are kept on a database, and you sign and return the forms for a fee. This is no different to Bitcoin.</p><ol><li>A text is prepared</li><li>You sign the text with your unique signature</li><li>You return the text for storage in a database</li><li>You are charged for the service by a service provider</li></ol><p>The database used is irrelevant, and so is the means of identifying you and the method used to identify you by a signature. By this, you can see that H&amp;R Block is, “running a Blockchain”, and their name should be changed to “H&amp;R Blockchain”.</p><p>Bitcoins are not funds, any more than your accounts or text messages are “funds”. Calling Bitcoin funds is an analogy used to put Bitcoin in a context. Similarly, in the definition of Money Transfer, “electronic transfer” applies only to dollars sent through the traditional banking network. It does not apply to any other context, and cannot, because if it did, it would capture all electronic transfers of any kind that contained an explicit representation of money, reference to money or number.</p><p>Bitcoin Tumblers are not “MTAs”. If any court asserts that they are, they will be capturing all dice on earth. A Bitcoin tumbler is nothing more than a computer programme that randomises numbers in a database. It does not accept money as inputs and does not output money either. It takes numbers as inputs, performs calculations on them and then outputs different numbers. This operation has nothing to do with money, and in fact could be done manually with a pencil and paper.</p><p>Bitcoin is not a medium of exchange, method of payment, or store of value. For certain, only a fool would assert that Bitcoin is a store of value, since it has historically been very bad at doing that in fiat terms. Bitcoin is not a method of payment either; people have chosen to use it to pay for goods and services, but that doesn&#39;t make Bitcoin a method of payment. People can use bananas to pay for goods and services, that doesn’t make them a method of payment. Bitcoin is not a medium of exchange either; it is a database of numbers. Numbers can be used to represent anything, and so can Bitcoin. People agree that it is a medium of exchange today. They may not in the future. That has nothing to do with the nature of Bitcoin. Common parlance does not change the nature of things, and defendants claiming that Bitcoin is money does not make Bitcoin money. Slave owners could testify in court that people he owns are “his property” and only a terribly immoral person would assert that because a defendant said this that people are transformed into property. The same is true of Bitcoin.</p><p>Courts do not have the power to claim that human beings are property for the purposes of a judgement, and they do not have the power to create a form of money out of thin air. Only the Congress and Senate have the power to say what money is in the United States. The ordinary meaning of money is also not applicable, as is the Appeal to the People fallacy. The court cannot prove what it is asserting about Bitcoin, and it refers to fallacious arguments to do so without making any direct reference to what Bitcoin is. This should tell you that the court doesn’t know what Bitcoin is and it simply wanted to punish a man who very foolishly sold drugs online.</p><p>Relying on other courts is also faulty. Those courts are similarly ignorant of what Bitcoin is, and are all referring to the same fundamentally flawed material to make their wrong judgements. “The federal district courts have unanimously and unequivocally concluded that Bitcoin constitutes money.” This unanimity is the Faulty Appeal to Authority Fallacy. The court is not showing us what Bitcoin is, it is merely telling us what other people have said it is and it is relying on its “overwhelming authority” to badger, bully and railroad.</p><p>All of this is enough for a higher, neutral court to reject this flawed ruling and dismiss it. Further to this, this ruling has no effect outside of the District of Columbia and cannot not affect any business in another jurisdiction, like BitMEX in Hong Kong or the thousands of companies that will inevitably be formed to work on the new global database.</p><p>This judgement is vindictive and designed to punish someone who made a very bad mistake and accepted Bitcoin in return for services that are illegal in the USA. By making this entirely erroneous judgement, the court is damaging the reputation of the District of Columbia as a place to do global business with the Bitcoin database. Fortunately, billions are already being made outside of the District world-wide, and this judgement is moot everywhere on earth but there.</p>♦<p>Misjudging Bitcoin was originally published in Decentralize.Today on Medium, where people are continuing the conversation by highlighting and responding to this story.</p>
-
-</div>
-
-<div class='item-footer'>
-  20:04  &bull;
     <span class='item-time-ago-in-words'>
        2 months ago
     </span>
