@@ -60,9 +60,9 @@
      </td><!-- icon/logo -->
      <td style='white-space: nowrap;'>
        <span class='feed-title'>
-         <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
+         <a href='https://paywall.link/to/3e463'>Nic Carter</a>
         (
-         <a href='https://lnpay.co/t/967232/rss'>Feed</a>
+         <a href='https://lnpay.co/t/91be78/rss'>Feed</a>
         )
        </span>
      </td><!-- feed title -->
@@ -73,6 +73,93 @@
       <td style='white-space: nowrap;'>
        <span class='item-published'>Monday, 05 October 2020</span>
       </td><!-- item published -->
+     
+   </tr>
+  </table>
+</div>
+
+
+<div class='item' style='width: 800px;'>
+
+<table width='100%'>
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>  
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+        <span class='item-title'>
+          <a href='https://paywall.link/t/fb122d'>Public blockchain fee cyclicality and negative feedback loops</a>
+        </span>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+       <div style='width: 50px; max-width: 50px;'></div>
+    </td><!-- icon/logo; dummy for space -->
+    <td width='100%'>
+
+<div class='item-body'>
+
+<div class='item-snippet'>
+<!-- use 'smarter' algorithm for cutoff snippet text
+   note: summary goes first; than try content -->
+
+  <p>Invented in 1788 by James Watt, the centrifugal governor is a small, clever device that made steam engines viable in an industrial context. Effectively it takes rotational input from a steam engine and applies it to weighted balls. As they spin, the centrifugal force pushes them upwards, moving a 
+
+</div>
+
+<div class='item-content item-summary'>
+<!-- todo: use sanitize or simplify or whitelist
+   - todo/fix: check why summary can be nil/null
+   note: content goes first; than try summary
+ -->
+
+  <p>Invented in 1788 by James Watt, the centrifugal governor is a small, clever device that made steam engines viable in an industrial context. Effectively it takes rotational input from a steam engine and applies it to weighted balls. As they spin, the centrifugal force pushes them upwards, moving a lever connected to a valve. As they spin faster, the valve closes. In this manner the governor takes input from a steam engine and mechanically regulates the flow of steam and hence the speed of the engine.</p>♦<p>This innovation made steam engines suitable for industrial processes which required stability and predictable speeds, like mechanical looms. The key idea is that as the system gains in energy, a negative feedback loop develops which caps its growth. For steam engines, this is part of their design and is a very good thing. As we will see, a similar phenomenon exists in public blockchains — with more mixed results.</p>The Curious Case of the Cyclical Fees<p>As the dust cleared on the mania of 2017, I noticed that Bitcoin fees and transaction count appeared to be following a repeating pattern. Blocks would fill up, fees would spike, transactions would start to drop, and then blocks would start to fill up again. By my count, this cycle repeated itself six times in 2017.</p>♦Chart available at Coin Metrics<p>Note that I’ve smoothed both average fees and transaction count on a 7 day moving average. People recall Bitcoin’s late-2017 “fee crisis” as a single event but in fact there were at least four periods of fees rising dramatically, and six if you count smaller peaks. It’s just that most people count fees in dollar terms, rather than native unit terms, so they only really noticed the final prolonged fee spike when the USD value of Bitcoin was spiking too.</p>♦<p>On average, fees would peak about two weeks after transactions did. The entire cycle took two months to complete, although it accelerated throughout the year. As blocks became progressively fuller, a marginal new burst of transactions pushed fees into intolerable ranges for transactors. Of course, fees are just the symptom. The underlying constraint is block space.</p><p>You can visualize the hard stop develop by examining the relationship between block fullness and average fees.</p>♦<p>Using this approach you can see that as blocks filled up and stayed full, fees crept upwards. As fees reached a peak, users chose to transact less and blocks emptied out, giving rise to the ragged patterns in block size. But as fees came down, blockspace looked more attractive to users and they flocked back to the protocol, causing blocks to fill up again. In the final grand fee spike around January 2018, blocks stayed full to the brim for months and fees reached eye-watering levels, in both BTC and USD terms.</p><p>Keep in mind that SegWit was officially activated on July 23, 2017. Since it represented an effective blocksize increase (allowing blocks to carry up to the equivalent of 4MB of data), you can see blocks burst through the 1MB limit in the latter half of the year. However because SegWit was not fully embraced by transactors right away, average block size grew only slowly.</p><p>Here’s a diagram of the process. I call it an oscillation, because it causes both fees and the utilization of blockchain resources to oscillate, like a sine wave. But you could also describe it as a negative feedback loop, as fees inhibit transactions when they hit certain thresholds.</p>♦<p>This was little more than a curiosity. I pointed it out at the time, but the cycle didn’t really matter altogether too much — you couldn’t bet on where you thought transaction count would be in a week after all. The lesson I took from this was straightforward: at a certain point, users grow frustrated with fees and deprioritize on-chain transactions, especially if the fees are large relative to their transaction size. SegWit helped a fair amount, as did the institution of batching. Seen in a certain way, fees are self-correcting as they encourage large consumers of blockspace to be more parsimonious with their consumption of chain resources. But all this did was reinforce my idea that scaling Bitcoin will require a number of deferred transaction systems that settle to BTC under an array of trust models. The other takeaway for me was that users evidenced a clear transactional lifecycle, and after a period of acute fee pressure, required several weeks to return to their prior level of consumption.</p>Ethereum’s 2020 ‘Fee Crisis’<p>This year, when Ethereum fees started to creep up and then exceed those on Bitcoin, I wondered to myself whether Ethereum would see a reprise of Bitcoin’s fee-tx count dynamics. I puzzled over whether it would have the same effect, or be more disruptive to Ethereum, since so much liquidity is “on-chain” (as opposed to primarily off chain at exchanges). I figured we’d see the same thing, with a less dramatic oscillation, since the supply of Ethereum blockspace is somewhat dynamic and can increase in response to surging usage. As it turned out, fees would end up being more disruptive than I had expected.</p>♦Chart available at Coin Metrics<p>Like Bitcoin in 2017, Ethereum this year saw a utilization spike as transactions grew, which gradually drove up fees. Compound’s public token launch in mid June intensified the blockchain utilization and hence fee pressure, and a host of other launches saw fees reach a crescendo starting in mid August. Several notable launches, namely the dual launches of SushiSwap and Uniswap’s token, spiked fees to eye-watering levels. On Sep. 2, the average Ethereum transaction cost over $14. All told, $16.7m was paid in ETH fees that day, well surpassing miner revenue from new issuance which totaled $5.98m. And as those fees rose, some users chose to defer transactions, and transaction count started to drop. As we entered a new high-fee epoch in mid-August, Ethereum transactions per day started to steadily drop. Fees peaked much later on Sep. 2, but have also begun to come down over the last month.</p><p>Just two days later, on September 4, I predicted on the On The Brink podcast that Ethereum’s high fees would not only affect chain utilization, but also liquidity on decentralized exchanges. I’ll post a brief transcript below (the relevant part begins at 36:30):</p><blockquote>Nic: We saw this fee-tx count oscillation happen in Bitcoin in 2017; I would predict that we would see the same thing with Ethereum. So effectively, fees rise as blockspace utilization rises, and at a certain critical threshold, users kind of get fed up and they stop transacting for a while — its not economical for them to transact — and so, transaction count and fees drop, and then, fees get cheaper so people start transacting again, and the cycle repeats.</blockquote><blockquote>And I think, if you look at the selloff, it’s probably partially due to that, because some of these more retail investors that were using these on-chain exchanges, they’re getting priced out of those trades. And if there’s no retail investors, that’s a lot of the uninformed flow that the smart traders trade against. And so I think there’s a hit to liquidity generally when that happens […]</blockquote><blockquote>Matt: No retail, no party.</blockquote><p>And while ETH price dynamics are hard to pin down, and I am not claiming they are solely attributable to this phenomenon, ETHUSD peaked on Sep. 1 and declined from there while fees stayed elevated through the rest of the month.</p><p>So what happened exactly? A couple things. First, Ethereum entered into what I believe will be its first major fee-chain usage oscillation, with fees peaking about three weeks after transaction count, and both declining subsequently. Perhaps more interestingly, the average size of Ethereum transactions, and various stablecoin transactions shot up alongside the rising fees. This stands to reason: users have a view of how much they’re willing to pay in fees as a percentage of their transaction, and as fees rise they stop making small transactions and larger transactors start to dominate.</p><p>The correlation is startlingly tight, and suggests to me that users are very sensitive to fees.</p>♦Chart available at Coin Metrics<p>It’s not just basic Ether transactions which exhibit this fee sensitivity either. Tokens like Tether also evidence rising transaction sizes as ETH fees increase.</p>♦Chart available at Coin Metrics<p>This suggests that transactors have a threshold of fees as a percentage of transaction value that they’re willing to pay, and as fees rise, they become unwilling to make smaller transactions — unless they really have to.</p><p>The above could be explained by some third explanatory variable like the growth of liquidity mining which was both congesting the chain and causing larger transactors to enter. I found more clarity when I investigated the composition of Ether transactions. I intuitively felt that smaller transactors were being priced out by fees, but it wasn’t clear until I put together this chart:</p>♦<p>Initially this chart may not look too notable. It shows a cooling off of transaction count as fees rise, as we saw above. But more interesting is the changing dynamic among ETH and USDT transfers, which I’ve split up at the $500 threshold. You can see transactions accounting for more than $500 worth of ETH gaining steadily share relative to smaller transactions as fees rise. Let’s eliminate contract calls and focus only on the two categories of ETH transfers found above:</p>♦<p>This is the smoking gun. For non-contract call transactions, ETH transfers under $500 were idling at about 85% in June — but when fees spiked, they collapsed to as little as 40% of ETH transfers. Finally, some hard evidence for my intuition: fees price out smaller users.</p><p>Predictably, the same phenomenon is evident in the usage patterns of the biggest ERC20 token, Tether. You can clearly see that smaller USDT transactions start to drop off as median fees start to climb in mid August. Larger Tether transactions hold firm but still evidence a declining trend overall as transactions cooled off during the high fee epoch.</p>♦Do High Fees Affect Liquidity?<p>So, we’ve established that there is a clear negative feedback loop between fees and utilization of blockchain resources, both in Bitcoin and in Ethereum. In Bitcoin we know that the cycle historically takes two months to complete; we haven’t yet seen what it will look like in Ethereum. Moreover, it’s clear that transactors have a threshold in mind for the highest tolerable fees relative to the size of the transactions they are making, and that smaller transactors defer their transactions during periods of high fees. This causes average transaction sizes for both ETH and other tokens to creep up during high fee epochs.</p><p>But is there more to the story? Or is this just a recast of Bitcoin 2017? I’d venture that there is indeed another wrinkle here.</p><p>Remember that in 2017, Bitcoin trading took place at centralized exchanges, with the blockchain being used for inter-exchange settlement and for user deposits and withdrawals. Actual markets were made off-chain. A user could fund an exchange account with fiat and hold (and then sell) Bitcoin, all without actually touching the blockchain. So when the fee crisis appeared, it absolutely put a brake on the Bitcoin economy, but plenty of users were able to make trades on exchanges if they already had funds on the platform or wanted to wire in USD.</p><p>By contrast, Ethereum trading in 2020, together with its litany of associated tokens, is very much an on-chain phenomenon. Now centralized exchanges are still very important to price formation, but certain DEXes like Uniswap have at times eclipsed even the largest centralized exchanges. Because automated market maker DEXes do not require KYC, custodying coins with a third party, or a lengthy onboarding process, they are far more convenient for end users. The no-orderbook AMM model is also extremely simple to use. And certain assets and types of exposure, like smaller DeFi tokens, or mining with liquidity, are only possible on-chain. As a consequence, a vibrant industry of on-chain liquidity has emerged with ferocity. As virtually everything traded on these DEXes is Ether or a token on Ethereum, everything is exposed to fees. Unlike centralized exchanges, every trade you make at a DEX has to settle on-chain. On-chain fees are therefore an ever-present consideration.</p><p>So contrasting with the vanilla fee-tx count oscillation model we saw from Bitcoin in 2017, here’s a modified version to account for the new dynamics we saw from Ethereum in 2020.</p>♦<p>So where does this second loop derive from? Why single out DEX-heavy chains for special treatment?</p><p>First, it’s important to understand that, as Maya Zehavi puts it, high fees are a regressive tax on users. Regressive, because fees are not proportional to your wealth but instead apply largely in the same way whether you’re moving $100 worth of ETH or $10,000 (fees are a function of the computational heaviness of your transaction, rather than the $ value of transactions). This is similar to the manner in which sales taxes are regressive, because groceries account for a larger share of the income of working class people than they do wealthy people. Thus a fixed 5% sales tax is effectively a much larger portion of income for a less well-off family.</p><p>Let’s consider an analogy. Imagine a private game of poker with a rake which is fixed in dollar terms, rather than being a percentage of the value of the pot. (The rake is the fee that the operator takes for running the game). Players have the choice to play a given hand and pay the fixed fee, or sit out, in which case they don’t have to pay. There’s a variety of players at the table — a couple professionals, some semi-pros, and some gamblers who are enthusiastic but aren’t particularly good at poker. The house can set the value of the rake wherever it likes. To have a winning night, not only do you need to win against your opponents, but you need to be profitable net of the rake taken by the house. It’s not enough to just win: you have to win after absorbing transaction costs.</p><p>If the rake is low, everyone participates happily. But when the table operator gets greedy and increases the rake, the players with smaller stacks start to sit out more and more hands. If they have to fork over 1/10th of their stack just to play a hand, they are going to opt out (unless they have pocket aces). The general trend is that as the rake rises in absolute terms, players are gradually priced out of the game, starting with the players with the smallest bankrolls.</p><p>When the smaller, less sophisticated players start to drop out, the game gets substantially less profitable for everyone else. After all, the semi pros depend on the existence of unsophisticated opponents to make a living. As every poker player knows, you probably don’t want to sit at a table on a Tuesday morning with the grinders and semi pros. You want to hit the felt on a Friday night when the loose amateur gamblers roll through, lose their stack, and stumble off to the bar.</p><p>To return the analogy to Ethereum, the fees are the rake and they price out the retail individuals who, until recently, were having a rollicking time on Uniswap and other DEXes. But as fees climbed to $14 on average (and much higher for DeFi transactions like swapping ETH to DAI on Uniswap), it simply became uneconomical for individuals with smaller bankrolls to participate in trading or liquidity mining. An entire portion of the market was forced to sit on their hands. And since retail investors are the uninformed flow that professionals trade against (and profit from), if retail isn’t sitting at the table, the game is not as worthwhile. All of this manifests in a degradation of liquidity and worse trading opportunities overall.</p><p>All of that said, this theory is hard to confirm empirically. A detailed analysis of wallets active in DeFi at various thresholds and their reactions to fees, or a comparison of spreads versus ETH fees, would be helpful in confirming these hypotheses. But there are a few datapoints which are indicative. First, here’s aggregate DEX volume courtesy of Friedrik Haga’s Dune Analytics dashboard, compared to median Ethereum fees.</p>♦<p>You can see that volume and fees have co-moved in the last few months. This is consistent with fees putting a brake on usage, especially at the retail tiers. The problem is that the causality is hard to infer. It could easily be the case that high DEX volume was the cause of elevated fees (and vice versa), rather than high fees being the catalyst for declining volumes. Perhaps more interestingly, this chart shows the daily new addresses taking part in various DeFi protocols, the first derivative of the Dune dashboard built by Richard Chen, versus median ETH fees.</p>♦<p>With the exceptions of two big spikes around SushiSwap and the UNI token launch, daily new entrants to DeFi seemed to be cooling off after mid-August when ETH fees reached a new plateau.</p><p>The conclusions being drawn here are more speculative. While it’s clear that smaller users defer transactions when fees are higher, the direct effect on on-chain liquidity is hard to measure.</p>Future Prospects for Ethereum Fees<p>We haven’t seen the full fee-chain resources cycle play out yet on Ethereum, so it’s hard to gauge the cycle length. But in the spirit of making concrete predictions I will forecast the following: I expect that we will see ongoing, positively correlated oscillations on Ethereum between fees, transactions, and crucially the liquidity and volumes of on-chain exchanges. I imagine it will look something like this:</p>♦<p>If you believe that DEX volumes and the on-chain liquidity environment more generally are accretive to the price of Ether, it doesn’t take much imagination to make educated guesses about the potential price impact of this phenomenon. To the extent that the Ether’s value is exposed to the reservation demand for the asset as the liability-free collateral at the base of the DeFi system, fees that put a brake on usage will most likely make the TVL in the system unwind and put pressure on the price of ETH.</p><p>That said, there are a few counter-cyclical features that might attenuate the oscillation and spare Ethereum from the tyranny of volatile fees.</p>Dynamic blockspace supply<p>Unlike Bitcoin, which has only formally increased the blocksize cap once in its existence, Ethereum is more amenable to producing more blockspace if necessary, although the rate of increase is constrained. Elastic blockspace could in theory be employed to stabilize fees, but this comes at the cost of increased validation requirements, which are already fairly high for Ethereum. As Ethereum utilization has increased, miners have rewarded transactors with ever-more computational capacity.</p>♦<p>However, because raising the gas limit increases the uncle rate, makes the network potentially more vulnerable to DOS attacks, and makes operating a full node more costly, the Ethereum community is divided on the prospect of further gas increases. While Ethereans are willing to tolerate more aggressive tradeoffs than Bitcoiners as far as the cost of node operation is concerned, the two camps generally agree that merely increasing the supply of blockspace is not a scaling panacea. So while blockspace has a certain supply elasticity which enables it to respond to increased demand, there is little political willingness to pursue a wholly accommodative blockspace policy.</p>ETH 2.0/Sharding<p>When I first wrote about the prospects for Ethereum fees, Vitalik’s response to my article (in which I claimed that Ethereum would likely be saddled with high fees for an extended period, and this would affect the viability of nonfinancial applications), Vitalik clarified his stance on fees:</p>body[data-twttr-rendered="true"] {background-color: transparent;}.twitter-tweet {margin: auto !important;}<blockquote><p>&#x200a;&mdash;&#x200a;@VitalikButerin</p></blockquote>function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}twttr.events.bind('rendered', function (event) {notifyResize();}); twttr.events.bind('resize', function (event) {notifyResize();});if (parent && parent._resizeIframe) {var maxWidth = parseInt(window.frameElement.getAttribute("width")); if ( 500  < maxWidth) {window.frameElement.setAttribute("width", "500");}}<p>Effectively, he pointed out that he still believes in Ethereum’s vision for a low-cost blockchain in which a variety of applications, both non-financial and financial are possible. His proposed solutions are Rollups in the near term and ETH 2.0/Sharding in the longer term. Vitalik has said that he expects ETH 2.0 to produce 100x more capacity, although he expects that fees might eventually rise to an equivalent level thanks to induced demand.</p><p>I am inclined to agree; if you produce a commodity more efficiently, the world will find more uses for that (now cheaper) commodity. Thus, it wouldn’t be all that surprising to see average fees reach a high plateau even taking into account the creation of more blockspace. Regardless, ETH 2 still appears fairly remote, so it’s difficult to reason about. At the very least, it won’t be moving the needle fee-wise in the near term.</p>Rollups<p>The current orthodoxy in Ethereum holds that Rollups are the main path to alleviating Ethereum’s current fee woes. Rollups come in two major types — ZK and Optimistic, but they both generally involve bundling many payments together and vastly increasing the economic density of transactions, in theory preserving the assurances of base-layer transactions while massively increasing TPS. In short, transactors rely on relayers who assemble large batches of transactions and broadcast digests of these transactions.</p><p>A ZK Rollup involves broadcasting significantly truncated transaction stubs, alongside a proof that the bundle of transactions is a valid change to the ledger. The Optimistic variant involves semitrusted operators who assemble transactions, with transactors who largely assume that the operators are not acting maliciously. Deterrence is (in theory) achieved through a combination of fraud proofs and economic penalties for misbehavior. Currently, ZK Rollups are mostly limited to simple transfers whereas certain breeds of Optimistic Rollups (OR) promise to open up the full scope of transactions currently possible in vanilla Ethereum. For a comprehensive breakdown of the state of OR, see this comprehensive report courtesy of Daniel Goldman.</p><p>Rollups effectively take transactional data off chain and put validity proofs on-chain. Bitcoiners embraced a similar data-parsimony vision years ago and pursued Lightning (which could reduce hundreds of thousands of payments to a handful of on-chain transactions), and sidechains, as well as advocating for pro-efficiency measures like batching and SegWit usage. Thanks to the popularity of Rollups and apparent pace of progress, Vitalik is championing them as the best near-term approach to scaling Ethereum. While ETH 2.0 may yet come into play, the Rollup vision of Ethereum is much closer at hand.</p><p>There’s a couple reasons why Rollups may not be a panacea for Ethereum fees. Firstly, it will be a challenge to coax all consumers of blockspace to be responsible stewards of the system, especially if they are service providers and can pass fees on to end users, rather than internalizing them. We learned this lesson with Bitcoin — if intermediaries can pass fees through to end users, they have a limited incentive to invest in a more sustainable infrastructure.</p><p>Additionally, because Ethereum has repeatedly increased the gas limit to effectively bail out blockspace consumers (at the expense of validators), heavy users may spend their resources lobbying for more gas limit increases rather than spending engineering hours on rollup-izing their transactions. Along these same lines, the specter of superabundant blockspace on the horizon with ETH 2.0 might impair the enthusiasm for Rollups among heavy transactors. Perversely, ETH2&#39;s main contribution today may well be to discourage heavy users from rendering their usage more efficient.</p><p>Second, the global userbase of a blockchain like Ethereum is not strictly something that developers and advocates can actually appeal to directly. Ethereum is open for anyone to participate in without exclusion, which is part of the reason for its popularity with ponzis and other marginal schemes. Presumably, the orchestrators of these schemes (which are routinely some of the heaviest consumers of blockspace) are not necessarily planning for the long term or trying to optimize their on-chain footprint, but rather more focused on making a quick buck. It sure would be interesting to see Forsage pushing the envelope tech-wise by rollup-izing a pyramid scheme though.</p><p>On the technical side, Rollups, especially the Optimistic variant, are not identical to base-layer transactions in terms of their settlement qualities. Vanilla Ethereum transactions are final almost immediately, and do not carry chargeback or settlement risks. This property permits ‘atomicity’, which means that chained transactions either all happen or none do. This grants users the ability to safely interlink multiple systems without risking a cascading failure because one payment in the chain failed to clear. This is a highly desirable property which is a function of its status as a digital bearer asset. Atomicity flows into composability, the oft-touted feature of Ethereum whereby smart contracts can safely reference each other, allowing for the buildout of ever more complex systems without having to evaluate each module.</p><p>Introducing more complex systems like Rollups throws these assumptions of atomicity and composability into doubt. Due to the fraud proof challenge trust model in some Optimistic Rollups, finality periods are extended in the unhappy case. Matter Labs estimates that the time to finality for OR will be on the order of 1–2 weeks. (Note: this estimate was made in Nov. 2019 so the state of the art may have changed since then.) One proposed solution [ctrl+F ‘withdrawal period’] involves intermediaries which provide users withdrawing from the rollup discounted access to their temporarily frozen coins for the duration of the challenge period. As far as I can tell, this effectively creates a tiered system, with lengthier finality from the “free version” of a Rollup exit, and shorter finality in the paid, accelerated version.</p><p>To put it somewhat uncharitably, Optimistic Rollups introduce the potential of deferred settlement. There is nothing wrong with this — deferred settlement is at the core of all efficient modern payment systems — but it is a different settlement model from base layer Ethereum transactions (which are cash-like). If you are used to transacting solely with bank wires, moving to ACH and credit payments will be more efficient, but it also means that you have to stomach impaired guarantees around settlement. This is why chargebacks are possible with credit card payments; they don’t actually settle right away. Great for the consumer, bad if you’re a merchant and you had earmarked those funds to pay bills coming due.</p><p>Aside from questions of finality, impaired composability is another issue which might inhibit an immediate transition to OR. I am not an expert on Rollups by any means, but I have seen composability challenges mentioned as some of the biggest drawbacks off OR.</p><p>For these reasons, I don’t believe it’s inevitable that all major smart contracts on Ethereum will switch to a Rollup system. To me, there seems to be a critical difference between a fast-settling base layer Ether or token transfer, and a Rollup-ized version of the same, especially when it comes to settlement. And if either composability or atomicity is impaired, the systems you can build look very different from those present on Ethereum as it works today. There is definitely something unique about DeFi as constituted from fast-settling Ether and token transfers today, and I believe that this will become clear as some large blockspace consumers start to make that switch to Rollup systems. As a consequence, I don’t expect that Rollups will meaningfully abate fees in the near term, even if they get partial uptake.</p>Conclusion<p>The difference between a centrifugal governor and on-chain fees is that the regulating effect of fees is more of a side effect of a properly functioning system rather than a key design consideration. In public blockchains, fees exist to ensure non-frivolous consumption of network resources and to provide validators with revenue. They’re not strictly intended to put a check on the usage of the system. In practice, however, they do, and this brake tends to be a sharp rather than a gradual one.</p><p>As a consequence, we see an oscillation — in resource usage, transactions, and even liquidity of on-chain products — rather than a gentle deceleration. These dynamics are well established in Bitcoin and only just starting to emerge in Ethereum. But due to the predominance of on-chain exchange in Ethereum, they are arguably more disruptive to the network as it works today. As Kyle Samani puts it, bounded throughput, instrumentalized by fee pressure, may be DeFi’s “invisible asymptote.”</p><p>The Ethereum community should consider the effects of repeating periods of high and volatile fees on the network, with the understanding that some applications might be permanently priced out of viability. Lastly, Rollups, while compelling scaling technologies, may not be a panacea from a fee perspective, due to their effects on settlement assurances.</p><p>Thanks to Ryan Gentry, Lucas Nuzzi and Antoine Le Calvez for their assistance and feedback.</p>♦
+
+</div>
+
+<div class='item-footer'>
+  15:42  &bull;
+    <span class='item-time-ago-in-words'>
+       20 hours ago
+    </span>
+</div>
+
+</div><!-- item-body -->
+
+    </td>
+  </tr>
+</table>
+
+</div>  <!-- item -->
+</div> <!-- section -->
+
+
+
+
+<div class='section' style='width: 800px;'>
+
+
+
+<div class='header'>
+  <table width='100%'>
+   <tr>
+     <td>
+        <div style='width: 50px'>{}</div>
+     </td><!-- icon/logo -->
+     <td style='white-space: nowrap;'>
+       <span class='feed-title'>
+         <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
+        (
+         <a href='https://lnpay.co/t/967232/rss'>Feed</a>
+        )
+       </span>
+     </td><!-- feed title -->
+     
+     <td width='100%'>
+          <!-- note: width is a suggestion; will get smaller to fill space-->
+     </td>
      
    </tr>
   </table>
@@ -122,7 +209,7 @@
 <div class='item-footer'>
   01:19  &bull;
     <span class='item-time-ago-in-words'>
-       11 hours ago
+       a day ago
     </span>
 </div>
 
@@ -212,7 +299,7 @@
 <div class='item-footer'>
   15:29  &bull;
     <span class='item-time-ago-in-words'>
-       2 days ago
+       3 days ago
     </span>
 </div>
 
@@ -276,7 +363,7 @@
 <div class='item-footer'>
   13:42  &bull;
     <span class='item-time-ago-in-words'>
-       2 days ago
+       3 days ago
     </span>
 </div>
 
@@ -366,7 +453,7 @@
 <div class='item-footer'>
   22:02  &bull;
     <span class='item-time-ago-in-words'>
-       5 days ago
+       6 days ago
     </span>
 </div>
 
@@ -456,7 +543,7 @@
 <div class='item-footer'>
   16:06  &bull;
     <span class='item-time-ago-in-words'>
-       6 days ago
+       7 days ago
     </span>
 </div>
 
@@ -546,7 +633,7 @@
 <div class='item-footer'>
   23:45  &bull;
     <span class='item-time-ago-in-words'>
-       12 days ago
+       13 days ago
     </span>
 </div>
 
@@ -636,7 +723,7 @@
 <div class='item-footer'>
   08:46  &bull;
     <span class='item-time-ago-in-words'>
-       17 days ago
+       18 days ago
     </span>
 </div>
 
@@ -726,7 +813,7 @@
 <div class='item-footer'>
   23:31  &bull;
     <span class='item-time-ago-in-words'>
-       19 days ago
+       20 days ago
     </span>
 </div>
 
@@ -938,7 +1025,7 @@ The eschatological task hidden in Bitcoin
 <div class='item-footer'>
   15:53  &bull;
     <span class='item-time-ago-in-words'>
-       21 days ago
+       22 days ago
     </span>
 </div>
 
@@ -3188,96 +3275,6 @@ The eschatological task hidden in Bitcoin
 
 <div class='item-footer'>
   14:28  &bull;
-    <span class='item-time-ago-in-words'>
-       2 months ago
-    </span>
-</div>
-
-</div><!-- item-body -->
-
-    </td>
-  </tr>
-</table>
-
-</div>  <!-- item -->
-</div> <!-- section -->
-
-
-
-
-<div class='section' style='width: 800px;'>
-
-
-
-<div class='header'>
-  <table width='100%'>
-   <tr>
-     <td>
-        <div style='width: 50px'>{}</div>
-     </td><!-- icon/logo -->
-     <td style='white-space: nowrap;'>
-       <span class='feed-title'>
-         <a href='https://paywall.link/to/6f31a'>Ribbonfarm</a>
-        (
-         <a href='https://lnpay.co/t/967232/rss'>Feed</a>
-        )
-       </span>
-     </td><!-- feed title -->
-     
-     <td width='100%'>
-          <hr class='filler'>
-     </td><!-- filler -->
-      <td style='white-space: nowrap;'>
-       <span class='item-published'>Wednesday, 05 August 2020</span>
-      </td><!-- item published -->
-     
-   </tr>
-  </table>
-</div>
-
-
-<div class='item' style='width: 800px;'>
-
-<table width='100%'>
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>  
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-        <span class='item-title'>
-          <a href='https://paywall.link/t/79de4a'>Amateur Vigour</a>
-        </span>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-       <div style='width: 50px; max-width: 50px;'></div>
-    </td><!-- icon/logo; dummy for space -->
-    <td width='100%'>
-
-<div class='item-body'>
-
-<div class='item-snippet'>
-<!-- use 'smarter' algorithm for cutoff snippet text
-   note: summary goes first; than try content -->
-
-  While news of the death of the novel―or of the book, for that matter―may seem no better than clickbait, the time is nigh to ask what next. In its Western variant, the novel built momentum over hundreds of years to become the dominant literary form of the twentieth century; its popularity and penetrat
-
-</div>
-
-<div class='item-content item-summary'>
-<!-- todo: use sanitize or simplify or whitelist
-   - todo/fix: check why summary can be nil/null
-   note: content goes first; than try summary
- -->
-
-  While news of the death of the novel―or of the book, for that matter―may seem no better than clickbait, the time is nigh to ask what next. In its Western variant, the novel built momentum over hundreds of years to become the dominant literary form of the twentieth century; its popularity and penetration dependent on―and [&#8230;]
-
-</div>
-
-<div class='item-footer'>
-  06:07  &bull;
     <span class='item-time-ago-in-words'>
        2 months ago
     </span>
